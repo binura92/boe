@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-color: #52b8de;
+}
+
+.btn
+{
+	background-color:#0C0;
+	text-align:center;
+	height:35px;
+	width:100px;
+	margin-left:170px;
+	border-radius:8px;
+	font-size:14px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-weight:700;
+}
+
+.txtbxIndex
+{
+	height:25px;
+	width:200px;
+	border-style:groove;
+	border-width:medium;
+	border-radius:8px;
+}
+body{
+	margin:0;
+	padding:0;
+}
+h1{
+	color:#FFF;
+	font-size:4em;
+	margin:0;
+	padding:0;
+	margin-left:40px;
+	margin-top:40px;
+}
+
+#loginSection
+{
+	margin-top:6%;
+	margin-left:100px;
+	background-color:#9CC;
+	width:320px;
+	padding:20px;
+	border:2px;
+	border-radius:8px;
+}
+
+#signup
+{
+	background-color: #9cc;
+    border: 2px none;
+    border-radius: 8px;
+    float: right;
+    margin-left: 450px;
+    margin-right: 100px;
+    margin-top: -20%;
+    padding: 20px;
+    width: 370px;
+	margin-bottom: 10px;
+}

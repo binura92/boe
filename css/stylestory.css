@@ -1,0 +1,88 @@
+body{
+	margin: 0;
+	padding: 0;	
+}
+
+#headder{
+	height: 60px;
+	width: 100%;
+	background-color: #59BBDE;		
+}
+
+#headNavi{
+  	display: inline;
+  	position: relative;
+}
+	
+#headNavi form{ //---------------------
+	margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#naviItems a {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+
+#naviItems {
+    left: 220px;
+    position: relative;
+    top: -67px;
+}
+
+#naviIcon img {
+    margin-right: 10px;
+    position: relative;
+    top: -62px;
+}
+
+a{
+	color: #fff;
+	text-decoration: none;	
+}
+
+.t{
+	font-size: 1.3em;
+	padding: 0;
+	position: relative;
+	top: -10px;
+}
+	
+.t1 {    
+    left: 180px;    
+}
+
+.t2 {    
+    left: 220px;    
+}
+
+.t3 {    
+    left: 260px;    
+}
+#storyArea form textarea {
+    font-size: 1.5em;
+    height: 120px;
+    left: 15px;
+    margin-bottom: 8px;
+    padding: 0;
+    position: relative;
+    resize: none;
+    top: 8px;
+    width: 950px;
+}
+.search {
+    border-radius: 12px;
+    border-width: 0.5px;
+    left: 35px;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    top: -28px;
+    width: 300px;
+}
+
+

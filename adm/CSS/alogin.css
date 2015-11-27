@@ -1,0 +1,36 @@
+body {
+	background-color: #CCC;
+	}
+
+#top{
+	text-align:center;
+	}
+#top>h1{
+	font-family: "Comic Sans MS", cursive;
+	}
+#rest{
+	position:relative;
+	height:100%}
+#rest>#form_content{
+	position:absolute;
+	border:1px #000 solid;
+	width:40%;
+	padding:2%;
+	background-color:#999;
+	}
+#rest>#form_content>#userName,#userPass{
+	width:100%;
+	background-color:#CCC;
+	border:1px #000 solid;
+	}
+#rest>#form_content>#cancelBut,#loginBut{
+	width:100px;
+	background-color: #CCC;
+	border:1px #000 solid;
+	float:right;
+	margin:1%;
+	}
+
+	
+
+

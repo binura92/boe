@@ -1,0 +1,81 @@
+h4 {
+    color: #000;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#wapper{
+  	background-color: #f7f9f9;
+  	position: relative;
+  	width: 980px;
+  	margin: 0 auto;
+}
+
+#catwapper{
+	width:900px;
+	position:relative;
+	left:85px;	
+}
+
+#catname{
+	background-color:#fff;
+	width:inherit;
+	height:25px;
+	opacity:0.5;
+	position:relative;
+	top:150px;
+}
+
+#catMusic{
+	background-image:url(../images/categories/music.jpg);
+	background-size: 100% 100%;
+	margin-right:25px;
+}
+
+#catSports{
+	background-image:url(../images/categories/sports.jpg);
+	background-size: 100% 100%;
+	margin-right:25px;
+}
+
+#catSoftwereDeveloping{
+	background-image:url(../images/categories/softweredeveloper.jpg);
+	background-size: 100% 100%;
+	margin-right:25px;
+}
+
+#catTraveling{
+	background-image:url(../images/categories/travelling.jpg);
+	background-size: 100% 100%;
+	margin-right:25px;
+}
+
+#catFamilyLife{
+	background-image:url(../images/categories/familylife.jpg);
+	background-size: 100% 100%;
+	margin-right:25px;
+}
+
+#catGaming{
+	background-image:url(../images/categories/gaming.jpg);
+	background-size: 100% 100%;
+	margin-right:25px;
+}
+
+#catTechonology{
+	background-image:url(../images/categories/techonology.jpg);
+	background-size: 100% 100%;
+	margin-right:25px;
+}
+
+.catSelectBox {
+    display: inline-block;
+    height: 175px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 250px;
+	margin-top:25px;
+}

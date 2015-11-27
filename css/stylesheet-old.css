@@ -1,0 +1,426 @@
+body{
+	margin: 0;
+	padding: 0;	
+}
+
+#headder{
+	height: 60px;
+	width: 100%;
+	background-color: #59BBDE;		
+}
+
+#headNavi{
+  	display: inline;
+  	position: relative;
+}	
+
+#headNavi form{ //---------------------
+	margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#naviItems a {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#naviIcon {
+    float: right;
+    height: inherit;
+    margin-right: 25px;
+    position: relative;
+    top: -55px;
+    width: inherit;
+}
+
+#naviItems {
+    left: 380px;
+    position: relative;
+    top: -67px;
+}
+
+#naviIcon img {
+    margin-right: 10px;
+    position: relative;
+    top: -62px;
+}
+
+a{
+	color: #fff;
+	text-decoration: none;	
+}
+
+#wapper{
+  	background-color: #f7f9f9;
+  	position: relative;
+  	width: 980px;
+  	margin: 0 auto;
+	height:auto;
+	z-index:1;
+}
+
+#cover{
+	width: 980px;
+	height: 360px;
+	overflow: hidden;
+	background-image: url(../images/cover.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+#profilepic {
+  	background-color: rgba(255, 255, 255, 0.3);
+  	float: left;
+  	height: 360px;
+  	width: 360px;
+  	z-index: 1;
+}
+
+#profilepic ul {
+    margin: 0;
+    padding: 5px;
+    position: relative;
+    top: 210px;
+}
+
+#profilepic ul li{
+	list-style-type:none;
+	text-align:center;
+	font-size:1.1em;
+}
+
+#profileNavi {
+	background-color: #9DC3E7;
+ 	height: 40px;
+  	width: 980px;
+}
+
+#profileNavi ul {
+	font-size: 1.1em;
+  	margin: 0;
+  	padding: 0;
+  	position: relative;
+  	top: 8px;
+}
+
+#profileNavi ul li{
+	list-style-type:none;
+	display:inline;
+	padding: 0;
+	margin-left:100px;	
+}
+
+#profileNavi ul li a:hover{
+	color: #59BBDE;	
+}
+
+
+
+#storyArea form textarea {
+    font-size: 1.5em;
+    height: 120px;
+    left: 15px;
+    margin-bottom: 8px;
+    padding: 0;
+    position: relative;
+    resize: none;
+    top: 8px;
+    width: 950px;
+}
+
+.profilepic {
+	height: 180px;
+	left: 90px;
+	opacity: 1;
+	overflow: hidden;
+	position: absolute;
+	top: 20px;
+	width: 180px;
+	z-index: 2;
+}
+
+.search {
+    border-radius: 12px;
+    border-width: 0.5px;
+    left: 35px;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    top: -28px;
+    width: 300px;
+}
+
+.storyPostBtn {
+    background-color: #59BBDE;
+    border-color: #ccc;
+    border-radius: 8px;
+    border-width: 0.5px;
+    float: right;
+    margin-right: 20px;
+    padding: 2px 5px;
+    position: relative;
+    top: -15px;
+	width:100px;
+	height:30px;
+}
+
+.t{
+	font-size: 1.3em;
+	padding: 0;
+	position: relative;
+	top: -20px;
+}
+	
+.t1 {    
+    left: 40px;    
+}
+
+.t2 {    
+    left: 80px;    
+}
+
+.t3 {    
+    left: 120px;    
+}
+
+.t4 {    
+    left: 160px;    
+}
+
+.t5 {    
+    left: 200px;    
+}
+
+h4{
+	margin:0;
+	padding:0;
+}
+
+h5{
+    font-size: 0.9em;
+    margin: 5px 0 0;
+    text-align: center;	
+}
+
+#MsgButton{
+	height:20px;
+	width:20px;
+	background-color:#03F;
+}
+
+.MsgBarBorders{
+	border-style:solid;
+	border-width:1px;
+	width:auto;
+	height:25px;
+	
+}
+
+#MsgBar{
+	visibility:hidden;
+	position:absolute;
+	margin-left:86%;
+	width:100px;
+	height:auto;
+	background-color:#ccc;
+}
+
+#MsgBarClose{
+	background-color:#F00;
+}
+
+#NewMessage{
+	visibility:hidden;
+	position:absolute;
+	background-color:#ccc;
+    height: 440px;
+   	left:40%;
+    width: 400px;
+	border-radius:10px;
+	border-width:0.5px;
+}
+
+.TextBoxMSG{
+    position: relative;
+    top: 10px;	
+	left: 10px;
+    border-radius: 10px;
+    border-width: 0.5px;
+}
+
+.RSearchBox1{
+    height: 25px;
+    width: 370px;
+}
+
+.RSearchBox2{
+	position:relative;
+	top:20px;
+    height: 25px;
+    width: 370px;
+}
+
+.MSGContent{
+    margin-top: 20px;
+    padding: 5px;
+    width: 362px;
+	resize:none;
+	overflow:hidden;
+}
+
+.MsgSendButtons{
+    border-radius: 7px;
+    border-width: 0.5px;
+    height: 30px;
+    right: 15px;
+    position: relative;
+    width: 75px;	
+	float: right;
+}
+
+#MSGCancelButton{
+	margin-top: 20px;
+}
+
+#MSGSendButton{
+    margin-left: 20px;
+    margin-top: 20px;	
+}
+
+/*Inbox Styles*/
+#InboxExtend{
+	visibility:hidden;
+	position:absolute;
+	background-color:#ccc;
+    height: 410px;
+	left:40%;
+    width: 400px;
+	border-width:0.5px;
+}
+
+#InboxList{
+	height:175px;
+	width:inherit;
+	border-width:0.5px;
+	border-style:solid;
+	overflow:hidden;
+}
+
+#InboxView{
+	height:175px;
+	width:inherit;
+	border-width:0.5px;
+	border-style:solid;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+#InboxExtendHeadder{
+	height:25px;
+	width:100%;
+	border-width:0.5px;
+	border-style:solid;
+}
+
+#InboxExtendClose{
+	height:25px;
+	width:inherit;
+	border-width:0.5px;
+	border-style:solid;
+	background-color:#f00;
+}
+
+/*Outbox Styles*/
+#OutboxExtend{
+	visibility:hidden;
+	position:absolute;
+	background-color:#ccc;
+    height: 404px;
+	left:40%;
+    width: 400px;
+	border-width:0.5px;
+}
+
+OutboxExtendHeadder{
+	height:25px;
+	width:100%;
+	border-width:0.5px;
+	border-style:solid;	
+}
+
+#OutboxList{
+	height:175px;
+	width:inherit;
+	border-width:0.5px;
+	border-style:solid;
+	overflow:hidden;
+}
+
+#OutboxView{
+	height:175px;
+	width:inherit;
+	border-width:0.5px;
+	border-style:solid;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+#OutboxExtendClose{
+	height:25px;
+	width:inherit;
+	border-width:0.5px;
+	border-style:solid;
+	background-color:#f00;
+}
+
+/*Log Out*/
+h5{
+    font-size: 1em;
+    margin: 3px 0 0;
+    text-align: center;	
+}
+
+.LogOutBorer{
+	border-style:solid;
+	border-width:1px;	
+}
+
+#LogOutBar{
+	visibility:hidden;
+	position:absolute;
+	height:50px;
+	width:100px;
+	right:0px;
+	background-color:#ccc;
+}
+
+#LogOut{
+	height:25px;
+	width:inherit;
+}
+
+#LogOutclose{
+	height:25px;
+	width:inherit;
+	background-color:#F00;
+}
+#dis{
+	position:absolute;
+}
+
+#disFriend{
+	position:absolute;
+}
+
+#selectMsg{
+	width:100%;
+	height:100%;
+}
+
+#selectMsgOutbox{
+	width:100%;
+	height:100%;	
+}

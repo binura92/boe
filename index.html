@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>.:BE:.</title>
+    <link href="css/indexPageStyles.css" type="text/css" rel="stylesheet">
+    <link href="css/indexPageStyles.css" rel="stylesheet" type="text/css" media="screen"/>
+	<script src="js/main.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/signup.js"></script>
+    <script src="js/login.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
+    <script type="text/javascript" src="js/indexPageScript.js"></script>
+</head>
+<body class="cycle-slideshow" data-cycle-speed="5000">
+	<img src="Images/SlideShow/1.jpg" alt="Slide 01">
+	<img src="Images/SlideShow/2.jpg" alt="Slide 02">
+	<img src="Images/SlideShow/3.jpg" alt="Slide 03">
+	<img src="Images/SlideShow/4.jpg" alt="Slide 04">
+	<img src="Images/SlideShow/5.jpg" alt="Slide 05">
+	<img src="Images/SlideShow/6.jpg" alt="Slide 06">
+	<img src="Images/SlideShow/7.jpg" alt="Slide 07">
+    <h1>Book of Experience</h1>
+    <div id="loginSection">
+    	<h2>Welcome to BE</h2>
+    	<form name="contact" action="index.html" methot="post" id="loginForm">
+			<input type="text" placeholder="Your email address" id="txtEmail"/>
+			<input type="password" id="txtPassword" placeholder="Your Password"/>
+            <input type="button" value="Just View" class="SignInFormBtn" id="JustViewbtn"/>
+            <input type="button" value="Sign Up" class="SignInFormBtn" id="SignUpbtn"/>
+			<input type="button" value="Sign In" class="SignInFormBtn" id="btnLogin" onClick="login()"/>			
+		</form>
+       
+        <a href="#">Forgot my password</a> <br/><br/>
+         <p id="loginStatus" style="font-weight:bold;"></p>
+    </div>
+    <div id="signup">
+    	<h2>Sign Up</h2>
+    	<form id="signupForm" onSubmit="return false;">
+        	<input type="text" id="fName" placeholder="Your first name">
+            <input type="text" id="lName" placeholder="Your last name">
+            <input type="text" id="signupEmail" placeholder="Your email address" onBlur="checkEmail()" maxlength="88">
+            <span id="emailStatus"></span>
+            <input type="password" id="pass1" placeholder="Your Password" onKeyPress="checkPassword()"/>
+            <span id="passwordStatus"></span>
+            <input type="password" id="pass2" placeholder="Your Password" onKeyUp="checkPasswordMatch()"/>
+            <span id="confirmPasswordStatus"></span>
+            <select id="gender" onFocus="emptyElement('status')">
+              	<option value="">Select Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+           	</select>
+            <select id="rStatus" onFocus="emptyElement('status')">
+              	<option value="">Select Civil Status</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+           	</select>
+            <input type="text" name="city" placeholder="City" id="city" onFocus="emptyElement('status')">
+            <input type="reset" value="Cancel" class="SignUpFormBtn" id="SignUpFormCancelbtn"/>
+			<input type="Submit" value="Register" class="SignUpFormBtn" id="btnSignup" onClick="signUp()"/>	
+            <div id="signup_status" style="padding-top:20px; font-weight:bold;"></div>  
+
+        </form>  
+    </div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+#acc section p{
+	display:none;
+}
+#acc section:target p{
+	display:block;
+}

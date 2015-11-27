@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#left-bar
+{
+	border-right-style:groove;
+	border-right-width:medium;
+	border-right-color:#666;
+	width:100px;
+	padding:20px;
+	background-color:#FFC;
+}
+
+
+

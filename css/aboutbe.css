@@ -1,0 +1,17 @@
+#wapper img{
+	  left: 190px;
+	  margin: 0;
+	  padding: 0;
+	  position: relative;
+}
+
+#wapper p {
+	  font-size: 1.5em;
+	  left: 100px;
+	  line-height: 40px;
+	  margin: 0;
+	  padding: 0;
+	  position: relative;
+	  text-align: center;
+	  width: 780px;
+}

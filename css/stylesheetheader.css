@@ -1,0 +1,92 @@
+body{
+	margin: 0;
+	padding: 0;	
+}
+
+#headder{
+	height: 60px;
+	width: 100%;
+	background-color: #59BBDE;		
+}
+
+#headNavi{
+  	display: inline;
+  	position: relative;
+}	
+
+#headNavi form{ //---------------------
+	margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#naviItems a {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#naviIcon {
+    float: right;
+    height: inherit;
+    margin-right: 25px;
+    position: relative;
+    top: -55px;
+    width: inherit;
+}
+
+#naviItems {
+    left: 380px;
+    position: relative;
+    top: -67px;
+}
+
+#naviIcon img {
+    margin-right: 10px;
+    position: relative;
+    top: -62px;
+}
+
+a{
+	color: #fff;
+	text-decoration: none;	
+}
+
+.search {
+    border-radius: 12px;
+    border-width: 0.5px;
+    left: 35px;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    top: -28px;
+    width: 300px;
+}
+
+.t{
+	font-size: 1.3em;
+	padding: 0;
+	position: relative;
+	top: -20px;
+}
+	
+.t1 {    
+    left: 40px;    
+}
+
+.t2 {    
+    left: 80px;    
+}
+
+.t3 {    
+    left: 120px;    
+}
+
+.t4 {    
+    left: 160px;    
+}
+
+.t5 {    
+    left: 200px;    
+}

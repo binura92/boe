@@ -1,0 +1,31 @@
+h1{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+body{
+    background-color: gray;
+    padding: 0px;
+}
+body>#container{
+    height: 100%;
+    border: 1px #000000 solid;
+    margin: 0px;
+}
+body>#container>#adHeadder{
+    height: 20%;
+    border-bottom: 1px #000000 solid;
+    background-color: dimgrey;
+    margin: 0px;
+
+}
+body>#container>#adHeadNevi{
+    height: 10%;
+    border-bottom: 1px #000000 solid;
+    margin: 0px;
+}
+body>#container>#adContente{
+    height: 70%;
+    background-color: darkgrey;
+    margin: 0px;
+}

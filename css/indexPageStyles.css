@@ -1,0 +1,92 @@
+body{
+	margin:0;
+	padding:0;
+	/*overflow:hidden;*/
+}
+
+h1{
+    color: #fff;
+    font-size: 4em;
+    left: 100px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-shadow: 5px 4px #000;
+    top: 80px;
+    z-index: 120;
+}	
+
+h2{
+    color: #000;
+    margin-bottom: 0;
+    text-align: center;
+    text-shadow: 1px 1px #000;
+}
+
+#slideshowimages{
+	opacity:0.7;
+}
+/*styles for Login form*/
+#loginSection{
+	visibility:visible;
+    background-color: #cac8c5;
+    height: 280px;
+    left: 40%;
+    opacity: 0.7;
+    position: absolute;
+    top: 240px;
+    width: 500px;
+    background-color: #cac8c5;
+    border-radius: 75px 5px;
+    z-index: 120;
+}
+
+form input{
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 460px;
+}
+
+#loginSection a{
+	margin-left: 185px;
+    position: relative;
+    top: 20px;
+}
+
+.SignInFormBtn{
+ 	margin-left: 26px;
+    width: 130px;
+}
+
+/*styles for sign up form*/
+#signup{
+	visibility: hidden;
+ 	background-color: #cac8c5;
+    border-radius: 75px 5px;
+    height: 610px;
+    opacity: 0.7;
+    position: absolute;
+    right: 5%;
+    top: 160px;
+    width: 500px;
+    z-index: 120;
+}
+
+form select{
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 465px;
+}
+
+form label{
+	margin-left: 20px;
+    position: relative;
+    top: 15px;	
+}
+
+.SignUpFormBtn{
+    margin-left: 65px;
+    width: 150px;	
+}
