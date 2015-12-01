@@ -72,7 +72,7 @@ $_SESSION['id'] = $id;
             	<li><a href="#">My Experiences</a></li>
                 <li><a href="editProf.php">About</a></li>
                 <li><a href="#">My Categories</a></li>
-                <li><a href="#">Friends</a></li>
+                <li><a href="friendPage.php">Friends</a></li>
                 <li><a href="#">+More</a></li>
             </ul>
         </div>
