@@ -1,0 +1,23 @@
+#FriendlistBucket{
+    width: 100%;
+    display: inline-flex;
+}
+
+#AllFriendlist{
+    width: 275px;
+    height: auto;
+}
+
+#MyFriendlist{
+    width: 490px;
+    height: auto;  
+}
+
+#MyFriendRequests{
+    width: 275px;
+    height: auto;
+    border-left-style: solid;
+    border-left-width: 0.5px;
+    border-right-style: solid;
+    border-right-width: 0.5px;
+}
