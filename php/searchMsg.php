@@ -15,9 +15,9 @@ exit;
 $msg="";
 
 if(strlen($Sender_ID)>0 and strlen($Sender_ID) <7 ){
-	$sql="SELECT Registation_ID, First_Name, Last_Name, Sender_ID, Receiver_ID, Title, Body FROM registered_user INNER JOIN message ON registered_user.Registation_ID=message.Sender_ID  WHERE Sender_ID = $Sender_ID and Title = '$title' ORDER BY Date";
+	$sql="SELECT Registation_ID, First_Name, Last_Name, Sender_ID, Receiver_ID, Title, Body, Date FROM registered_user INNER JOIN message ON registered_user.Registation_ID=message.Sender_ID  WHERE Sender_ID = $Sender_ID and Title = '$title' ORDER BY Date DESC";
 	foreach ($dbo->query($sql) as $nt) {
-		$msg .="<div> Title : $nt[Title] <br> Message : $nt[Body] <br> Sender : $nt[First_Name]  </div>";
+		$msg .="<div> Title : $nt[Title] <br> Message : $nt[Body] <br> Sender : $nt[First_Name] <br> Date : $nt[Date] <br> --------------<br>   </div>";
 	}
 }
 

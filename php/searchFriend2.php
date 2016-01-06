@@ -7,7 +7,7 @@ require "DB_Connection.php";  // database connection
 
 $in=$_GET['txt'];
 if(!ctype_alnum($in)){
-echo "Data Error";
+	echo "Data Error";
 exit;
 }
 
@@ -18,7 +18,7 @@ $sql="select First_Name, Last_Name, Registation_ID from registered_user where Fi
 foreach ($dbo->query($sql) as $nt) {
 	$rValue = $nt['Registation_ID']."@".$nt['First_Name'].'@@'.$nt['Last_Name'];
 //$msg.=$nt[name]."->$nt[id]<br>";
-$msg .="<option id='search_option' value=$rValue onClick='setValue1();'> $nt[First_Name] $nt[Last_Name] </option>";
+$msg .="<option id='search_option' value=$rValue onClick='setValue2();'> $nt[First_Name] $nt[Last_Name] </option>";
 //$msg .="<option value='$nt[name]'>";
 
 }
