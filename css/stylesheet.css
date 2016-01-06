@@ -96,6 +96,7 @@ a{
 	background-color: #9DC3E7;
  	height: 40px;
   	width: 980px;
+        margin-bottom: 10px;
 }
 
 #profileNavi ul {
@@ -440,4 +441,10 @@ h5{
 
 .readmsg{
     background-color: #fff;
+}
+
+/*text editor styles*/
+#txteditor{
+    border:0.8px #000 solid;
+    background-color:#FFF;
 }

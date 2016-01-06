@@ -76,7 +76,8 @@ $_SESSION['id'] = $id;
                 <li><a href="#">+More</a></li>
             </ul>
         </div>
-        <div style="border:1px #000 solid; background-color:#FFF; border-color:#000; border-width:medium;">
+        <!--Text Editor-->
+        <div id="txteditor">
 		<form name="editor" id="editor">
 			<input type="text" name="subject" id="storyTitle" style="width:300px; height:25px; border-color:#000; border-width:medium;" placeholder="Title" >
             <!-- Get category from category table and put them in to drop down box-->   
@@ -115,7 +116,7 @@ $_SESSION['id'] = $id;
           			
 		</form>
      	<div id="storyStatus"></div>
-		</div>
+    </div>
     <!-- WYSIWYG Editor end-->
         <div id="profileNewNewsFeed" style="padding:10px;"></div>
 		<div id="profilePastNewsFeed" style="padding:10px;">
