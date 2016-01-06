@@ -79,21 +79,25 @@ $_SESSION['id'] = $id;
         <!--Text Editor-->
         <div id="txteditor">
 		<form name="editor" id="editor">
-			<input type="text" name="subject" id="storyTitle" style="width:300px; height:25px; border-color:#000; border-width:medium;" placeholder="Title" >
+			<input type="text" name="subject" id="storyTitle" placeholder="Story Title" >
             <!-- Get category from category table and put them in to drop down box-->   
             <?php
-			echo "<select name='category' id='storyCategory' style='height:33px; border-color:#000; border-width:medium;'>";
+			echo "<select name='category' id='storyCategory'>";
 			while ($row = mysqli_fetch_array($result)){
 				echo "<option value='".$row['Category_ID']."'>".$row['Category_Title']."</option>";
 			}
 			echo "</select>";
-			?>
-			<br />
+            ?>
+                        <select id="storyPrivacy">
+                            <option value="pu">Public</option>
+                            <option value="pr">Private</option>
+                        </select>
+                        <input type="button" value="Post Story" class="storyPostBtn" id="btnPostStory" onClick="post()"/>
             
             <!-- Editing button -->
 			<div id="buttons" style="width: 100%; border-top:1px #000 solid; height:28px; margin:1px; float:left;">
-			<input type="button" name="bold" class="butt" onClick="abold()" style="background:url(../images/editorImages/b.png);"/>
-			<input type="button" name="ith" class="butt" onClick="iitalic()" style="background:url(../images/editorImages/i.png);"/>
+            <input type="button" name="bold" class="butt" onClick="abold()" style="background:url(../images/editorImages/b.png);"/>
+            <input type="button" name="ith" class="butt" onClick="iitalic()" style="background:url(../images/editorImages/i.png);"/>
             <input type="button" name="underline" class="butt" onClick="underl()" style="background:url(../images/editorImages/u.png);"/>
             <input type="button" name="left" class="butt" onClick="jleft()" style="background:url(../images/editorImages/l.png);"/>
             <input type="button" name="center" class="butt" onClick="jcent()" style="background:url(../images/editorImages/c.png)"/>
@@ -103,17 +107,9 @@ $_SESSION['id'] = $id;
             
             <!-- Story editor-->
 			<textarea style="display: none;" name="story" id="storyBody" cols="100" rows="50"></textarea>
-			<iframe name="reachtext" id="reachtext" style="width: 100%; height: 60%; border: black 1px solid; border-top:1px #000 solid; border-bottom:1px #000 solid; border-left:0px; border-right:0px;"></iframe>
-            <div id="privacy">
-            <select id="storyPrivacy">
-                <option value="pu">Public</option>
-                <option value="pr">Private</option>
-            </select>
-            </div>
-            
-            <input type="button" value="Post Story" class="storyPostBtn" id="btnPostStory" onClick="post()"/>
-            <br/>
-          			
+                        <iframe name="reachtext" id="reachtext" style="width: 100%; height: 60%; border: black 1px solid; border-top:1px #000 solid; border-bottom:1px #000 solid; border-left:0px; border-right:0px;">
+                            
+                        </iframe>	
 		</form>
      	<div id="storyStatus"></div>
     </div>

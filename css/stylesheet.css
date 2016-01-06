@@ -154,20 +154,6 @@ a{
     width: 300px;
 }
 
-.storyPostBtn {
-    background-color: #59BBDE;
-    border-color: #ccc;
-    border-radius: 8px;
-    border-width: 0.5px;
-    float: right;
-    margin-right: 20px;
-    padding: 2px 5px;
-    position: relative;
-    top: -15px;
-	width:100px;
-	height:30px;
-}
-
 .t{
 	font-size: 1.3em;
 	padding: 0;
@@ -444,7 +430,46 @@ h5{
 }
 
 /*text editor styles*/
-#txteditor{
+#txteditor form{
     border:0.8px #000 solid;
     background-color:#FFF;
+}
+
+#storyTitle {
+    border: 0.8px solid #000;
+    height: 30px;
+    margin: 2px 0 2px 2px;
+    padding-left: 10px;
+    width: 528px;
+}
+
+#storyCategory {
+    border: 0.8px solid #000;
+    height: 34px;
+    margin: 2px 0;
+    width: 140px;
+}
+
+#storyPrivacy {
+    border: 0.8px solid #000;
+    height: 34px;
+    margin: 2px 0 2px 2px;
+    width: 140px;
+}
+
+#btnPostStory {
+    height: 34px;
+    margin: 2px 0;
+    width: 140px;
+}
+
+#storyStatus{
+    visibility: hidden;
+}
+
+#storyBody {
+    height: 100px;
+    overflow-y: scroll;
+    resize: none;
+    width: 972px;
 }
