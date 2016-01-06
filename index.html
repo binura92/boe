@@ -23,7 +23,7 @@
     <h1>Book of Experience</h1>
     <div id="loginSection">
     	<h2>Welcome to BE</h2>
-    	<form name="contact" action="index.html" methot="post" id="loginForm">
+    	<form name="contact" id="loginForm">
 			<input type="text" placeholder="Your email address" id="txtEmail"/>
 			<input type="password" id="txtPassword" placeholder="Your Password"/>
             <input type="button" value="Just View" class="SignInFormBtn" id="JustViewbtn"/>
@@ -36,7 +36,7 @@
     </div>
     <div id="signup">
     	<h2>Sign Up</h2>
-    	<form id="signupForm" onSubmit="return false;">
+    	<form id="signupForm" action="index.html" onSubmit="return false;">
         	<input type="text" id="fName" placeholder="Your first name">
             <input type="text" id="lName" placeholder="Your last name">
             <input type="text" id="signupEmail" placeholder="Your email address" onBlur="checkEmail()" maxlength="88">
