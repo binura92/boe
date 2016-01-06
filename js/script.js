@@ -161,6 +161,27 @@ function loadMsgOutbox(){
 	httpxml.send(null);
 }
 
+function view(mID){
+    alert(mID);
+    	var httpxml;	
+	httpxml=new XMLHttpRequest();
+	function stateChanged() {
+    	if(httpxml.readyState==4){
+			var test=httpxml.responseText;
+                        alert(test);
+			//document.getElementById("msg").style.display='none';
+      	}
+    }
+	var url="view.php";
+	url=url+"?txt="+mID;
+	url=url+"&sid="+Math.random();
+	httpxml.onreadystatechange=stateChanged;
+	httpxml.open("GET",url,true);
+	httpxml.send(null);
+        inbox();
+    
+}
+
 
 
 function ajaxFunction(str){
@@ -235,4 +256,3 @@ function loadProfile(id){
     //alert(id);
     window.location = "friendProfile.php?u="+id;
 }
-
