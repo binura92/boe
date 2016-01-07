@@ -21,9 +21,9 @@ if (strlen($Sender_ID) > 0 and strlen($Sender_ID) < 7) {
         $view = $nt['view'];
         //$msg .="<div onclick = view($mID)> Title : $nt[Title] <br> Message : $nt[Body] <br> Sender : $nt[First_Name] <br> Date : $nt[Date] <br> --------------<br>   </div>";
         if($view == 0 ){
-                $msg.="<div class=unreadmsg mgs123 onclick = view($mID)> Title : $nt[Title] <br> Message : $nt[Body] <br> Sender : $nt[First_Name] <br> Date : $nt[Date] <br> --------------<br>   </div>";
+                $msg.="<div class=unreadmsg mgs123 onclick = view($mID)> Title : $nt[Title] <br> Message : $nt[Body] <br> Sender : $nt[First_Name] <br> Date : $nt[Date] <br><button onclick = reply()>reply</button> <br> --------------<br>   </div>";
             }else{
-                $msg.="<div class=readmsg  mgs123 onclick = view($mID)> Title : $nt[Title] <br> Message : $nt[Body] <br> Sender : $nt[First_Name] <br> Date : $nt[Date] <br> --------------<br>   </div>";
+                $msg.="<div class=readmsg  mgs123 onclick = view($mID)> Title : $nt[Title] <br> Message : $nt[Body] <br> Sender : $nt[First_Name] <br> Date : $nt[Date] <br><button onclick = reply()>reply</button> <br> --------------<br>   </div>";
             }
     }
 }

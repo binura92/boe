@@ -162,13 +162,12 @@ function loadMsgOutbox(){
 }
 
 function view(mID){
-    alert(mID);
     	var httpxml;	
 	httpxml=new XMLHttpRequest();
 	function stateChanged() {
     	if(httpxml.readyState==4){
-			var test=httpxml.responseText;
-                        alert(test);
+			//var test=httpxml.responseText;
+                        //alert(test);
 			//document.getElementById("msg").style.display='none';
       	}
     }
@@ -182,7 +181,9 @@ function view(mID){
     
 }
 
-
+function reply(sID,title){
+    alert("title");
+}
 
 function ajaxFunction(str){
 	document.getElementById("dis").innerHTML = "<div id='displayDiv' ></div>";
