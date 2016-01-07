@@ -181,8 +181,8 @@ function view(mID){
     
 }
 
-function reply(sID,title){
-    alert("title");
+function reply(title){
+    alert(title);
 }
 
 function ajaxFunction(str){
