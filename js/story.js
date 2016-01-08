@@ -38,7 +38,7 @@ function post() {
 //}
 
 function viewStory(storyID) {
-    
+
     viewComment(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -46,8 +46,8 @@ function viewStory(storyID) {
         if (httpxml.readyState == 4) {
             var output = httpxml.responseText;
             document.getElementById("story").innerHTML = output;
-            $( "#storyView" ).css("visibility",'visible');
-            }
+            $("#storyView").css("visibility", 'visible');
+        }
     }
     var url = "storyView.php";
     url = url + "?txt=" + storyID;
@@ -57,8 +57,8 @@ function viewStory(storyID) {
     httpxml.send(null);
 }
 
-function storyViewClose(){
-    $( "#storyView" ).css("visibility",'hidden');
+function storyViewClose() {
+    $("#storyView").css("visibility", 'hidden');
 }
 
 function viewComment(storyID) {
@@ -70,7 +70,7 @@ function viewComment(storyID) {
             var output = httpxml.responseText;
             //alert(output);
             document.getElementById("oldComment").innerHTML = output;
-            document.getElementById("newComment").innerHTML = '<input id = "writeComment" type="text" placeholder="Enter Your Comment"><button onclick="newComment(' + storyID + ')">enter</button>';
+            document.getElementById("newComment").innerHTML = '<input id = "writeComment" type="text" placeholder="Enter Your Comment" onkeypress="isEnter(event,' + storyID + ')"><button onclick="newComment(' + storyID + ')">enter</button>';
         }
     }
     var url = "viewComment.php";
@@ -81,7 +81,12 @@ function viewComment(storyID) {
     httpxml.send(null);
 
 }
-
+function isEnter(e, story_ID) {  //check press enter key
+    var key = e.keyCode;
+    if (key == 13) {
+        newComment(story_ID);
+    }
+}
 
 function newComment(storyID) {
 
@@ -91,28 +96,10 @@ function newComment(storyID) {
         alert("Comment is empty");
     }
     else {
-        /* alert(comment);
-         var httpxml;
-         httpxml = new XMLHttpRequest();
-         function stateChanged() {
-         if (httpxml.readyState == 4) {
-         var output = httpxml.responseText;
-         alert(output);
-         }
-         }
-         var url = "newComment.php";
-         url = url + "?txt=";
-         url = url + "&sid=" + Math.random();
-         httpxml.onreadystatechange = stateChanged;
-         httpxml.open("GET", url, true);
-         httpxml.send( "?story_ID=" + storyID +"?comment="+comment);
-         */
-
         var ajax = ajaxObj("POST", "../php/newComment.php");
         ajax.onreadystatechange = function () {
             if (ajaxReturn(ajax) == true) {
                 var output = ajax.responseText;
-                alert(output);
 
                 if (ajax.responseText != 1) {
                     alert("Error");
