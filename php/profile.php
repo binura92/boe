@@ -39,11 +39,11 @@ $_SESSION['id'] = $id;
 		<link href="../css/stylesheet.css" type="text/css" rel="stylesheet">
 		<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="../js/script.js"></script>
-        <script type="text/javascript" src="../js/ajax.js"></script>
+                <script type="text/javascript" src="../js/ajax.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
-        <script type="text/javascript" src="../js/story.js"></script>
-        <script type="text/javascript" src="../js/editor.js"></script>
-        <style>
+                <script type="text/javascript" src="../js/story.js"></script>
+                <script type="text/javascript" src="../js/editor.js"></script>
+                <style>
 		.butt {
 			width:23px;;
 			height:23px;
