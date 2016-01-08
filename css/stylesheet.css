@@ -425,3 +425,19 @@ h5{
 	width:100%;
 	height:100%;	
 }
+
+.mgs123{
+    border-bottom-style: solid;
+    border-bottom-width: 0.5px;
+    font-size: 1em;
+    height: 30px;
+    padding-top: 10px;
+}
+
+.unreadmsg{
+    background-color: #9cc;
+}
+
+.readmsg{
+    background-color: #fff;
+}
