@@ -37,19 +37,38 @@ function post() {
 //	alert(id);
 //}
 
-
-
-function viewComment(storyID) {
-    alert(storyID);
+function viewStory(storyID) {
+    
+    viewComment(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
     function stateChanged() {
         if (httpxml.readyState == 4) {
             var output = httpxml.responseText;
-            alert(output);
-            //document.getElementById("msg").style.display='none';
-            var divID = "storyComment"+storyID;
-            document.getElementById(divID).innerHTML="<div id = oldComment></div> <div id = newComment></div>";
+            document.getElementById("story").innerHTML = output;
+            $( "#storyView" ).css("visibility",'visible');
+            }
+    }
+    var url = "storyView.php";
+    url = url + "?txt=" + storyID;
+    url = url + "&sid=" + Math.random();
+    httpxml.onreadystatechange = stateChanged;
+    httpxml.open("GET", url, true);
+    httpxml.send(null);
+}
+
+function storyViewClose(){
+    $( "#storyView" ).css("visibility",'hidden');
+}
+
+function viewComment(storyID) {
+    //alert(storyID);
+    var httpxml;
+    httpxml = new XMLHttpRequest();
+    function stateChanged() {
+        if (httpxml.readyState == 4) {
+            var output = httpxml.responseText;
+            //alert(output);
             document.getElementById("oldComment").innerHTML = output;
             document.getElementById("newComment").innerHTML = '<input id = "writeComment" type="text" placeholder="Enter Your Comment"><button onclick="newComment(' + storyID + ')">enter</button>';
         }

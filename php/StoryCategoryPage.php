@@ -6,6 +6,25 @@
         <link href="../css/catstyle.css" type="text/css" rel="stylesheet">
     </head>
     <body>
+        <div id="storyView">
+            <div id="story">
+                
+            </div>
+         
+            <div id="comment">
+                <div id="oldComment">
+                    
+                </div>
+                
+                <div id="newComment">
+                    
+                </div>
+                <div id="storyViewClose" onclick="storyViewClose()">
+                    <h5>close</h5>
+                </div>
+            </div>
+                        
+        </div>
         <?php
         $cid = $_GET["cid"];
         include_once("story_top.php");
@@ -36,13 +55,9 @@
                 $div_ID = "storyComment".$storyID;
                 echo "<main id='acc'>
                 <section id='item." . $i . "'>
-                <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewComment($storyID) >" . $title . "</a>
+                <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID) >" . $title . "</a>
                 <div id='postDet'>Posted by <b>" . $author . "</b></div>
-                    
-                <p>"
-                . $body .
-                "
-                    </p>
+              
                     <hr/>
                     
                 </section>   		
