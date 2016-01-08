@@ -19,10 +19,12 @@ if($numrows>0){
 	$gender = $row['Gender'];
 	$city = $row['City'];
 	$status = $row['Status'];
-	if($gender=="M")
+	if($gender=="M"){
 		$gender = "Male";
-	else
+        }
+	else{
 		$gender = "Female";
+        }
 }
 function displayImage(){
         $id = $_SESSION['id'];
@@ -32,7 +34,7 @@ function displayImage(){
         $row = mysqli_fetch_assoc($query);
        	return $row["Profpic"];
     }
-$_SESSION['id'] = $id;
+
 ?>
 <html>
 <head> 
@@ -46,20 +48,34 @@ $_SESSION['id'] = $id;
   <div id="wapper">
       <div id="cover">
           <div id="profilepic">
-          
-              <img src='<?php echo('../profilePic/'.$id.'.jpg')?>' class='profilepic'/>
-                        <ul>
+                <?php
+                    $dir    = '../profilePic/';
+                    $files1 = scandir($dir);
+                    $picAvailable = false;
+                    foreach($files1 as $x){
+                        if($x == $id.'.jpg'){
+                            $picAvailable = true;
+                            break;
+                        }
+                    }
+                ?>
+                <?php if($picAvailable == true){ ?>
+                    <img src='<?php echo('../profilePic/'.$id.'.jpg')?>' class='profilepic'/>
+                <?php } else { ?>
+                    <img src="../images/defaultPic.jpg" class='profilepic'/>
+                <?php } ?>    
+                <ul>
                   <li><?php echo $fname.' '.$lname; ?></li>
                   <li>Lives in <?php echo $city; ?></li>
-              </ul>
-          </div>        
+                </ul>
+          </div>       
       </div>
       <div id="profileNavi">
           <ul>
-              <li><a href="#">My Experiences</a></li>
+              <li><a href="profile.php">My Experiences</a></li>
               <li><a href="editProf.php">About</a></li>
               <li><a href="#">My Categories</a></li>
-              <li><a href="#">Friends</a></li>
+              <li><a href="friendPage.php">Friends</a></li>
               <li><a href="#">+More</a></li>
           </ul>
       </div>
@@ -72,12 +88,14 @@ $_SESSION['id'] = $id;
         <input type="text" id="editTxtCity" value= <?php echo $city; ?> /><br/><br/>
      	<span>Relationship Status</span><br/>
         <select id="cmbEditStatus">
-        	<option value= <?php echo $status; ?>><?php echo $status; ?></option>
+            <option value= <?php echo $status; ?>><?php echo $status; ?></option>
             <?php
-            if($status == "Single")
+            if($status == "Single"){
                 echo '<option value="Married">Married</option>';
-            else
+            }   
+            else{
                 echo '<option value="Single">Single</option>';
+            }
             ?>
          </select><br/><br/>
    
@@ -85,10 +103,12 @@ $_SESSION['id'] = $id;
          <select id="cmbEditGender">
             <option value= <?php echo $gender; ?>><?php echo $gender; ?></option>
             <?php
-            if($gender == "Male")
+            if($gender == "Male"){
                 echo '<option value="Female">Female</option>';
-            else
+            }
+            else{
                 echo '<option value="Male">Male</option>';
+            }
             ?>
           </select><br/><br/>
      
@@ -106,7 +126,7 @@ $_SESSION['id'] = $id;
             <span>New Password</span><br/>
             <input type="password" id="txtNewPassword" onKeyUp="checkNewPassword()"/>
             <span id="newPasswordStatus"></span><br/><br/>
-            <span>Re-type New Passoword</span><br/>
+            <span>Re-type New Password</span><br/>
             <input type="password" id="txtConfirmNewPassword" onKeyUp="checkNewPasswordMatch()"/>
             <span id="newConfirmPasswordStatus"></span>
             <br/><br/>
@@ -115,10 +135,13 @@ $_SESSION['id'] = $id;
             <div id="saveNewPasswordStatus"></div>
         </div>
       </div>
-   
-    
+      
       <div id="image">
-       <img src="<?php echo('../profilePic/'.$id.'.jpg')?>" width="200">
+        <?php if($picAvailable == true){ ?>
+        <img src='<?php echo('../profilePic/'.$id.'.jpg')?>' width="200"/>
+        <?php } else { ?>
+            <img src="../images/defaultPic.jpg" width="200"/>
+        <?php } ?>
         <div id="imageSelection">
           <form id="propicform" method="post" enctype="multipart/form-data">
             <input type="file" name="file"/>

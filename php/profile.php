@@ -59,17 +59,32 @@ $_SESSION['id'] = $id;
 	<?php include_once("template_top.php"); ?>
     <div id="wapper">
     	<div id="cover">
-        	<div id="profilepic">
-              <img src='<?php echo('../profilePic/'.$id.'.jpg')?>' class='profilepic'/>
-                        <ul>
+            <div id="profilepic">
+                <?php
+                    $dir    = '../profilePic/';
+                    $files1 = scandir($dir);
+                    $picAvailable = false;
+                    foreach($files1 as $x){
+                        if($x == $id.'.jpg'){
+                            $picAvailable = true;
+                            break;
+                        }
+                    }
+                ?>
+                <?php if($picAvailable == true){ ?>
+                    <img src='<?php echo('../profilePic/'.$id.'.jpg')?>' class='profilepic'/>
+                <?php } else { ?>
+                    <img src="../images/defaultPic.jpg" class='profilepic'/>
+                <?php } ?>    
+                <ul>
                   <li><?php echo $fname.' '.$lname; ?></li>
                   <li>Lives in <?php echo $city; ?></li>
-              </ul>
+                </ul>
           </div>       
         </div>
         <div id="profileNavi">
         	<ul>
-            	<li><a href="#">My Experiences</a></li>
+            	<li><a href="profile.php">My Experiences</a></li>
                 <li><a href="editProf.php">About</a></li>
                 <li><a href="#">My Categories</a></li>
                 <li><a href="friendPage.php">Friends</a></li>

@@ -10,7 +10,7 @@
             #catwapper{
                 width:900px;
                 position:relative;
-                left:85px;	
+                left:85px;
             }
             #catname{
                 background-color:#fff;
@@ -44,7 +44,7 @@
     </head>    
 </html>
 <?php
-
+include_once("../php/template_top.php"); 
 include_once './databaseConnection.php';
 
 $sql1 = "SELECT * FROM category";
@@ -60,7 +60,6 @@ $query1 = mysqli_query($con, $sql1);
                     echo "<a href='StoryCategoryPage.php?cid=".$res['Category_ID']."'><h4>".$res['Category_Title']."</h4><br><br></a>";			
                 ?>
             </div>
-        </div>
     </div>
 </div>
-<?php } ?>
+ <?php } ?>
