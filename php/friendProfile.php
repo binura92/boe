@@ -108,6 +108,7 @@ if($num_rows>0){
                         var output = xhttp.responseText;
                         if(output === "1"){
                               document.getElementById("middleSection").innerHTML = "<button onclick='cancelFRequest()'>Unfriend</button>";
+                
                         }
                         
                     }
@@ -148,6 +149,7 @@ if($num_rows>0){
             }
             else if($row['Confirmation']==1){
                 echo "<button onclick='cancelFRequest()'>Unfriend</button>";
+                test();
             }
             else{
                 echo "<button onclick='acceptRequest()'>Accept Request</button> <button onclick='cancelFRequest()'>Reject Request</button>";
@@ -156,6 +158,31 @@ if($num_rows>0){
         endif; ?>
         </div>
     </div>
+    <?php function test(){ 
+        $fid = $_GET["u"]; ?>
+        <div id="profileNewNewsFeed" style="padding:10px;"></div>
+		<div id="profilePastNewsFeed" style="padding:10px;">
+                <script type="text/javascript">
+			var fid = <?php echo json_encode($fid);?>;
+			//alert(id);
+			
+			if(fid === ""){
+				_("profilePastNewsFeed").innerHTML = "";	
+			}
+			else{
+				
+                            var ajax = ajaxObj("POST", "loadStories.php");
+				
+                            ajax.onreadystatechange = function(){
+				if(ajaxReturn(ajax) === true){
+                                    _("profilePastNewsFeed").innerHTML = ajax.responseText;
+                                }
+                            };
+			}
+			ajax.send("id=" +fid);
+		</script>
+                </div>
+    <?php } ?>
 </body>
 </html>
 

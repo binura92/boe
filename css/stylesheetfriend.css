@@ -6,6 +6,16 @@
 #AllFriendlist{
     width: 275px;
     height: auto;
+    text-decoration: none;
+}
+
+#AllFriendlist a{
+    color: black;
+    padding: 10px;
+}
+
+#AllFriendlist a:hover{
+    
 }
 
 #MyFriendlist{

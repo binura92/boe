@@ -119,7 +119,7 @@ $_SESSION['id'] = $id;
     <!-- WYSIWYG Editor end-->
         <div id="profileNewNewsFeed" style="padding:10px;"></div>
 		<div id="profilePastNewsFeed" style="padding:10px;">
-        <script type="text/javascript">
+                <script type="text/javascript">
 			var id = <?php echo json_encode($id); ?>;
 			//alert(id);
 			
