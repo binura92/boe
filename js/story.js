@@ -95,6 +95,9 @@ function newComment(storyID) {
     if (comment == "") {
         alert("Comment is empty");
     }
+    else if(comment.length){
+        alert("comment size is too large. maximum comment size is 250 characters");       
+    }
     else {
         var ajax = ajaxObj("POST", "../php/newComment.php");
         ajax.onreadystatechange = function () {

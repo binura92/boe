@@ -8,22 +8,29 @@
     <body>
         <div id="storyView">
             <div id="story">
-                
+
             </div>
-         
+
+            <div id="feedback">
+                <button id="likeBtn" class="feedbackBtn">Like</button>
+                <button id="unlikeBtn" class="feedbackBtn">Unlike</button>
+                <button id="reportBtn" class="feedbackBtn">Report</button>
+            </div>
+
             <div id="comment">
                 <div id="oldComment">
-                    
+
                 </div>
-                
+
                 <div id="newComment">
-                    
+
                 </div>
+
                 <div id="storyViewClose" onclick="storyViewClose()">
                     <h5>close</h5>
                 </div>
             </div>
-                        
+
         </div>
         <?php
         $cid = $_GET["cid"];
@@ -52,7 +59,7 @@
                 $body = $runStory['Body'];
                 $publishDate = $runStory['Publish_Date'];
                 $profilePic = $runStory['Profpic'];
-                $div_ID = "storyComment".$storyID;
+                $div_ID = "storyComment" . $storyID;
                 echo "<main id='acc'>
                 <section id='item." . $i . "'>
                 <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID) >" . $title . "</a>
@@ -64,9 +71,9 @@
                 </main>";
                 echo "<span id=$div_ID></span>";
                 $i++;
-                /*<div id = $div_ID>
-                    
-                    </div>*/
+                /* <div id = $div_ID>
+
+                  </div> */
             }
         } else {
             echo "0 results";

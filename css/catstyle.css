@@ -43,12 +43,12 @@
 
 
 #storyViewClose{
-	height:25px;
-	width:inherit;
-	border-width:0.5px;
-	border-style:solid;
-	background-color:#f00;
-        border-radius:10px;
+    height:25px;
+    width:inherit;
+    border-width:0.5px;
+    border-style:solid;
+    background-color:#f00;
+    border-radius:10px;
 }
 
 #commentLine{
@@ -60,3 +60,21 @@
     border-radius:10px;
     border-width:0.5px;
 }
+
+.feedbackBtn{
+    font-family: serif;
+    border-radius: 7px;
+    height: 30px;
+    right: 15px;
+    width: 75px;	
+    float:left;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+#feedback{
+    width: 400px;
+    height: 40px;
+    background-color: #98f3f3;
+}
+
