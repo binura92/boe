@@ -3,6 +3,11 @@
 require "DB_Connection.php";  // database connection
 
 //////////////////////////////// Main Code sarts //////////////////////////////////////////
+$id = 0;
+session_start();
+if(session_id()){
+    $id = $_SESSION['id'];
+}
 
 
 $in=$_GET['txt'];
@@ -24,5 +29,7 @@ $msg .="<option id='search_option' value=$rValue onClick='setValue1();'> $nt[Fir
 }
 }
 $msg .='</select>';
+$msg .='<input type="text" id="user_ID" value="'.$id.'" style="visibility: hidden">';
 echo $msg;
 ?>
+

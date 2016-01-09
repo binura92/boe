@@ -255,5 +255,11 @@ function setValue2(){
 
 function loadProfile(id){
     //alert(id);
-    window.location = "friendProfile.php?u="+id;
+    var user_ID = document.getElementById("user_ID").value;
+    if(user_ID == id){
+        window.location = "profile.php";
+    }else{
+        window.location = "friendProfile.php?u="+id;
+    }
+    
 }
