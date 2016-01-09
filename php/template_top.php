@@ -14,7 +14,7 @@
             <div id="dis">  </div>
         </form>
         <div id="naviItems">
-            <a class="t1 t" href="#">Home</a>
+            <a class="t1 t" href="homePage.php">Home</a>
             <a class="t2 t" href="categories.php">Categories</a>
             <a class="t3 t" href="profile.php">Profile</a>
             <a class="t4 t" href="aboutbe.php">About BE</a>
