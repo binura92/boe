@@ -14,9 +14,7 @@ if(isset($_SESSION['login'])){ ?>
             </div>
 
             <div id="feedback">
-                <button id="likeBtn" class="feedbackBtn">Like</button>
-                <button id="unlikeBtn" class="feedbackBtn">Unlike</button>
-                <button id="reportBtn" class="feedbackBtn">Report</button>
+
             </div>
 
             <div id="comment">
@@ -33,6 +31,17 @@ if(isset($_SESSION['login'])){ ?>
                 </div>
             </div>
 
+        </div>
+        <div id="reportDiv">
+            <h4>Choose a reason</h4>
+            
+            <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
+            <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
+            <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
+            <input type="text" id="storyID" style="visibility: hidden"/>
+            <input type="button" onclick="report()" id="sendR" value="send"/>
+            <input type="reset" onclick="cancleReport()" value="cancle"/>
+            
         </div>
         <?php
         $cid = $_GET["cid"];

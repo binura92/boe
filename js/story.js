@@ -47,6 +47,9 @@ function viewStory(storyID) {
             var output = httpxml.responseText;
             document.getElementById("story").innerHTML = output;
             $("#storyView").css("visibility", 'visible');
+            document.getElementById("feedback").innerHTML = "<button id='likeBtn' class='feedbackBtn'>Like</button>\n\
+<button id='unlikeBtn' class='feedbackBtn'>Unlike</button> \n\
+<button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button>"
         }
     }
     var url = "storyView.php";
@@ -55,6 +58,54 @@ function viewStory(storyID) {
     httpxml.onreadystatechange = stateChanged;
     httpxml.open("GET", url, true);
     httpxml.send(null);
+
+
+}
+function showReport(storyID) {
+    document.getElementById("storyID").value = storyID;
+    $("#reportDiv").css("visibility", 'visible');
+}
+function report() {
+    var description ="";
+    var value1 = document.getElementById("reportOption1").checked;
+    var value2 = document.getElementById("reportOption2").checked;
+    var value3 = document.getElementById("reportOption3").checked;
+    var storyID = document.getElementById("storyID").value;
+    if (value1) {
+        description = "It is annoying or not interesting";
+    }
+    if (value2) {
+        description = "I think it should not be on BE";
+    }
+    if (value3) {
+        description = "It is spam";
+    }
+    if (description == "") {
+        alert("choose a option");
+    } else {
+        var ajax = ajaxObj("POST", "../php/report.php");
+        ajax.onreadystatechange = function () {
+            if (ajaxReturn(ajax) == true) {
+                //var output = ajax.responseText;
+                alert("Report");
+                $("#reportDiv").css("visibility", 'hidden');
+                
+
+                if (ajax.responseText != 1) {
+                    alert("Error in report");
+                } else {
+                    viewComment(storyID);
+
+                }
+            }
+        }
+        ajax.send("story_ID=" + storyID + "&description=" + description);
+
+    }
+
+}
+function cancleReport() {
+    $("#reportDiv").css("visibility", 'hidden');
 }
 
 function storyViewClose() {
@@ -95,8 +146,8 @@ function newComment(storyID) {
     if (comment == "") {
         alert("Comment is empty");
     }
-    else if(comment.length>250){
-        alert("comment size is too large. maximum comment size is 250 characters");       
+    else if (comment.length > 250) {
+        alert("comment size is too large. maximum comment size is 250 characters");
     }
     else {
         var ajax = ajaxObj("POST", "../php/newComment.php");

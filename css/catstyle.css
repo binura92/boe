@@ -78,3 +78,18 @@
     background-color: #98f3f3;
 }
 
+#reportDiv{
+    visibility: hidden;
+    position:absolute;
+    background-color: #ccfefe;
+    
+        font-family:Verdana, Geneva, sans-serif;
+   
+    
+    height:auto; //440px;
+    top: 80%;
+    left:50%;
+    width: 400px;
+    border-radius:10px;
+    border-width:0.5px;
+}

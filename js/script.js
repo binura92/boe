@@ -82,6 +82,7 @@ function sendMsg() {
                         document.getElementById("R_ID").value = "";
                         document.getElementById("Title").value = "";
                         $( "#NewMessage" ).css("visibility",'hidden');
+                        $("#Rname").css("visibility", 'hidden');
                     }
                 }
             }
