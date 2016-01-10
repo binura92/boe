@@ -451,9 +451,6 @@ h5{
     margin-top: 1px;
     background-color: #ccffff;
 }
-#select{
-    size:auto;
+#select1{
     width: 300px;
-    position: absolute;
-    z-index: 3;
 }

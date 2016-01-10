@@ -51,10 +51,11 @@
         <input type="text" id="Title" placeholder="Title" class="RSearchBox2 TextBoxMSG"/>
         <textarea id="msgBody" placeholder="Write message" cols="30" rows="18" class="MSGContent TextBoxMSG"></textarea>
         <div id="msgStatus" ></div>
-        <input type="reset" onclick="sendMsg()" value="Send" id="MSGSendButton" class="MsgSendButtons">
+        <input type="button" onclick="sendMsg()" value="Send" id="MSGSendButton" class="MsgSendButtons">
         <input type="reset" value="Cancel" id="MSGCancelButton" class="MsgSendButtons">
     </form>    
 </div>  
+
 <div id="InboxExtend">
     <div id="InboxExtendHeadder">
         <h5>Inbox</h5>

@@ -95,7 +95,7 @@ function newComment(storyID) {
     if (comment == "") {
         alert("Comment is empty");
     }
-    else if(comment.length){
+    else if(comment.length>250){
         alert("comment size is too large. maximum comment size is 250 characters");       
     }
     else {
