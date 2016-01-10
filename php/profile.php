@@ -1,14 +1,16 @@
-<?php
-session_start();
+<?php session_start();?>
 
-if (isset($_GET["u"])) {
+<?php
+if (isset($_GET["u"]) && isset($_SESSION['login'])) {
     $id = $_GET["u"];
     $_SESSION['id'] = $id;
-    $_SESSION['login'] = true;
-} else {
+} elseif(isset($_SESSION['login'])) {
     $id = $_SESSION['id'];
+} 
+else{
+   header('Location: ../index.html');
+   exit();
 }
-
 //select the user from the database
 $con = mysqli_connect("localhost", "root", "", "bookofexperiences");
 $sql = "SELECT * FROM registered_user WHERE Registation_ID='$id' LIMIT 1";
@@ -139,17 +141,17 @@ $_SESSION['id'] = $id;
                     var id = <?php echo json_encode($id); ?>;
                     //alert(id);
 
-                    if (id == "") {
+                    if (id === "") {
                         _("profilePastNewsFeed").innerHTML = "";
                     } else {
 
                         var ajax = ajaxObj("POST", "loadStories.php");
 
                         ajax.onreadystatechange = function () {
-                            if (ajaxReturn(ajax) == true) {
+                            if (ajaxReturn(ajax) === true) {
                                 _("profilePastNewsFeed").innerHTML = ajax.responseText;
                             }
-                        }
+                        };
                     }
                     ajax.send("id=" + id);
                 </script>
@@ -158,3 +160,4 @@ $_SESSION['id'] = $id;
         </div>
     </body>
 </html>
+  

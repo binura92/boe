@@ -33,7 +33,7 @@
         echo("<h3>" . $scategory . "<h3/>");
         echo("<hr><br>");
 
-        $sql = "SELECT Story_ID FROM story WHERE Category_ID='$cid' ORDER BY Publish_Date DESC";
+        $sql = "SELECT Story_ID FROM story WHERE Category_ID='$cid' and Type='pu' ORDER BY Publish_Date DESC ";
         $result = $con->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
