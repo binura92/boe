@@ -1,5 +1,14 @@
-<?php session_start();
-if(isset($_SESSION['login'])){ ?>
+<?php
+session_start();
+if (isset($_SESSION['login']) && isset($_GET["cid"])) {
+    $id = $_SESSION['id'];
+}else if(isset($_SESSION['login'])){
+    header('Location: ../filenotfound.php');
+} else {
+    header('Location: ../index.html');
+    exit();
+}
+?>
 <html>
     <head>
         <title>.:BE:.</title>
@@ -55,7 +64,7 @@ if(isset($_SESSION['login'])){ ?>
         echo("<h3>" . $scategory . "<h3/>");
         echo("<hr><br>");
 
-        $sql = "SELECT Story_ID FROM story WHERE Category_ID='$cid' ORDER BY Publish_Date DESC";
+        $sql = "SELECT Story_ID FROM story WHERE Category_ID='$cid' and (Type != 'pr' or Author_ID = '$id') ORDER BY Publish_Date DESC";
         $result = $con->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
@@ -92,7 +101,4 @@ if(isset($_SESSION['login'])){ ?>
         ?> 
 
     </body>
-</html>
-<?php }else { 
-    header('Location: StoryCategoryPage.php');  
-}?>	  
+</html>	  

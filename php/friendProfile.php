@@ -1,12 +1,16 @@
+<?php session_start();?>
+
 <?php
-session_start();
-
-if(isset($_GET["u"])){
-	$fid = $_GET["u"];
-	$_SESSION['fid'] = $fid;
+if (isset($_GET["u"]) && isset($_SESSION['login'])) {
+    $fid = $_GET["u"];
+    $id = $_SESSION["id"];
+} elseif(isset($_SESSION['login'])) {
+    header('Location: ../filenotfound.php');
+} 
+else{
+   header('Location: ../index.html');
+   exit();
 }
-
-$id = $_SESSION['id'];
 
 include_once './databaseConnection.php';
 

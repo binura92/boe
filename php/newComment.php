@@ -6,8 +6,8 @@ $storyID = $_POST['story_ID'];
 $comment =$_POST['comment'];
 
 $sql = "INSERT INTO story_comment (Story_ID, Author_ID, Comment) VALUES ('$storyID','$ID','$comment');";
-
-if($query = mysqli_query($con, $sql)){
+$sql2 = "UPDATE story SET lastUpdate = now()";
+if($query = mysqli_query($con, $sql) && $query1 = mysqli_query($con, $sql2)){
 	echo(1);
 }else{
 	echo(0);
