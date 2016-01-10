@@ -1,11 +1,9 @@
-<?php session_start();
-if(isset($_SESSION['login'])){ ?>
 <html>
     <head>
         <title>.:BE:.</title>
-        <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
-        <script type="text/javascript" src="../js/story.js"></script>
-        <link href="../css/catstyle.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="../../js/jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="../../js/story.js"></script>
+        <link href="../../css/catstyle.css" type="text/css" rel="stylesheet">
     </head>
     <body>
         <div id="storyView">
@@ -13,21 +11,10 @@ if(isset($_SESSION['login'])){ ?>
 
             </div>
 
-            <div id="feedback">
-                <button id="likeBtn" class="feedbackBtn">Like</button>
-                <button id="unlikeBtn" class="feedbackBtn">Unlike</button>
-                <button id="reportBtn" class="feedbackBtn">Report</button>
-            </div>
-
             <div id="comment">
                 <div id="oldComment">
 
                 </div>
-
-                <div id="newComment">
-
-                </div>
-
                 <div id="storyViewClose" onclick="storyViewClose()">
                     <h5>close</h5>
                 </div>
@@ -36,7 +23,7 @@ if(isset($_SESSION['login'])){ ?>
         </div>
         <?php
         $cid = $_GET["cid"];
-        include_once("template_top.php");
+        include_once("story_top.php");
         $con = mysqli_connect("localhost", "root", "", "bookofexperiences");
         $sql2 = "SELECT Category_Title FROM category WHERE Category_ID='$cid'";
         $query = mysqli_query($con, $sql2);
@@ -84,6 +71,3 @@ if(isset($_SESSION['login'])){ ?>
 
     </body>
 </html>
-<?php }else { 
-    header('Location: StoryCategoryPage.php');  
-}?>	  

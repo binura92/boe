@@ -1,5 +1,6 @@
+<?php session_start();
+if(isset($_SESSION['login'])){ ?>
 <?php
-session_start();
 $id = $_SESSION['id'];
 ?>
 <?php include_once './databaseConnection.php'; ?>
@@ -139,4 +140,4 @@ $_SESSION['id'] = $id;
         </div>
     </div>
 </body>
-	  
+<?php }else { echo "Please login"; }?>	  
