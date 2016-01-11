@@ -157,7 +157,9 @@ if($num_rows>0){
             $result3 = mysqli_query($con, $sql3);
             $num_rows3 = mysqli_num_rows($result3);
         ?>
+        
         <div id="middleSection">
+            
         <?php if($num_rows3 == 0): ?>
             <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
         <?php else:
@@ -167,6 +169,12 @@ if($num_rows>0){
                  echo "<button onclick='cancelFRequest()'>Cancel Request</button>";
             }
             else if($row['Confirmation']==1){
+                echo "<div id='profileNavi'>
+                <ul>
+                    <li><a href='friendProfile.php'>My Experiences</a></li>
+                    <li><a href='friendDetails.php'>About</a></li>
+                </ul>
+            </div>";
                 echo "<button onclick='cancelFRequest()'>Unfriend</button>";
                 test();
             }
@@ -179,7 +187,6 @@ if($num_rows>0){
     </div>
     <?php function test(){ 
         $fid = $_GET["u"]; ?>
-        <div id="profileNewNewsFeed" style="padding:10px;"></div>
 		<div id="profilePastNewsFeed" style="padding:10px;">
                 <script type="text/javascript">
 			var fid = <?php echo json_encode($fid);?>;

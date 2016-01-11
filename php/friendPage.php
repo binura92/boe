@@ -127,7 +127,7 @@ $_SESSION['id'] = $id;
                                 $query3 = mysqli_query($con, $sql3);
                                 if ($query3) {
                                     $res = mysqli_fetch_assoc($query3);
-                                    echo "<a href='friendProfile.php?u=" . $row4["Registation_ID"] . "'>" . $res["First_Name"] . " " . $res["Last_Name"] . "<br><br></a>";
+                                    echo "<a href='friendProfile.php?u=" . $res["Registation_ID"] . "'>" . $res["First_Name"] . " " . $res["Last_Name"] . "<br><br></a>";
                                 }
                             }
                         } else {
