@@ -27,5 +27,4 @@ if (strlen($in) > 0 and strlen($in) < 20) {
 $msg .='</select>';
 $msg .='<input type="text" id="user_ID" value="' . $id . '" style="visibility: hidden">';
 echo $msg;
-//echo "<img src='../profilePic/1.jpg'/>";
 ?>
