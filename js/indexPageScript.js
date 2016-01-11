@@ -8,3 +8,7 @@ $( document ).ready(function( $ ) {
 		$( "#signup" ).css("visibility",'hidden');
     });  	
 });
+
+function viewSite(){
+    window.location = "php/publicSection/publicCategories.php";
+}

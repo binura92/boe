@@ -1,23 +1,23 @@
 body{
-	margin: 0;
-	padding: 0;	
+    margin: 0;
+    padding: 0;	
 }
 
 #headder{
-	height: 60px;
-	width: 100%;
-	background-color: #59BBDE;		
+    height: 60px;
+    width: 100%;
+    background-color: #59BBDE;		
 }
 
 #headNavi{
-  	display: inline;
-  	position: relative;
+    display: inline;
+    position: relative;
 }	
 
 #headNavi form{ //---------------------
-	margin: 0;
-    padding: 0;
-    position: relative;
+                margin: 0;
+                padding: 0;
+                position: relative;
 }
 
 #naviItems a {
@@ -49,34 +49,34 @@ body{
 }
 
 a{
-	color: #fff;
-	text-decoration: none;	
+    color: #fff;
+    text-decoration: none;	
 }
 
 #wapper{
-  	background-color: #f7f9f9;
-  	position: relative;
-  	width: 980px;
-  	margin: 0 auto;
-	height:auto;
-	z-index:1;
+    background-color: #f7f9f9;
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    height:auto;
+    z-index:1;
 }
 
 #cover{
-	width: 980px;
-	height: 360px;
-	overflow: hidden;
-	background-image: url(../images/cover.jpg);
-	background-repeat:no-repeat;
-	background-size:cover;
+    width: 980px;
+    height: 360px;
+    overflow: hidden;
+    background-image: url(../images/cover.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
 }
 
 #profilepic {
-  	background-color: rgba(255, 255, 255, 0.3);
-  	float: left;
-  	height: 360px;
-  	width: 360px;
-  	z-index: 1;
+    background-color: rgba(255, 255, 255, 0.3);
+    float: left;
+    height: 360px;
+    width: 360px;
+    z-index: 1;
 }
 
 #profilepic ul {
@@ -87,35 +87,41 @@ a{
 }
 
 #profilepic ul li{
-	list-style-type:none;
-	text-align:center;
-	font-size:1.1em;
+    list-style-type:none;
+    text-align:center;
+    font-size:1.1em;
 }
 
 #profileNavi {
+<<<<<<< HEAD
 	background-color: #9DC3E7;
  	height: 40px;
   	width: 980px;
         margin-bottom: 10px;
+=======
+    background-color: #9DC3E7;
+    height: 40px;
+    width: 980px;
+>>>>>>> 348a90af66fb7338d154cced3b9e7e5cb986e085
 }
 
 #profileNavi ul {
-	font-size: 1.1em;
-  	margin: 0;
-  	padding: 0;
-  	position: relative;
-  	top: 8px;
+    font-size: 1.1em;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 8px;
 }
 
 #profileNavi ul li{
-	list-style-type:none;
-	display:inline;
-	padding: 0;
-	margin-left:100px;	
+    list-style-type:none;
+    display:inline;
+    padding: 0;
+    margin-left:100px;	
 }
 
 #profileNavi ul li a:hover{
-	color: #59BBDE;	
+    color: #59BBDE;	
 }
 
 
@@ -133,14 +139,14 @@ a{
 }
 
 .profilepic {
-	height: 180px;
-	left: 90px;
-	opacity: 1;
-	overflow: hidden;
-	position: absolute;
-	top: 20px;
-	width: 180px;
-	z-index: 2;
+    height: 180px;
+    left: 90px;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    top: 20px;
+    width: 180px;
+    z-index: 2;
 }
 
 .search {
@@ -154,13 +160,30 @@ a{
     width: 300px;
 }
 
-.t{
-	font-size: 1.3em;
-	padding: 0;
-	position: relative;
-	top: -20px;
+<<<<<<< HEAD
+=======
+.storyPostBtn {
+    background-color: #59BBDE;
+    border-color: #ccc;
+    border-radius: 8px;
+    border-width: 0.5px;
+    float: right;
+    margin-right: 20px;
+    padding: 2px 5px;
+    position: relative;
+    top: -15px;
+    width:100px;
+    height:30px;
 }
-	
+
+>>>>>>> 348a90af66fb7338d154cced3b9e7e5cb986e085
+.t{
+    font-size: 1.3em;
+    padding: 0;
+    position: relative;
+    top: -20px;
+}
+
 .t1 {    
     left: 40px;    
 }
@@ -182,8 +205,8 @@ a{
 }
 
 h4{
-	margin:0;
-	padding:0;
+    margin:0;
+    padding:0;
 }
 
 h5{
@@ -193,47 +216,47 @@ h5{
 }
 
 #MsgButton{
-	height:20px;
-	width:20px;
-	background-color:#03F;
+    height:20px;
+    width:20px;
+    background-color:#03F;
 }
 
 .MsgBarBorders{
-	border-style:solid;
-	border-width:1px;
-	width:auto;
-	height:25px;
-	
+    border-style:solid;
+    border-width:1px;
+    width:auto;
+    height:25px;
+
 }
 
 #MsgBar{
-	visibility:hidden;
-	position:absolute;
-	margin-left:86%;
-	width:100px;
-	height:auto;
-	background-color:#ccc;
+    visibility:hidden;
+    position:absolute;
+    margin-left:86%;
+    width:100px;
+    height:auto;
+    background-color:#ccc;
 }
 
 #MsgBarClose{
-	background-color:#F00;
+    background-color:#F00;
 }
 
 #NewMessage{
-	visibility:hidden;
-	position:absolute;
-	background-color:#ccc;
+    visibility:hidden;
+    position:absolute;
+    background-color:#ccc;
     height: 440px;
-   	left:40%;
+    left:40%;
     width: 400px;
-	border-radius:10px;
-	border-width:0.5px;
+    border-radius:10px;
+    border-width:0.5px;
 }
 
 .TextBoxMSG{
     position: relative;
     top: 10px;	
-	left: 10px;
+    left: 10px;
     border-radius: 10px;
     border-width: 0.5px;
 }
@@ -244,8 +267,8 @@ h5{
 }
 
 .RSearchBox2{
-	position:relative;
-	top:20px;
+    position:relative;
+    top:20px;
     height: 25px;
     width: 370px;
 }
@@ -254,8 +277,8 @@ h5{
     margin-top: 20px;
     padding: 5px;
     width: 362px;
-	resize:none;
-	overflow:hidden;
+    resize:none;
+    overflow:hidden;
 }
 
 .MsgSendButtons{
@@ -265,11 +288,11 @@ h5{
     right: 15px;
     position: relative;
     width: 75px;	
-	float: right;
+    float: right;
 }
 
 #MSGCancelButton{
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 #MSGSendButton{
@@ -279,88 +302,88 @@ h5{
 
 /*Inbox Styles*/
 #InboxExtend{
-	visibility:hidden;
-	position:absolute;
-	background-color:#ccc;
+    visibility:hidden;
+    position:absolute;
+    background-color:#ccc;
     height: 410px;
-	left:40%;
+    left:40%;
     width: 400px;
-	border-width:0.5px;
+    border-width:0.5px;
 }
 
 #InboxList{
-	height:175px;
-	width:inherit;
-	border-width:0.5px;
-	border-style:solid;
-	overflow:hidden;
+    height:175px;
+    width:inherit;
+    border-width:0.5px;
+    border-style:solid;
+    overflow:hidden;
 }
 
 #InboxView{
-	height:175px;
-	width:inherit;
-	border-width:0.5px;
-	border-style:solid;
-	overflow-y:scroll;
-	overflow-x:hidden;
+    height:175px;
+    width:inherit;
+    border-width:0.5px;
+    border-style:solid;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 #InboxExtendHeadder{
-	height:25px;
-	width:100%;
-	border-width:0.5px;
-	border-style:solid;
+    height:25px;
+    width:100%;
+    border-width:0.5px;
+    border-style:solid;
 }
 
 #InboxExtendClose{
-	height:25px;
-	width:inherit;
-	border-width:0.5px;
-	border-style:solid;
-	background-color:#f00;
+    height:25px;
+    width:inherit;
+    border-width:0.5px;
+    border-style:solid;
+    background-color:#f00;
 }
 
 /*Outbox Styles*/
 #OutboxExtend{
-	visibility:hidden;
-	position:absolute;
-	background-color:#ccc;
+    visibility:hidden;
+    position:absolute;
+    background-color:#ccc;
     height: 404px;
-	left:40%;
+    left:40%;
     width: 400px;
-	border-width:0.5px;
+    border-width:0.5px;
 }
 
 OutboxExtendHeadder{
-	height:25px;
-	width:100%;
-	border-width:0.5px;
-	border-style:solid;	
+    height:25px;
+    width:100%;
+    border-width:0.5px;
+    border-style:solid;	
 }
 
 #OutboxList{
-	height:175px;
-	width:inherit;
-	border-width:0.5px;
-	border-style:solid;
-	overflow:hidden;
+    height:175px;
+    width:inherit;
+    border-width:0.5px;
+    border-style:solid;
+    overflow:hidden;
 }
 
 #OutboxView{
-	height:175px;
-	width:inherit;
-	border-width:0.5px;
-	border-style:solid;
-	overflow-y:scroll;
-	overflow-x:hidden;
+    height:175px;
+    width:inherit;
+    border-width:0.5px;
+    border-style:solid;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 #OutboxExtendClose{
-	height:25px;
-	width:inherit;
-	border-width:0.5px;
-	border-style:solid;
-	background-color:#f00;
+    height:25px;
+    width:inherit;
+    border-width:0.5px;
+    border-style:solid;
+    background-color:#f00;
 }
 
 /*Log Out*/
@@ -371,46 +394,46 @@ h5{
 }
 
 .LogOutBorer{
-	border-style:solid;
-	border-width:1px;	
+    border-style:solid;
+    border-width:1px;	
 }
 
 #LogOutBar{
-	visibility:hidden;
-	position:absolute;
-	height:50px;
-	width:100px;
-	right:0px;
-	background-color:#ccc;
+    visibility:hidden;
+    position:absolute;
+    height:50px;
+    width:100px;
+    right:0px;
+    background-color:#ccc;
 }
 
 #LogOut{
-	height:25px;
-	width:inherit;
+    height:25px;
+    width:inherit;
 }
 
 #LogOutclose{
-	height:25px;
-	width:inherit;
-	background-color:#F00;
+    height:25px;
+    width:inherit;
+    background-color:#F00;
 }
 #dis{
-	position:absolute;
+    position:absolute;
 }
 
 #disFriend{
-	position:absolute;
-	z-index:3;
+    position:absolute;
+    z-index:3;
 }
 
 #selectMsg{
-	width:100%;
-	height:100%;
+    width:100%;
+    height:100%;
 }
 
 #selectMsgOutbox{
-	width:100%;
-	height:100%;	
+    width:100%;
+    height:100%;	
 }
 
 .mgs123{
@@ -429,6 +452,7 @@ h5{
     background-color: #fff;
 }
 
+<<<<<<< HEAD
 /*text editor styles*/
 #txteditor form{
     border:0.8px #000 solid;
@@ -472,4 +496,17 @@ h5{
     overflow-y: scroll;
     resize: none;
     width: 972px;
+=======
+
+#search_option1{
+    height: 30px;
+    border-style: solid;
+    border-width:1px;
+    border-radius: 5px;
+    margin-top: 1px;
+    background-color: #ccffff;
+}
+#select1{
+    width: 300px;
+>>>>>>> 348a90af66fb7338d154cced3b9e7e5cb986e085
 }

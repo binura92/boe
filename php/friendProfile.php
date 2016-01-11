@@ -1,12 +1,16 @@
+<?php session_start();?>
+
 <?php
-session_start();
-
-if(isset($_GET["u"])){
-	$fid = $_GET["u"];
-	$_SESSION['fid'] = $fid;
+if (isset($_GET["u"]) && isset($_SESSION['login'])) {
+    $fid = $_GET["u"];
+    $id = $_SESSION["id"];
+} elseif(isset($_SESSION['login'])) {
+    header('Location: ../filenotfound.php');
+} 
+else{
+   header('Location: ../index.html');
+   exit();
 }
-
-$id = $_SESSION['id'];
 
 include_once './databaseConnection.php';
 
@@ -39,11 +43,11 @@ if($num_rows>0){
 		<link href="../css/stylesheet.css" type="text/css" rel="stylesheet">
 		<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
 		<script type="text/javascript" src="../js/script.js"></script>
-        <script type="text/javascript" src="../js/ajax.js"></script>
+                <script type="text/javascript" src="../js/ajax.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
-        <script type="text/javascript" src="../js/story.js"></script>
-        <script type="text/javascript" src="../js/editor.js"></script>
-        <style>
+                <script type="text/javascript" src="../js/story.js"></script>
+                <script type="text/javascript" src="../js/editor.js"></script>
+            <style>
 		.butt {
 			width:23px;;
 			height:23px;
@@ -52,7 +56,7 @@ if($num_rows>0){
 			background-position:center;
 			margin:2px;;
 			}
-        </style>
+            </style>
         
         <script>
             function sendFRequest(){
@@ -69,7 +73,7 @@ if($num_rows>0){
                         alert(output);
                         if(output === "1"){
                             document.getElementById("btnAddFriend").style.display = "none";
-                            document.getElementById("requestStatus").innerHTML = "Friend Request Sent";
+                            document.getElementById("middleSection").innerHTML = "Friend Request Sent<br><button onclick='cancelFRequest()'>Cancel Request</button>";
                         }
                     }
                 };
@@ -77,6 +81,47 @@ if($num_rows>0){
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("id="+id+"&fid="+fid);
             }
+            
+            function cancelFRequest(){
+                var id = <?php echo json_encode($id);?>;
+                var fid = <?php echo json_encode($fid);?>;
+                //alert(id);
+                //alert(fid);
+                var xhttp = new XMLHttpRequest();
+                
+                xhttp.onreadystatechange = function(){
+                    if(xhttp.readyState === 4 && xhttp.status === 200){
+                        var output = xhttp.responseText;
+                        //alert(output);
+                        if(output === "1"){
+                              document.getElementById("middleSection").innerHTML = "<button id='btnAddFriend' onclick='sendFRequest()'>Add Friend</button>";
+                        }
+                    }
+                };
+                xhttp.open("POST","cancelFriendRequestHandle.php",true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("id="+id+"&fid="+fid);
+            }
+            
+            function acceptRequest(){
+                var id = <?php echo json_encode($id);?>;
+                var fid = <?php echo json_encode($fid);?>;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function(){
+                    if(xhttp.readyState === 4 && xhttp.status === 200){
+                        var output = xhttp.responseText;
+                        if(output === "1"){
+                              document.getElementById("middleSection").innerHTML = "<button onclick='cancelFRequest()'>Unfriend</button>";
+                
+                        }
+                        
+                    }
+                };
+                xhttp.open("POST","acceptFriendRequestHandle.php",true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("id="+id+"&fid="+fid);
+            }
+            
         </script>
         
 	</head>
@@ -84,22 +129,79 @@ if($num_rows>0){
 	<?php include_once("template_top.php"); ?>
     <div id="wapper">
     	<div id="cover">
-        	<div id="profilepic">
-              <img src='<?php echo('../profilePic/'.$fid.'.jpg')?>' class='profilepic'/>
-              <ul>
+        <div id="profilepic">
+                <?php
+                    $dir    = '../profilePic/';
+                    $files1 = scandir($dir);
+                    $picAvailable = false;
+                    foreach($files1 as $x){
+                        if($x == $fid.'.jpg'){
+                            $picAvailable = true;
+                            break;
+                        }
+                    }
+                ?>
+                <?php if($picAvailable == true){ ?>
+                    <img src='<?php echo('../profilePic/'.$fid.'.jpg')?>' class='profilepic'/>
+                <?php } else { ?>
+                    <img src="../images/defaultPic.jpg" class='profilepic'/>
+                <?php } ?>    
+                <ul>
                   <li><?php echo $fname.' '.$lname; ?></li>
                   <li>Lives in <?php echo $city; ?></li>
-              </ul>
+                </ul>
           </div>       
         </div>
+        <?php
+            $sql3 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$fid' and Registation_ID = '$id'";
+            $result3 = mysqli_query($con, $sql3);
+            $num_rows3 = mysqli_num_rows($result3);
+        ?>
         <div id="middleSection">
+        <?php if($num_rows3 == 0): ?>
             <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
-            <div id="requestStatus">
-                <button id="btnCancelRequest" onclick="cancelFRequest()">Cancel Request</button>
-            </div>
+        <?php else:
+            $row = mysqli_fetch_assoc($result3);
+            if($row['Confirmation']==0 and $row['SenderID']==$id){
+                 echo "Friend Request Sent<br>";
+                 echo "<button onclick='cancelFRequest()'>Cancel Request</button>";
+            }
+            else if($row['Confirmation']==1){
+                echo "<button onclick='cancelFRequest()'>Unfriend</button>";
+                test();
+            }
+            else{
+                echo "<button onclick='acceptRequest()'>Accept Request</button> <button onclick='cancelFRequest()'>Reject Request</button>";
+            }
+           
+        endif; ?>
         </div>
-        
     </div>
+    <?php function test(){ 
+        $fid = $_GET["u"]; ?>
+        <div id="profileNewNewsFeed" style="padding:10px;"></div>
+		<div id="profilePastNewsFeed" style="padding:10px;">
+                <script type="text/javascript">
+			var fid = <?php echo json_encode($fid);?>;
+			//alert(id);
+			
+			if(fid === ""){
+				_("profilePastNewsFeed").innerHTML = "";	
+			}
+			else{
+				
+                            var ajax = ajaxObj("POST", "loadStories.php");
+				
+                            ajax.onreadystatechange = function(){
+				if(ajaxReturn(ajax) === true){
+                                    _("profilePastNewsFeed").innerHTML = ajax.responseText;
+                                }
+                            };
+			}
+			ajax.send("id=" +fid);
+		</script>
+                </div>
+    <?php } ?>
 </body>
 </html>
 

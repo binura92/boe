@@ -44,31 +44,22 @@
     </head>    
 </html>
 <?php
-session_start();
-if (isset($_SESSION['login'])) {
-    $id = $_SESSION['id'];
-} else {
-    header('Location: ../index.html');
-    exit();
-}
-?>
-<?php
-include_once("../php/template_top.php");
-include_once './databaseConnection.php';
+include_once("story_top.php"); 
+include_once '../databaseConnection.php';
 
 $sql1 = "SELECT * FROM category";
 $query1 = mysqli_query($con, $sql1);
 ?>
 
-<?php while ($res = mysqli_fetch_assoc($query1)) { ?>
-    <div id="wapper">
-        <div id="catwapper">
-            <?php echo '<div id="cat" class="catSelectBox" style="background-image:url(../images/categories/' . $res['Category_ID'] . '.jpg); background-size: 100% 100%; margin-right:25px;">'; ?>
+<?php while($res = mysqli_fetch_assoc($query1)){ ?>
+<div id="wapper">
+    <div id="catwapper">
+        <?php echo '<div id="cat" class="catSelectBox" style="background-image:url(../../images/categories/'.$res['Category_ID'].'.jpg); background-size: 100% 100%; margin-right:25px;">'; ?>
             <div id="catname">
                 <?php
-                echo "<a href='StoryCategoryPage.php?cid=" . $res['Category_ID'] . "'><h4>" . $res['Category_Title'] . "</h4><br><br></a>";
+                    echo "<a href='StoryCategoryPage.php?cid=".$res['Category_ID']."'><h4>".$res['Category_Title']."</h4><br><br></a>";			
                 ?>
             </div>
-        </div>
     </div>
-<?php } ?>
+</div>
+ <?php } ?>

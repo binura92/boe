@@ -6,11 +6,30 @@
 #AllFriendlist{
     width: 275px;
     height: auto;
+    text-decoration: none;
+}
+
+#AllFriendlist a{
+    color: black;
+    padding: 10px;
+}
+
+#AllFriendlist a:hover{
+    font-weight: bold;
 }
 
 #MyFriendlist{
     width: 490px;
     height: auto;  
+}
+
+#MyFriendlist a{
+    color: black;
+    text-decoration: none;
+}
+
+#MyFriendlist a:hover{
+    font-weight: bold;
 }
 
 #MyFriendRequests{
@@ -20,4 +39,13 @@
     border-left-width: 0.5px;
     border-right-style: solid;
     border-right-width: 0.5px;
+}
+
+#MyFriendRequests a{
+    color: black;
+    text-decoration: none;
+}
+
+#MyFriendRequests a:hover{
+    font-weight: bold;
 }
