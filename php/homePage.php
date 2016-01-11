@@ -10,7 +10,45 @@ if (isset($_SESSION['login'])) {
 <html>
     <head>
         <link href="../css/catstyle.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="../js/story.js"></script>
     </head>
+    <body>
+                <div id="storyView">
+            <div id="story">
+
+            </div>
+
+            <div id="feedback">
+
+            </div>
+
+            <div id="comment">
+                <div id="oldComment">
+
+                </div>
+
+                <div id="newComment">
+
+                </div>
+
+                <div id="storyViewClose" onclick="storyViewClose()">
+                    <h5>close</h5>
+                </div>
+            </div>
+
+        </div>
+                <div id="reportDiv">
+            <h4>Choose a reason</h4>
+            
+            <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
+            <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
+            <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
+            <input type="text" id="storyID" style="visibility: hidden"/>
+            <input type="button" onclick="report()" id="sendR" value="send"/>
+            <input type="reset" onclick="cancleReport()" value="cancle"/>
+            
+        </div>
+    </body>
 </html>
 <?php
 include_once './databaseConnection.php';
@@ -33,9 +71,9 @@ if ($query1) {
         $publishDate = $runStory['Publish_Date'];
         echo "<main id='acc'>
                 <section id='item." . $i . "'>
-                <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif'>" . $title . "</a>
+                <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID)>" . $title . "</a>
                 <div id='postDet'>Posted by <b>" . $author . "</b></div>
-                <p>" . $body . "</p><hr/>
+                <hr/>
                 </section>   		
                 </main>";
         $i++;

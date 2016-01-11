@@ -11,7 +11,7 @@ $body = $runStory['Body'];
 $publishDate = $runStory['Publish_Date'];
 
 
-$out.= "Title :".$title."<br> Posted by ".$author."<br>".$body."<hr/>";
+$out.= "<p class='storytitlebold'>" .$title. "</P>"."<br><p class='pbyname'> Posted by ".$author."</p><br>"."<hr/>"."<p class='postedstory'>".$body."</P>"."<hr/>";
 
 echo $out;
 
