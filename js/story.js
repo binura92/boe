@@ -121,7 +121,7 @@ function viewComment(storyID) {
             var output = httpxml.responseText;
             //alert(output);
             document.getElementById("oldComment").innerHTML = output;
-            document.getElementById("newComment").innerHTML = '<input id = "writeComment" type="text" placeholder="Enter Your Comment" onkeypress="isEnter(event,' + storyID + ')"><button onclick="newComment(' + storyID + ')">enter</button>';
+            document.getElementById("newComment").innerHTML = '<input id = "writeComment" type="text" placeholder="Enter Your Comment" onkeypress="isEnter(event,' + storyID + ')"><button id="cmtpostbtn" onclick="newComment(' + storyID + ')">enter</button>';
         }
     }
     var url = "viewComment.php";
