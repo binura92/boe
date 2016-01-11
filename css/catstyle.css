@@ -28,17 +28,17 @@
     font-weight:100;	
 }
 
-#storyView{
-    font-family:Verdana, Geneva, sans-serif;
-    visibility:hidden;
-    position:absolute;
-    background-color:#a8fdfd;
-    height:auto; //440px;
-    left:40%;
-    top: 20%;
-    width: 400px;
-    border-radius:10px;
-    border-width:0.5px;
+#storyView {
+  background-color: #a8fdfd;
+  border-radius: 10px;
+  border-width: 0.5px;
+  font-family: Verdana,Geneva,sans-serif;
+  height: auto;
+  left: 30%;
+  position: absolute;
+  top: 20%;
+  visibility: hidden;
+  width: 40%;
 }
 
 
@@ -51,31 +51,61 @@
     border-radius:10px;
 }
 
-#commentLine{
-    font-family:cursive;
-    background-color:#ccfefe;
-    height:auto;
-    width: 400px;
-    border-style: groove;
-    border-radius:10px;
-    border-width:0.5px;
+#commentLine {
+  background-color: #ccfefe;
+  border-radius: 10px;
+  border-style: groove;
+  border-width: 0.5px;
+  font-family: cursive;
+  height: auto;
+  margin: 0 10px 10px;
+  padding: 12px;
 }
 
-.feedbackBtn{
-    font-family: serif;
-    border-radius: 7px;
-    height: 30px;
-    right: 15px;
-    width: 75px;	
-    float:left;
-    margin-top: 5px;
-    margin-left: 20px;
+.feedbackBtn {
+  float: left;
+  font-family: serif;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 60px;
 }
 
-#feedback{
-    width: 400px;
-    height: 40px;
-    background-color: #98f3f3;
+.storytitlebold {
+  font-size: 1.5em;
+  font-style: italic;
+  margin: 10px 0 0 10px;
+  padding: 0;
+}
+
+.pbyname {
+  font-size: 0.8em;
+  margin: 0 0 0 10px;
+  padding: 0;
+  position: relative;
+  top: 0;
+}
+
+.postedstory {
+  bottom: 15px;
+  font-size: 1em;
+  margin-left: 10px;
+  margin-right: 0;
+  margin-top: 0;
+  padding: 0;
+  position: relative;
+}
+
+#story hr{
+    position: relative;
+    bottom: 15px;
+}
+
+#feedback {
+  background-color: #98f3f3;
+  bottom: 24px;
+  height: 40px;
+  position: relative;
 }
 
 #reportDiv{
@@ -92,4 +122,38 @@
     width: 400px;
     border-radius:10px;
     border-width:0.5px;
+}
+
+#writeComment {
+  border-radius: 5px;
+  border-width: 0.3px;
+  height: 40px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  width: 85%;
+}
+
+#cmtpostbtn {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-width: 0.3px;
+  height: 40px;
+  margin-right: 10px;
+  width: 11%;
+}
+
+.timestampcmt{
+  bottom: 2px;
+  font-size: 0.5em;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.commentclz {
+  bottom: 20px;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
