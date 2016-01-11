@@ -38,6 +38,29 @@ if ($num_rows > 0) {
 
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+	<head>
+		<title>.:BE:.</title>
+		<link href="../css/stylesheet.css" type="text/css" rel="stylesheet">
+                <link href="../css/catstyle.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="../js/script.js"></script>
+                <script type="text/javascript" src="../js/ajax.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+                <script type="text/javascript" src="../js/story.js"></script>
+                <script type="text/javascript" src="../js/editor.js"></script>
+            <style>
+		.butt {
+			width:23px;;
+			height:23px;
+			border:1px #000 solid;
+			background-repeat:no-repeat; 
+			background-position:center;
+			margin:2px;;
+			}
+            </style>
+        
+=======
     <head>
         <title>.:BE:.</title>
         <link href="../css/stylesheet.css" type="text/css" rel="stylesheet">
@@ -58,6 +81,7 @@ if ($num_rows > 0) {
             }
         </style>
 
+>>>>>>> b1a98ca622adf8b003a4e48d01c0c18132d975d0
         <script>
             function sendFRequest() {
 
@@ -192,25 +216,65 @@ if ($num_rows > 0) {
             ?>
             <div id="profilePastNewsFeed" style="padding:10px;">
                 <script type="text/javascript">
-                    var fid = <?php echo json_encode($fid); ?>;
-                    //alert(id);
+<<<<<<< HEAD
+			var fid = <?php echo json_encode($fid);?>;
+			//alert(id);
+			
+			if(fid === ""){
+				_("profilePastNewsFeed").innerHTML = "";	
+			}
+			else{
+				
+                            var ajax = ajaxObj("POST", "loadStories.php");
+				
+                            ajax.onreadystatechange = function(){
+				if(ajaxReturn(ajax) === true){
+                                    _("profilePastNewsFeed").innerHTML = ajax.responseText;
+                                }
+                            };
+			}
+			ajax.send("id=" +fid);
+		</script>
+                </div>
+    
+     <div id="storyView">
+            <div id="story">
 
-                    if (fid === "") {
-                        _("profilePastNewsFeed").innerHTML = "";
-                    } else {
-
-                        var ajax = ajaxObj("POST", "loadStories.php");
-
-                        ajax.onreadystatechange = function () {
-                            if (ajaxReturn(ajax) === true) {
-                                _("profilePastNewsFeed").innerHTML = ajax.responseText;
-                            }
-                        };
-                    }
-                    ajax.send("id=" + fid);
-                </script>
             </div>
-        <?php } ?>
-    </body>
+
+            <div id="feedback">
+
+            </div>
+
+            <div id="comment">
+                <div id="oldComment">
+
+                </div>
+
+                <div id="newComment">
+
+                </div>
+
+                <div id="storyViewClose" onclick="storyViewClose()">
+                    <h5>close</h5>
+                </div>
+            </div>
+
+        </div>
+        <div id="reportDiv">
+            <h4>Choose a reason</h4>
+            
+            <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
+            <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
+            <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
+            <input type="text" id="storyID" style="visibility: hidden"/>
+            <input type="button" onclick="report()" id="sendR" value="send"/>
+            <input type="reset" onclick="cancleReport()" value="cancle"/>
+            
+        </div>
+    <?php } ?>
+</body>
+
+>>>>>>> b1a98ca622adf8b003a4e48d01c0c18132d975d0
 </html>
 
