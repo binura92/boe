@@ -54,7 +54,7 @@ if (isset($_SESSION['login'])) {
 include_once './databaseConnection.php';
 include_once("template_top.php");
 
-$sql1 = "SELECT s.* FROM friend_add f JOIN story s ON (f.F_Registation_ID = s.Author_ID OR f.Registation_ID = s.Author_ID) WHERE f.Registation_ID = '$id' and f.Confirmation = 1 and f.SenderID = '$id' and Type != 'pr' ORDER BY lastUpdate DESC";
+$sql1 = "SELECT s.* FROM friend_add f JOIN story s ON (f.F_Registation_ID = s.Author_ID OR f.Registation_ID = s.Author_ID) WHERE f.Registation_ID = '$id' and f.Confirmation = 1 and f.SenderID = '$id' and Type != 'pr' and view= 1 ORDER BY lastUpdate DESC";
 
 $query1 = mysqli_query($con, $sql1);
 
@@ -62,7 +62,7 @@ if ($query1) {
     $i = 0;
     while ($row = mysqli_fetch_assoc($query1)) {
         $storyID = $row["Story_ID"];
-        $storyDetails = "SELECT * FROM registered_user INNER JOIN story ON registered_user.Registation_ID=story.Author_ID WHERE Story_ID=" . $storyID . ";";
+        $storyDetails = "SELECT * FROM registered_user INNER JOIN story ON registered_user.Registation_ID=story.Author_ID WHERE Story_ID= '$storyID';";
         $sqlstoryDetails = mysqli_query($con, $storyDetails);
         $runStory = mysqli_fetch_assoc($sqlstoryDetails);
         $authorID = $runStory["Registation_ID"];
