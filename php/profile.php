@@ -39,6 +39,7 @@ $_SESSION['id'] = $id;
     <head>
         <title>.:BE:.</title>
         <link href="../css/stylesheet.css" type="text/css" rel="stylesheet">
+        <link href="../css/catstyle.css" type="text/css" rel="stylesheet">
         <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
         <script type="text/javascript" src="../js/script.js"></script>
         <script type="text/javascript" src="../js/ajax.js"></script>
@@ -93,6 +94,8 @@ $_SESSION['id'] = $id;
                     <li><a href="#">+More</a></li>
                 </ul>
             </div>
+            
+            
             <div style="border:1px #000 solid; background-color:#FFF; border-color:#000; border-width:medium;">
                 <form name="editor" id="editor">
                     <input type="text" name="subject" id="storyTitle" style="width:300px; height:25px; border-color:#000; border-width:medium;" placeholder="Title" >
@@ -157,6 +160,42 @@ $_SESSION['id'] = $id;
                 </script>
             </div>
 
+        </div>
+        
+        <div id="storyView">
+            <div id="story">
+
+            </div>
+
+            <div id="feedback">
+
+            </div>
+
+            <div id="comment">
+                <div id="oldComment">
+
+                </div>
+
+                <div id="newComment">
+
+                </div>
+
+                <div id="storyViewClose" onclick="storyViewClose()">
+                    <h5>close</h5>
+                </div>
+            </div>
+
+        </div>
+        <div id="reportDiv">
+            <h4>Choose a reason</h4>
+            
+            <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
+            <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
+            <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
+            <input type="text" id="storyID" style="visibility: hidden"/>
+            <input type="button" onclick="report()" id="sendR" value="send"/>
+            <input type="reset" onclick="cancleReport()" value="cancle"/>
+            
         </div>
     </body>
 </html>
