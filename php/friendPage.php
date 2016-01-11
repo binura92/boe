@@ -85,56 +85,73 @@ $_SESSION['id'] = $id;
             </div>
             <div id="FriendlistBucket">
                 <div id="AllFriendlist" style="color: black;">
-                    <?php
-                    $sql1 = "SELECT * FROM registered_user WHERE Registation_ID != '$id' ORDER BY First_Name, Last_Name";
-                    $query1 = mysqli_query($con, $sql1);
-                    if ($query1) {
+                    <div class="bucketheadder">
+                        <h3>All Friends</h3>
+                    </div>                       
+                        <?php
+                        $sql1 = "SELECT * FROM registered_user WHERE Registation_ID != '$id' ORDER BY First_Name, Last_Name";
+                        $query1 = mysqli_query($con, $sql1);
+                        if ($query1) {
 
-                        while ($res = mysqli_fetch_assoc($query1)) {
-                            echo "<a href='friendProfile.php?u=" . $res['Registation_ID'] . "'>" . $res["First_Name"] . " " . $res["Last_Name"] . "<br><br></a>";
-                        }
-                    }
-                    ?>
-                </div>
-                <div id="MyFriendlist">
-                    <?php
-                    $sql3 = "SELECT F_Registation_ID FROM friend_add WHERE Registation_ID = '$id' and Confirmation = 1";
-                    $result3 = mysqli_query($con, $sql3);
-                    while ($row = mysqli_fetch_assoc($result3)) {
-                        $friendID = $row["F_Registation_ID"];
-                        $sql4 = "SELECT * FROM registered_user WHERE Registation_ID = '$friendID'";
-                        $result4 = mysqli_query($con, $sql4);
-                        if ($result4) {
-                            $row4 = mysqli_fetch_assoc($result4);
-                            echo "<a href='friendProfile.php?u=" . $row4["Registation_ID"] . "'>" . $row4["First_Name"] . " " . $row4["Last_Name"] . "<br><br></a>";
-                        } else {
-                            echo "error";
-                        }
-                    }
-                    ?>
-                </div>
-                <div id="MyFriendRequests">
-                    <h3>Friend Requests</h3>
-                    <?php
-                    $sql2 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$id' and senderID != '$id' and Confirmation = 0";
-                    $query2 = mysqli_query($con, $sql2);
-                    if ($query2) {
-                        $num_rows = mysqli_num_rows($query2);
-                        if ($num_rows != 0) {
-                            while ($row = mysqli_fetch_assoc($query2)) {
-                                $reqFriendID = $row["SenderID"];
-                                $sql3 = "SELECT * from registered_user WHERE Registation_ID = '$reqFriendID'";
-                                $query3 = mysqli_query($con, $sql3);
-                                if ($query3) {
-                                    $res = mysqli_fetch_assoc($query3);
-                                    echo "<a href='friendProfile.php?u=" . $res["Registation_ID"] . "'>" . $res["First_Name"] . " " . $res["Last_Name"] . "<br><br></a>";
-                                }
+                            while ($res = mysqli_fetch_assoc($query1)) {
+                                echo "<div class='allriendlistviewdiv'>" . 
+                                        "<div class='profilepicofuser'>" . "</div>"                                 
+                                . "<a href='friendProfile.php?u=" . $res['Registation_ID'] . "'>" . $res["First_Name"] . " " . $res["Last_Name"] . "<br><br></a>"
+                                        . "</div>";
                             }
-                        } else {
-                            echo "No friend requests";
                         }
-                    }
-                    ?>
+                        ?>
+                </div>
+                <div id="MyFriendlist" class="displayy">
+                    <div class="bucketheadder">
+                        <h3>My Friends</h3>
+                    </div>
+                        <?php
+                        $sql3 = "SELECT F_Registation_ID FROM friend_add WHERE Registation_ID = '$id' and Confirmation = 1";
+                        $result3 = mysqli_query($con, $sql3);
+                        while ($row = mysqli_fetch_assoc($result3)) {
+                            $friendID = $row["F_Registation_ID"];
+                            $sql4 = "SELECT * FROM registered_user WHERE Registation_ID = '$friendID'";
+                            $result4 = mysqli_query($con, $sql4);
+                            if ($result4) {
+                                $row4 = mysqli_fetch_assoc($result4);
+                                echo "<div class='allriendlistviewdiv'>" . 
+                                        "<div class='profilepicofuser'>" . "</div>" .
+                                        "<a href='friendProfile.php?u=" . $row4["Registation_ID"] . "'>" . $row4["First_Name"] . " " . $row4["Last_Name"] . "<br><br></a>"
+                                    . "</div>";
+                            } else {
+                                echo "error";
+                            }
+                        }
+                        ?>
+                </div>
+                <div id="MyFriendRequests" class="displayy">
+                    <div class="bucketheadder">
+                        <h3>My Friend Requests</h3>
+                    </div>
+                        <?php
+                        $sql2 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$id' and senderID != '$id' and Confirmation = 0";
+                        $query2 = mysqli_query($con, $sql2);
+                        if ($query2) {
+                            $num_rows = mysqli_num_rows($query2);
+                            if ($num_rows != 0) {
+                                while ($row = mysqli_fetch_assoc($query2)) {
+                                    $reqFriendID = $row["SenderID"];
+                                    $sql3 = "SELECT * from registered_user WHERE Registation_ID = '$reqFriendID'";
+                                    $query3 = mysqli_query($con, $sql3);
+                                    if ($query3) {
+                                        $res = mysqli_fetch_assoc($query3);
+                                        echo "<div class='allriendlistviewdiv'>" .
+                                                "<div class='profilepicofuser'>" . "</div>" .
+                                                "<a href='friendProfile.php?u=" . $res["Registation_ID"] . "'>" . $res["First_Name"] . " " . $res["Last_Name"] . "<br><br></a>"
+                                            . "</div>";
+                                    }
+                                }
+                            } else {
+                                echo "No friend requests";
+                            }
+                        }
+                        ?>                    
                 </div>
             </div>
         </div>

@@ -20,7 +20,11 @@
 
 #MyFriendlist{
     width: 490px;
-    height: auto;  
+    height: auto; 
+    border-left-style: solid;
+    border-left-width: 0.5px;
+    border-right-style: solid;
+    border-right-width: 0.5px;
 }
 
 #MyFriendlist a{
@@ -35,10 +39,6 @@
 #MyFriendRequests{
     width: 275px;
     height: auto;
-    border-left-style: solid;
-    border-left-width: 0.5px;
-    border-right-style: solid;
-    border-right-width: 0.5px;
 }
 
 #MyFriendRequests a{
@@ -48,4 +48,41 @@
 
 #MyFriendRequests a:hover{
     font-weight: bold;
+}
+
+.bucketheadder {
+  background-color: #9dc3e7;
+  border-top-style: solid;
+  border-top-width: 0.5px;
+  height: 50px;
+}
+
+.bucketheadder h3 {
+  bottom: 10px;
+  font-size: 1.4em;
+  position: relative;
+  text-align: center;
+}
+
+.allriendlistviewdiv{
+    height: 50px;
+    width: auto;
+}
+
+.profilepicofuser {
+  float: left;
+  height: 44px;
+  margin: 3px;
+  width: 44px;
+}
+
+.allriendlistviewdiv a {
+  position: relative;
+  top: 15px;
+}
+
+.displayy{
+    max-height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
