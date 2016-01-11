@@ -274,27 +274,7 @@ if ($num_rows > 0) {
         </div>
     <?php } ?>
 </body>
-=======
-                    var fid = <?php echo json_encode($fid); ?>;
-                    //alert(id);
 
-                    if (fid === "") {
-                        _("profilePastNewsFeed").innerHTML = "";
-                    } else {
-
-                        var ajax = ajaxObj("POST", "loadStories.php");
-
-                        ajax.onreadystatechange = function () {
-                            if (ajaxReturn(ajax) === true) {
-                                _("profilePastNewsFeed").innerHTML = ajax.responseText;
-                            }
-                        };
-                    }
-                    ajax.send("id=" + fid);
-                </script>
-            </div>
-        <?php } ?>
-    </body>
 >>>>>>> b1a98ca622adf8b003a4e48d01c0c18132d975d0
 </html>
 
