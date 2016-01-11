@@ -1,10 +1,9 @@
 <?php session_start(); ?>
 
 <?php
-if (isset($_GET["u"]) && isset($_SESSION['login'])) {
-    $fid = $_GET["u"];
+if (isset($_GET["f"]) && isset($_SESSION['login'])) {
+    $fid = $_GET["f"];
     $id = $_SESSION["id"];
-    $_SESSION["friendID"] = $fid;
 } elseif (isset($_SESSION['login'])) {
     header('Location: ../filenotfound.php');
 } else {
@@ -17,8 +16,7 @@ include_once './databaseConnection.php';
 //select the user from the database
 
 $sql = "SELECT * FROM registered_user WHERE Registation_ID='$fid' LIMIT 1";
-$sql2 = "SELECT Category_ID,Category_Title From category";
-$result = mysqli_query($con, $sql2);
+
 $query = mysqli_query($con, $sql);
 
 $num_rows = mysqli_num_rows($query);
@@ -34,8 +32,6 @@ if ($num_rows > 0) {
     $image = $row["Profpic"];
 }
 ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -176,7 +172,7 @@ if ($num_rows > 0) {
                 </ul>
             </div>";
                         echo "<button onclick='cancelFRequest()'>Unfriend</button>";
-                        test();
+                
                     } else {
                         echo "<button onclick='acceptRequest()'>Accept Request</button> <button onclick='cancelFRequest()'>Reject Request</button>";
                     }
@@ -185,32 +181,15 @@ if ($num_rows > 0) {
                 ?>
             </div>
         </div>
-        <?php
-
-        function test() {
-            $fid = $_GET["u"];
-            ?>
-            <div id="profilePastNewsFeed" style="padding:10px;">
-                <script type="text/javascript">
-                    var fid = <?php echo json_encode($fid); ?>;
-                    //alert(id);
-
-                    if (fid === "") {
-                        _("profilePastNewsFeed").innerHTML = "";
-                    } else {
-
-                        var ajax = ajaxObj("POST", "loadStories.php");
-
-                        ajax.onreadystatechange = function () {
-                            if (ajaxReturn(ajax) === true) {
-                                _("profilePastNewsFeed").innerHTML = ajax.responseText;
-                            }
-                        };
-                    }
-                    ajax.send("id=" + fid);
-                </script>
-            </div>
-        <?php } ?>
+        <div>
+            Name                : <?php echo $fname." ".$lname?><br>
+            Email               : <?php echo $email?><br>
+            Gender              : <?php echo $gender?><br>
+            Relationship Status : <?php echo $rStatus?><br><br>
+            City                : <?php echo $city?><br>
+        </div>
     </body>
 </html>
+
+
 
