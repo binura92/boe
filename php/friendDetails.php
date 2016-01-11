@@ -180,14 +180,16 @@ if ($num_rows > 0) {
                 endif;
                 ?>
             </div>
-        </div>
-        <div>
+            <hr>
+            <div style="padding: 10px;" >
             Name                : <?php echo $fname." ".$lname?><br>
             Email               : <?php echo $email?><br>
             Gender              : <?php echo $gender?><br>
-            Relationship Status : <?php echo $rStatus?><br><br>
+            Relationship Status : <?php echo $rStatus?><br>
             City                : <?php echo $city?><br>
         </div>
+        </div>
+        
     </body>
 </html>
 
