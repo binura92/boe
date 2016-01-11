@@ -1,6 +1,9 @@
 <?php session_start(); ?>
 
 <?php
+if($_GET["u"] == $_SESSION["id"]){
+    header('Location: profile.php');
+}else{
 if (isset($_GET["u"]) && isset($_SESSION['login'])) {
     $fid = $_GET["u"];
     $id = $_SESSION["id"];
@@ -11,7 +14,7 @@ if (isset($_GET["u"]) && isset($_SESSION['login'])) {
     header('Location: ../index.html');
     exit();
 }
-
+}
 include_once './databaseConnection.php';
 
 //select the user from the database
@@ -173,7 +176,7 @@ if ($num_rows > 0) {
                     } else if ($row['Confirmation'] == 1) {
                         echo "<div id='profileNavi'>
                 <ul>
-                    <li><a href='friendProfile.php'>My Experiences</a></li>
+                    <li><a href='friendProfile.php?u=$fid'>Experiences</a></li>
                     <li><a href='friendDetails.php?f=$fid'>About</a></li>
                 </ul>
             </div>";

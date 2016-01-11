@@ -18,7 +18,7 @@
             <a class="t2 t" href="categories.php">Categories</a>
             <a class="t3 t" href="profile.php">Profile</a>
             <a class="t4 t" href="aboutbe.php">About BE</a>
-            <a class="t5 t" href="#">Help</a>
+            <a class="t5 t" href="help.php">Help</a>
         </div>
         <div id="naviIcon">
             <img src="../images/navigationIcon/friendrequest.png" alt="Friend Request" height="40" width="40">

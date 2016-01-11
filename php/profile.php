@@ -193,8 +193,8 @@ $_SESSION['id'] = $id;
             <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
             <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
             <input type="text" id="storyID" style="visibility: hidden"/>
-            <input type="button" onclick="report()" id="sendR" value="send"/>
-            <input type="reset" onclick="cancleReport()" value="cancle"/>
+            <input type="button" onclick="report()" id="sendR" value="Send"/>
+            <input type="reset" onclick="cancleReport()" value="Cancel"/>
             
         </div>
     </body>

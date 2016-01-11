@@ -65,6 +65,7 @@ if ($query1) {
         $storyDetails = "SELECT * FROM registered_user INNER JOIN story ON registered_user.Registation_ID=story.Author_ID WHERE Story_ID=" . $storyID . ";";
         $sqlstoryDetails = mysqli_query($con, $storyDetails);
         $runStory = mysqli_fetch_assoc($sqlstoryDetails);
+        $authorID = $runStory["Registation_ID"];
         $author = $runStory['First_Name'] . ' ' . $runStory['Last_Name'];
         $title = $runStory['Title'];
         $body = $runStory['Body'];
@@ -72,7 +73,7 @@ if ($query1) {
         echo "<main id='acc'>
                 <section id='item." . $i . "'>
                 <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID)>" . $title . "</a>
-                <div id='postDet'>Posted by <b>" . $author . "</b></div>
+                <div id='postDet'>Posted by <b><a href='friendProfile.php?u=$authorID'>" . $author . "</a></b></div>
                 <hr/>
                 </section>   		
                 </main>";

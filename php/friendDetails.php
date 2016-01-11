@@ -167,7 +167,7 @@ if ($num_rows > 0) {
                     } else if ($row['Confirmation'] == 1) {
                         echo "<div id='profileNavi'>
                 <ul>
-                    <li><a href='friendProfile.php'>My Experiences</a></li>
+                    <li><a href='friendProfile.php?u=$fid'>Experiences</a></li>
                     <li><a href='friendDetails.php?f=$fid'>About</a></li>
                 </ul>
             </div>";
