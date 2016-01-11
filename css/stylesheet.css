@@ -448,11 +448,21 @@ h5{
     border-style: solid;
     border-width:1px;
     border-radius: 5px;
-    margin-top: 1px;
-    
-   
+    margin-top: 1px; 
 }
+
 #select1{
     width: 300px;
 }
 
+#search_option2{
+    height: 30px;
+    border-style: solid;
+    border-width:1px;
+    border-radius: 5px;
+    margin-top: 1px; 
+}
+
+#select2{
+    width: 300px;
+}
