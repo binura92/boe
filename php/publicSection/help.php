@@ -9,7 +9,7 @@ while($row = mysqli_fetch_assoc($query1)){
     $desc = $row["helpDescription"];
     echo "<main id='acc'>
 	<section id='item.".$i."'>
-	<a href='#item.".$i."' style='font-family:Verdana, Geneva, sans-serif'>".$title."</a>
+	<a href='#item.".$i."' style='font-family:Verdana, Geneva, sans-serif'><b>".$title."</b></a>
 	<p>".$desc."</p>
 	</section>   		
 	</main>";	
