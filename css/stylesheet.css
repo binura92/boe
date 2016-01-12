@@ -473,16 +473,3 @@ h5{
     width: 300px;
 }
 
-#likeCount {
-  height: 20px;
-  left: 30px;
-  position: relative;
-  width: 20px;
-}
-
-#unlikeCount {
-    height: 20px;
-    left: 100px;
-    position: relative;
-    width: 20px;
-}
