@@ -61,7 +61,7 @@ $_SESSION['id'] = $id;
     <body onLoad="iFrameon()">
         <?php include_once("template_top.php"); ?>
         <div id="wapper">
-            <div id="cover">
+            <?php echo "<div id='cover' style='background-image: url(../images/covers/$id.jpg);'>" ?>
                 <div id="profilepic">
                     <?php
                     $dir = '../profilePic/';

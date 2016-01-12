@@ -66,7 +66,7 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
 
         // check whether the stories are not private (Even story is private it is shown to the Author when he access stories under categories)
 
-        $sql = "SELECT Story_ID FROM story JOIN registered_user ON story.Author_ID = registered_user.Registation_ID WHERE Category_ID='$cid' and (Type != 'pr' or Author_ID = '$id') and view = 1 and User_Level = 1 ORDER BY Publish_Date DESC";
+        $sql = "SELECT Story_ID, Category_ID FROM story JOIN registered_user ON story.Author_ID = registered_user.Registation_ID WHERE Category_ID='$cid' and (Type != 'pr' or Author_ID = '$id') and view = 1 and User_Level = 1 ORDER BY Publish_Date DESC";
 
         $result = $con->query($sql);
         if ($result->num_rows > 0) {
@@ -74,6 +74,10 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
             $i = 1;
             while ($row = $result->fetch_assoc()) {
                 $storyID = $row["Story_ID"];
+                $catID = $row["Category_ID"];
+                $sqlFindCat = "SELECT Category_Title FROM category WHERE Category_ID = $catID";
+                $queryFindCat = mysqli_query($con, $sqlFindCat);
+                $resFindCat = mysqli_fetch_assoc($queryFindCat);
                 $storyDetails = "SELECT * FROM registered_user INNER JOIN story ON registered_user.Registation_ID=story.Author_ID WHERE Story_ID=" . $storyID . ";";
                 $sqlstoryDetails = mysqli_query($con, $storyDetails);
                 $runStory = mysqli_fetch_assoc($sqlstoryDetails);
@@ -83,11 +87,12 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
                 $body = $runStory['Body'];
                 $publishDate = $runStory['Publish_Date'];
                 $profilePic = $runStory['Profpic'];
+                $catName = $resFindCat["Category_Title"];
                 $div_ID = "storyComment" . $storyID;
                 echo "<main id='acc'>
                 <section id='item." . $i . "'>
                 <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID) >" . $title . "</a>
-                <div id='postDet'>Posted by <b><a href='friendProfile.php?u=$authorID'>" . $author . "</a></b></div>
+                <div id='postDet'>Posted by <b><a href='friendProfile.php?u=$authorID'>" . $author . "</a></b><br><a href='StoryCategoryPage.php?cid=$catID'>".$catName."</a></div>
               
                     <hr/>
                     
