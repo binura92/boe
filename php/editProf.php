@@ -84,13 +84,13 @@ foreach ($files1 as $x) {
             </div>
             <div id="editInfo">
                 <span>First Name</span><br/>  
-                <input type="text" id="editTxtFname" value= <?php echo $fname; ?> /><br/><br/>
+                <input type="text" id="editTxtFname" class="editinfoinputbox" value= <?php echo $fname; ?> /><br/><br/>
                 <span>Last Name</span><br/> 
-                <input type="text" id="editTxtLname" value= <?php echo $lname; ?> /><br/><br/>
+                <input type="text" id="editTxtLname" class="editinfoinputbox" value= <?php echo $lname; ?> /><br/><br/>
                 <span>City</span><br/>
-                <input type="text" id="editTxtCity" value= <?php echo $city; ?> /><br/><br/>
+                <input type="text" id="editTxtCity" class="editinfoinputbox" value= <?php echo $city; ?> /><br/><br/>
                 <span>Relationship Status</span><br/>
-                <select id="cmbEditStatus">
+                <select id="cmbEditStatus" class="editinfoinputbox">
                     <option value= <?php echo $status; ?>><?php echo $status; ?></option>
 <?php
 if ($status == "Single") {
@@ -102,7 +102,7 @@ if ($status == "Single") {
                 </select><br/><br/>
 
                 <span>Gender</span><br/>				
-                <select id="cmbEditGender">
+                <select id="cmbEditGender"  class="editinfoinputbox">
                     <option value= <?php echo $gender; ?>><?php echo $gender; ?></option>
 <?php
 if ($gender == "Male") {
@@ -123,16 +123,16 @@ if ($gender == "Male") {
                 <div id="changePasswordDisplay">
                     <br/>
                     <span>Current Password</span><br/>
-                    <input type="password" id="txtCurrentPassword"/><br/><br/>
+                    <input type="password" class="editinfoinputbox changepwitems" id="txtCurrentPassword"/><br/><br/>
                     <span>New Password</span><br/>
-                    <input type="password" id="txtNewPassword" onKeyUp="checkNewPassword()"/>
+                    <input type="password" class="editinfoinputbox changepwitems" id="txtNewPassword" onKeyUp="checkNewPassword()"/>
                     <span id="newPasswordStatus"></span><br/><br/>
                     <span>Re-type New Password</span><br/>
-                    <input type="password" id="txtConfirmNewPassword" onKeyUp="checkNewPasswordMatch()"/>
+                    <input type="password"  class="editinfoinputbox changepwitems" id="txtConfirmNewPassword" onKeyUp="checkNewPasswordMatch()"/>
                     <span id="newConfirmPasswordStatus"></span>
                     <br/><br/>
-                    <button id="saveNewPassword" onClick="saveNewPassword()">Save Changes</button>
-                    <button id="cancelNewPassword" onClick="cancelNewPassword()">Cancel</button>
+                    <button id="saveNewPassword" class="changepwbtns" onClick="saveNewPassword()">Save Changes</button>
+                    <button id="cancelNewPassword" class="changepwbtns" onClick="cancelNewPassword()">Cancel</button>
                     <div id="saveNewPasswordStatus"></div>
                 </div>
             </div>
@@ -147,7 +147,7 @@ if ($gender == "Male") {
                     <form id="propicform" method="post" enctype="multipart/form-data">
                         <input type="file" name="file"/>
                         <br/><br/>
-                        <input type="submit" name="btnPicSubmit" value="Upload"/>
+                        <input type="submit" name="btnPicSubmit" class="coverbellowbuttons" value="Upload"/>
                     </form>
                 </div> 
             </div>
