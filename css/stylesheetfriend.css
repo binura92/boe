@@ -21,10 +21,6 @@
 #MyFriendlist{
     width: 490px;
     height: auto; 
-    border-left-style: solid;
-    border-left-width: 0.5px;
-    border-right-style: solid;
-    border-right-width: 0.5px;
 }
 
 #MyFriendlist a{
@@ -54,6 +50,7 @@
   background-color: #9dc3e7;
   border-top-style: solid;
   border-top-width: 0.5px;
+  border-top-color: #fff;
   height: 50px;
 }
 
@@ -62,6 +59,7 @@
   font-size: 1.4em;
   position: relative;
   text-align: center;
+  color: #fff;
 }
 
 .allriendlistviewdiv{
@@ -85,4 +83,14 @@
     max-height: 600px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+#MyFriendRequests h5 {
+  margin: 10px 0 0 10px;
+  padding: 0;
+  text-align: unset;
+}
+
+.displayy:hover{
+    background-color: #E6F7F7;
 }
