@@ -22,7 +22,7 @@ if (isset($_POST["e"])) {
         echo "login_failed";
         exit();
     } else {
-        $sql1 = "SELECT * FROM registered_user WHERE Email_Address = '$e' AND Password = '$p' AND User_Level = 1 LIMIT 1";
+        $sql1 = "SELECT * FROM registered_user WHERE Email_Address = '$e' AND Password = '$p' AND User_Level = 1 LIMIT 1;";
         $query1 = mysqli_query($con, $sql1);
         $num_rows = mysqli_num_rows($query1);
         if ($num_rows > 0) {
