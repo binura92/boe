@@ -15,8 +15,12 @@
         $row = mysqli_fetch_assoc($query);
         $title = $row['Title'];
         $description = $row['Description'];
+        if($row){
         echo("<h2> Title : " . $title . "</h2>");
         echo ("<h3> Description : " .$description ."</h3>");
+        }else{
+            echo ("you haven't any warnings");
+        }
         ?>
 
     </body>
