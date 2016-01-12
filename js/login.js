@@ -21,5 +21,12 @@ function login() {
             }
         };
         ajax.send("e=" + e + "&p=" + p);
+
+    }
+}
+function isEnter(e) {  //check press enter key
+    var key = e.keyCode;
+    if (key == 13) {
+        login();
     }
 }

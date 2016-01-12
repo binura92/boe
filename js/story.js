@@ -38,6 +38,7 @@ function post() {
 //}
 
 function viewStory(storyID) {
+    
 
     viewComment(storyID);
     var httpxml;
@@ -66,7 +67,7 @@ function showReport(storyID) {
     $("#reportDiv").css("visibility", 'visible');
 }
 function report() {
-    var description ="";
+    var description = "";
     var value1 = document.getElementById("reportOption1").checked;
     var value2 = document.getElementById("reportOption2").checked;
     var value3 = document.getElementById("reportOption3").checked;
@@ -89,7 +90,7 @@ function report() {
                 //var output = ajax.responseText;
                 alert("Report");
                 $("#reportDiv").css("visibility", 'hidden');
-                
+
 
                 if (ajax.responseText != 1) {
                     alert("Error in report");
@@ -165,4 +166,33 @@ function newComment(storyID) {
         }
         ajax.send("story_ID=" + storyID + "&comment=" + comment);
     }
+}
+
+
+function deleteStory(storyID) {
+    alert(storyID);
+    if (confirm("Do you want to delete this story?")== true){
+
+
+    var httpxml;
+    httpxml = new XMLHttpRequest();
+    function stateChanged() {
+        if (httpxml.readyState == 4) {
+            var output = httpxml.responseText;
+            alert(output);
+            if(output==1){
+                alert("Delete successfully");
+            }else{
+                alert("Error in delete. Try again.");
+            }
+        }
+    }
+    var url = "deleteStory.php";
+    url = url + "?txt=" + storyID;
+    url = url + "&sid=" + Math.random();
+    httpxml.onreadystatechange = stateChanged;
+    httpxml.open("GET", url, true);
+    httpxml.send(null);
+    }
+
 }

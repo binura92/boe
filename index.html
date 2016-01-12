@@ -25,7 +25,7 @@
             <h2>Welcome to BE</h2>
             <form name="contact" id="loginForm">
                 <input type="text" placeholder="Your email address" id="txtEmail"/>
-                <input type="password" id="txtPassword" placeholder="Your Password"/>
+                <input type="password" id="txtPassword" placeholder="Your Password" onkeypress="isEnter(event)"/>
                 <input type="button" value="Just View" class="SignInFormBtn" id="JustViewbtn" onclick="viewSite()"/>
                 <input type="button" value="Sign Up" class="SignInFormBtn" id="SignUpbtn"/>
                 <input type="button" value="Sign In" class="SignInFormBtn" id="btnLogin" onClick="login()"/>			

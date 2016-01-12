@@ -6,7 +6,7 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-$sql3 = "SELECT * FROM registered_user INNER JOIN story ON registered_user.Registation_ID=story.Author_ID WHERE Author_ID = '$id' ORDER BY Story_ID DESC ";
+$sql3 = "SELECT * FROM registered_user INNER JOIN story ON registered_user.Registation_ID=story.Author_ID WHERE Author_ID = '$id' and view= 1 ORDER BY Story_ID DESC ";
 $result = mysqli_query($con, $sql3);
 $i = 1;
 while ($row = mysqli_fetch_assoc($result)) {
