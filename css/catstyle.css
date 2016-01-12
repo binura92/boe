@@ -31,13 +31,13 @@
   background-color: #a8fdfd;
   border-radius: 10px;
   border-width: 0.5px;
-  font-family: Verdana,Geneva,sans-serif;
   height: auto;
   left: 30%;
   position: absolute;
   top: 20%;
   visibility: hidden;
   width: 40%;
+  z-index: 1;
 }
 
 
