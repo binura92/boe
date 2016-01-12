@@ -112,20 +112,34 @@
 }
 
 #reportDiv{
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    border-width: 0.5px;
+    border-style: solid;
+    height: auto;
+    left: 50%;
+    max-height: 500px;
+    overflow-y: auto;
+    position: fixed;
+    top: 50px;
+    transform: translate(-50%, -10%);
     visibility: hidden;
-    position:absolute;
-    background-color: #ccfefe;
-    
-    
-        font-family:Verdana, Geneva, sans-serif;
-   
-    
-    height:auto; //440px;
-    top: 80%;
-    left:50%;
     width: 400px;
-    border-radius:10px;
-    border-width:0.5px;
+    z-index: 2;
+}
+
+#reportDiv input {
+  margin-top: 10px;
+  width: 100px;
+}
+
+#reportDiv h4 {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+#sendR {
+  margin-bottom: 15px;
 }
 
 #writeComment {

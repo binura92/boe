@@ -38,8 +38,6 @@ function post() {
 //}
 
 function viewStory(storyID) {
-    likeCount(storyID);
-    unlikeCount(storyID);
     viewComment(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -57,6 +55,8 @@ function viewStory(storyID) {
                                     <button id='unlikeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",2)'>Unlike</button> \n\
                                     <button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button>\n\
                                     <div id = 'likeCount'></div><div id ='unlikeCount'></div> ";
+                likeCount(storyID);
+                unlikeCount(storyID);
             }
         }
     }
@@ -121,6 +121,8 @@ function storyViewClose() {
 }
 
 function viewComment(storyID) {
+    likeCount(storyID);
+    unlikeCount(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
     function stateChanged() {

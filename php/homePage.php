@@ -45,7 +45,7 @@ if (isset($_SESSION['login'])) {
             <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
             <input type="text" id="storyID" style="visibility: hidden"/>
             <input type="button" onclick="report()" id="sendR" value="send"/>
-            <input type="reset" onclick="cancleReport()" value="cancle"/>
+            <input type="reset" onclick="cancleReport()" value="cancel"/>
 
         </div>
     </body>
