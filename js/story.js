@@ -39,7 +39,7 @@ function post() {
 
 function viewStory(storyID) {
 
-
+    showFeedbackCount(storyID)
     viewComment(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -55,7 +55,7 @@ function viewStory(storyID) {
                 $("#storyView").css("visibility", 'visible');
                 document.getElementById("feedback").innerHTML = "<button id='likeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",1)'>Like</button>\n\
 <button id='unlikeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",2)'>Unlike</button> \n\
-<button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button>"
+<button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button> <div id = 'likeCount' style='z-index: 10;'></div><div id ='unlikeCount' style='z-index: 10;'></div> "
             }
         }
     }
@@ -202,26 +202,70 @@ function deleteStory(storyID) {
 
 
 function feedback(storyID, feedback) {
-    if (feedback == 1){
+    if (feedback == 1) {
         feedback = "L";
-    }else{
+    } else {
         feedback = "U";
     }
-    
-        var ajax = ajaxObj("POST", "../php/feedback.php");
-        ajax.onreadystatechange = function () {
-            if (ajaxReturn(ajax) == true) {
-                var output = ajax.responseText;
-                alert(output);
 
-                if (ajax.responseText != 1) {
-                    alert("Error");
-                } else {
-                   // viewComment(storyID);
+    var ajax = ajaxObj("POST", "../php/feedback.php");
+    ajax.onreadystatechange = function () {
+        if (ajaxReturn(ajax) == true) {
+            var output = ajax.responseText;
+            showFeedbackCount(storyID);
+            //alert(output);
 
-                }
+            if (ajax.responseText != 1) {
+                alert("Error");
+            } else {
+                // viewComment(storyID);
+
             }
         }
-        ajax.send("story_ID=" + storyID + "&feedback=" + feedback);
-    
+    }
+    ajax.send("story_ID=" + storyID + "&feedback=" + feedback);
+
+}
+
+function showFeedbackCount(storyID) {
+    likeCount(storyID);
+    unlikeCount(storyID);
+}
+
+function likeCount(storyID) {
+    var httpxml;
+    httpxml = new XMLHttpRequest();
+    function stateChanged() {
+        if (httpxml.readyState == 4) {
+            var output = httpxml.responseText;
+            document.getElementById("likeCount").innerHTML = output;
+            //alert(output);
+        }
+    }
+    var url = "likeCount.php";
+    url = url + "?txt=" + storyID;
+    url = url + "&sid=" + Math.random();
+    httpxml.onreadystatechange = stateChanged;
+    httpxml.open("GET", url, true);
+    httpxml.send(null);
+
+}
+
+function unlikeCount(storyID) {
+    var httpxml;
+    httpxml = new XMLHttpRequest();
+    function stateChanged() {
+        if (httpxml.readyState == 4) {
+            var output = httpxml.responseText;
+            document.getElementById("unlikeCount").innerHTML = output;
+            //alert(output);
+        }
+    }
+    var url = "unlikeCount.php";
+    url = url + "?txt=" + storyID;
+    url = url + "&sid=" + Math.random();
+    httpxml.onreadystatechange = stateChanged;
+    httpxml.open("GET", url, true);
+    httpxml.send(null);
+
 }
