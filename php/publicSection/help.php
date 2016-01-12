@@ -1,5 +1,5 @@
 <?php
-include_once("template_top.php");
+include_once("story_top.php");
 include_once './databaseConnection.php';
 $sql1 = "SELECT * FROM help";
 $query1 = mysqli_query($con, $sql1);

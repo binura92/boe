@@ -14,9 +14,10 @@
             <div id="dis">  </div>
         </form>
         <div id="naviItems">
-            <a class="t1 t" href="../aboutbe.php">About BE</a>
-            <a class="t2 t" href="#">Help</a>
-            <a class="t3 t" href="../../index.html">Sign In / Sign Up</a>
+            <a class="t1 t" href="publicCategories.php">Categories</a>
+            <a class="t2 t" href="aboutbe.php">About BE</a>
+            <a class="t3 t" href="help.php">Help</a>
+            <a class="t4 t" href="../../index.html">Sign In / Sign Up</a>
         </div> 
     </div>       
 </div>

@@ -12,6 +12,7 @@ function login() {
             if (ajaxReturn(ajax) === true) {
                 
                 if (ajax.responseText == 0) {
+                    //alert();
                     _("loginStatus").innerHTML = "Login unsuccessful... Please try again !";
                     //_("btnLogin").style.display = "block";
                 } else {
