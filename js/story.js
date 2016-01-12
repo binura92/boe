@@ -38,8 +38,8 @@ function post() {
 //}
 
 function viewStory(storyID) {
-
-    showFeedbackCount(storyID)
+    likeCount(storyID);
+    unlikeCount(storyID);
     viewComment(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -55,7 +55,12 @@ function viewStory(storyID) {
                 $("#storyView").css("visibility", 'visible');
                 document.getElementById("feedback").innerHTML = "<button id='likeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",1)'>Like</button>\n\
 <button id='unlikeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",2)'>Unlike</button> \n\
+<<<<<<< HEAD
 <button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button> <div id = 'likeCount'></div><div id ='unlikeCount' style='z-index: 10;'></div> "
+=======
+<button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button>\n\
+ <div id = 'likeCount'></div><div id ='unlikeCount'></div> "
+>>>>>>> 80075ad4a6606f76a40d4abea26fea9a2cd01ce8
             }
         }
     }
@@ -212,13 +217,12 @@ function feedback(storyID, feedback) {
     ajax.onreadystatechange = function () {
         if (ajaxReturn(ajax) == true) {
             var output = ajax.responseText;
-            showFeedbackCount(storyID);
-            //alert(output);
+            likeCount(storyID);
+            unlikeCount(storyID);
 
             if (ajax.responseText != 1) {
                 alert("Error");
             } else {
-                // viewComment(storyID);
 
             }
         }
@@ -227,10 +231,6 @@ function feedback(storyID, feedback) {
 
 }
 
-function showFeedbackCount(storyID) {
-    likeCount(storyID);
-    unlikeCount(storyID);
-}
 
 function likeCount(storyID) {
     var httpxml;
