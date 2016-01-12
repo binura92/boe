@@ -28,6 +28,7 @@ while ($run = mysqli_fetch_array($checkResult)) {
     $view = $run['view'];
 }
 if ($view == 0) {
+    echo 0;
     exit();
 }
 
@@ -55,5 +56,4 @@ $out.= "<p class='storytitlebold'>" . $title . "</P>" . "<br><p class='pbyname'>
 echo $out;
 ?>
 
-<p ></p>
 

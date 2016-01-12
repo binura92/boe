@@ -84,7 +84,7 @@ $_SESSION['id'] = $id;
                 </ul>
             </div>
             <div id="FriendlistBucket">
-                <div id="AllFriendlist" style="color: black;">
+                <div id="AllFriendlist" class="displayy" style="color: black;">
                     <div class="bucketheadder">
                         <h3>All Friends</h3>
                     </div>                       
@@ -177,7 +177,7 @@ $_SESSION['id'] = $id;
                                 }
                             }
                         } else {
-                            echo "No friend requests";
+                            echo "<h5>You have no pending friend requests</h5>";
                         }
                     }
                     ?>                    

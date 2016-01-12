@@ -16,10 +16,13 @@ body{
     position: relative;
 }	
 
-#headNavi form{ //---------------------
-                margin: 0;
-                padding: 0;
-                position: relative;
+#naviItems a:active{
+    color: #ccc;
+}
+#headNavi form{
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 #naviItems a {

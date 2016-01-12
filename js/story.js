@@ -38,19 +38,25 @@ function post() {
 //}
 
 function viewStory(storyID) {
-    
+
 
     viewComment(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
     function stateChanged() {
         if (httpxml.readyState == 4) {
+
             var output = httpxml.responseText;
-            document.getElementById("story").innerHTML = output;
-            $("#storyView").css("visibility", 'visible');
-            document.getElementById("feedback").innerHTML = "<button id='likeBtn' class='feedbackBtn'>Like</button>\n\
-<button id='unlikeBtn' class='feedbackBtn'>Unlike</button> \n\
+            if (output == 0) {
+                storyViewClose();
+                alert("Story does not exists");
+            } else {
+                document.getElementById("story").innerHTML = output;
+                $("#storyView").css("visibility", 'visible');
+                document.getElementById("feedback").innerHTML = "<button id='likeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",1)'>Like</button>\n\
+<button id='unlikeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",2)'>Unlike</button> \n\
 <button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button>"
+            }
         }
     }
     var url = "storyView.php";
@@ -114,13 +120,11 @@ function storyViewClose() {
 }
 
 function viewComment(storyID) {
-    //alert(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
     function stateChanged() {
         if (httpxml.readyState == 4) {
             var output = httpxml.responseText;
-            //alert(output);
             document.getElementById("oldComment").innerHTML = output;
             document.getElementById("newComment").innerHTML = '<input id = "writeComment" type="text" placeholder="Enter Your Comment" onkeypress="isEnter(event,' + storyID + ')"><button id="cmtpostbtn" onclick="newComment(' + storyID + ')">enter</button>';
         }
@@ -170,29 +174,54 @@ function newComment(storyID) {
 
 
 function deleteStory(storyID) {
-    alert(storyID);
-    if (confirm("Do you want to delete this story?")== true){
+    if (confirm("Do you want to delete this story?") == true) {
 
 
-    var httpxml;
-    httpxml = new XMLHttpRequest();
-    function stateChanged() {
-        if (httpxml.readyState == 4) {
-            var output = httpxml.responseText;
-            alert(output);
-            if(output==1){
-                alert("Delete successfully");
-            }else{
-                alert("Error in delete. Try again.");
+        var httpxml;
+        httpxml = new XMLHttpRequest();
+        function stateChanged() {
+            if (httpxml.readyState == 4) {
+                var output = httpxml.responseText;
+                if (output == 1) {
+                    alert("Delete successfully");
+                    storyViewClose();
+                } else {
+                    alert("Error in delete. Try again.");
+                }
             }
         }
-    }
-    var url = "deleteStory.php";
-    url = url + "?txt=" + storyID;
-    url = url + "&sid=" + Math.random();
-    httpxml.onreadystatechange = stateChanged;
-    httpxml.open("GET", url, true);
-    httpxml.send(null);
+        var url = "deleteStory.php";
+        url = url + "?txt=" + storyID;
+        url = url + "&sid=" + Math.random();
+        httpxml.onreadystatechange = stateChanged;
+        httpxml.open("GET", url, true);
+        httpxml.send(null);
     }
 
+}
+
+
+function feedback(storyID, feedback) {
+    if (feedback == 1){
+        feedback = "L";
+    }else{
+        feedback = "U";
+    }
+    
+        var ajax = ajaxObj("POST", "../php/feedback.php");
+        ajax.onreadystatechange = function () {
+            if (ajaxReturn(ajax) == true) {
+                var output = ajax.responseText;
+                alert(output);
+
+                if (ajax.responseText != 1) {
+                    alert("Error");
+                } else {
+                   // viewComment(storyID);
+
+                }
+            }
+        }
+        ajax.send("story_ID=" + storyID + "&feedback=" + feedback);
+    
 }
