@@ -203,3 +203,10 @@
     position: relative;
     width: 20px;
 }
+
+.frindrequestbtn {
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 150px;
+}

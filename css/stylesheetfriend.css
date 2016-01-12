@@ -101,3 +101,22 @@
     overflow-x: hidden;
     overflow-y: auto;    
 }
+
+/*About Friend Styles*/
+
+#frienddetailview {
+  padding: 0 20px;
+}
+
+#frienddetailview h4 {
+  display: inline-block;
+  font-size: 1.1em;
+  margin-top: 25px;
+  width: 200px;
+}
+
+#frienddetailview h5{
+    display: inline-block; 
+    font-size: 1.1em;
+    margin-top: 25px;
+}
