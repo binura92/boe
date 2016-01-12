@@ -86,9 +86,13 @@
     </div>
 </div> 
 <div id="LogOutBar">
+     <a href="postInquiry.php"><Div id="LogOut" class="LogOutBorer">
+        <h5>Inquiry</h5>
+    </Div></a>   
     <a href="logout.php"><Div id="LogOut" class="LogOutBorer">
             <h5>Log Out</h5>
         </Div></a>
+
     <div id="LogOutclose" class="LogOutBorer">
         <h5>Close</h5>
     </div>    	

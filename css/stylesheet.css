@@ -394,13 +394,13 @@ h5{
     border-width:1px;	
 }
 
-#LogOutBar{
-    visibility:hidden;
-    position:absolute;
-    height:50px;
-    width:100px;
-    right:0px;
-    background-color:#ccc;
+#LogOutBar {
+  background-color: #ccc;
+  height: 54px;
+  position: absolute;
+  right: 0;
+  visibility: hidden;
+  width: 100px;
 }
 
 #LogOut{
@@ -473,3 +473,8 @@ h5{
     width: 300px;
 }
 
+#LogOutBar a{
+    color: #000;
+    margin: 0px;
+    padding: 0px;
+}
