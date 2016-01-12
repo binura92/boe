@@ -95,9 +95,7 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
                 </main>";
                 echo "<span id=$div_ID></span>";
                 $i++;
-                /* <div id = $div_ID>
-
-                  </div> */
+                
             }
         } else {
             echo "0 results";

@@ -43,11 +43,18 @@ $(document).ready(function ($) {
 
     //log out
     $("#SettingsIcon").click(function () {
-        $("#LogOutBar").css("visibility", 'visible')
+        $("#LogOutBar").css("visibility", 'visible');
     });
     $("#LogOutclose").click(function () {
-        $("#LogOutBar").css("visibility", 'hidden')
+        $("#LogOutBar").css("visibility", 'hidden');
     });
+    
+    //Search Friend 
+    $("#searchFriend").focus(function() {
+        $("#headder").css("overflow", 'visible');
+    }).blur(function() {
+        $("#headder").css("overflow", 'hidden');
+    });  
 });
 
 
