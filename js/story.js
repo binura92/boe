@@ -55,7 +55,7 @@ function viewStory(storyID) {
                 $("#storyView").css("visibility", 'visible');
                 document.getElementById("feedback").innerHTML = "<button id='likeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",1)'>Like</button>\n\
 <button id='unlikeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",2)'>Unlike</button> \n\
-<button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button> <div id = 'likeCount' style='z-index: 10;'></div><div id ='unlikeCount' style='z-index: 10;'></div> "
+<button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button> <div id = 'likeCount'></div><div id ='unlikeCount' style='z-index: 10;'></div> "
             }
         }
     }
