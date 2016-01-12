@@ -25,6 +25,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                 </section>   		
                 </main>";
 }
-echo "<hr>";
+
 $i++;
 ?>

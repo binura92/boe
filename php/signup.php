@@ -42,7 +42,7 @@ if(isset($_POST["e"])){
 	$query1 = mysqli_query($con, "SELECT * FROM registered_user WHERE Email_Address = '$e'");
 	$numrows = mysqli_num_rows($query1);
 	if($numrows==0){
-		$sql = "INSERT INTO registered_user(First_Name, Last_Name, Email_Address, Password, Gender, Status, City) VALUES ('$f', '$l', '$e', '$p_hash', '$g', '$s', '$c')" ;
+		$sql = "INSERT INTO registered_user(User_Level, First_Name, Last_Name, Email_Address, Password, Gender, Status, City) VALUES (1, '$f', '$l', '$e', '$p_hash', '$g', '$s', '$c')" ;
 		$query = mysqli_query($con, $sql);
 		
 		if(!file_exists("user/$e")){
