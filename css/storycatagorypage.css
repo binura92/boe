@@ -1,0 +1,41 @@
+#wapper{
+    background-color: #f7f9f9;
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+}
+
+#marginsetwapper {
+  margin-left: 85px;
+  width: 860px;
+}
+#catwapper {
+  display: inline;
+}
+#catname{
+    background-color:#fff;
+    width:inherit;
+    height:25px;
+    opacity:0.5;
+    position:relative;
+    top:150px;
+}
+#catname a{
+    text-decoration: none;
+}
+.catSelectBox {
+    display: inline-block;
+    height: 175px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 250px;
+    margin-top:25px;
+}
+h4 {
+    color: #000;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
