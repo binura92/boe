@@ -38,8 +38,8 @@ function post() {
 //}
 
 function viewStory(storyID) {
-
-
+    likeCount(storyID);
+    unlikeCount(storyID);
     viewComment(storyID);
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -54,8 +54,9 @@ function viewStory(storyID) {
                 document.getElementById("story").innerHTML = output;
                 $("#storyView").css("visibility", 'visible');
                 document.getElementById("feedback").innerHTML = "<button id='likeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",1)'>Like</button>\n\
-<button id='unlikeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",2)'>Unlike</button> \n\
-<button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button>"
+                                    <button id='unlikeBtn' class='feedbackBtn' onclick='feedback(" + storyID + ",2)'>Unlike</button> \n\
+                                    <button id='reportBtn' class='feedbackBtn' onclick='showReport(" + storyID + ")'>Report</button>\n\
+                                    <div id = 'likeCount'></div><div id ='unlikeCount'></div> ";
             }
         }
     }
@@ -202,26 +203,65 @@ function deleteStory(storyID) {
 
 
 function feedback(storyID, feedback) {
-    if (feedback == 1){
+    if (feedback == 1) {
         feedback = "L";
-    }else{
+    } else {
         feedback = "U";
     }
-    
-        var ajax = ajaxObj("POST", "../php/feedback.php");
-        ajax.onreadystatechange = function () {
-            if (ajaxReturn(ajax) == true) {
-                var output = ajax.responseText;
-                alert(output);
 
-                if (ajax.responseText != 1) {
-                    alert("Error");
-                } else {
-                   // viewComment(storyID);
+    var ajax = ajaxObj("POST", "../php/feedback.php");
+    ajax.onreadystatechange = function () {
+        if (ajaxReturn(ajax) == true) {
+            var output = ajax.responseText;
+            likeCount(storyID);
+            unlikeCount(storyID);
 
-                }
+            if (ajax.responseText != 1) {
+                alert("Error");
+            } else {
+
             }
         }
-        ajax.send("story_ID=" + storyID + "&feedback=" + feedback);
-    
+    }
+    ajax.send("story_ID=" + storyID + "&feedback=" + feedback);
+
+}
+
+
+function likeCount(storyID) {
+    var httpxml;
+    httpxml = new XMLHttpRequest();
+    function stateChanged() {
+        if (httpxml.readyState == 4) {
+            var output = httpxml.responseText;
+            document.getElementById("likeCount").innerHTML = output;
+            //alert(output);
+        }
+    }
+    var url = "likeCount.php";
+    url = url + "?txt=" + storyID;
+    url = url + "&sid=" + Math.random();
+    httpxml.onreadystatechange = stateChanged;
+    httpxml.open("GET", url, true);
+    httpxml.send(null);
+
+}
+
+function unlikeCount(storyID) {
+    var httpxml;
+    httpxml = new XMLHttpRequest();
+    function stateChanged() {
+        if (httpxml.readyState == 4) {
+            var output = httpxml.responseText;
+            document.getElementById("unlikeCount").innerHTML = output;
+            //alert(output);
+        }
+    }
+    var url = "unlikeCount.php";
+    url = url + "?txt=" + storyID;
+    url = url + "&sid=" + Math.random();
+    httpxml.onreadystatechange = stateChanged;
+    httpxml.open("GET", url, true);
+    httpxml.send(null);
+
 }

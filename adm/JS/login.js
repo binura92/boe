@@ -16,7 +16,10 @@ function fun_login(){
 
             }
             else{
-                window.location.assign("/BOE/adm/aDash.php?u="+xhttp.responseText)
+                window.location.assign("../adm/aDash.php?u="+xhttp.responseText);
+				
+document.body.appendChild(f);
+f.submit();
             }
 
 			}
@@ -25,3 +28,14 @@ function fun_login(){
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("userName="+userName+"&userPass="+userPass);
 	}
+function fun_cancle(){
+	document.getElementById('userName').value='';
+	document.getElementById('userPass').value='';
+	}
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 13) {
+        fun_login();
+    }
+    
+});
