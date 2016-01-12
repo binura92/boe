@@ -21,9 +21,9 @@
             <a class="t5 t" href="help.php">Help</a>
         </div>
         <div id="naviIcon">
-            <img src="../images/navigationIcon/friendrequest.png" alt="Friend Request" height="40" width="40">
+            <a href="friendPage.php"><img src="../images/navigationIcon/friendrequest.png" alt="Friend Request" height="40" width="40"></a>
             <img src="../images/navigationIcon/message.png" alt="Message" height="40" width="40" id="MsgIcon">
-            <img src="../images/navigationIcon/notification.png" alt="Notifications" height="40" width="40">
+            <a href="warning.php"><img src="../images/navigationIcon/notification.png" alt="Notifications" height="40" width="40"></a>
             <img src="../images/navigationIcon/setting.png" alt="Settings" height="40" width="40" id="SettingsIcon">
         </div> 
     </div>       
