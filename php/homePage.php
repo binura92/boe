@@ -54,7 +54,8 @@ if (isset($_SESSION['login'])) {
 include_once './databaseConnection.php';
 include_once("template_top.php");
 
-$sql1 = "SELECT s.* FROM friend_add f JOIN story s ON (f.F_Registation_ID = s.Author_ID OR f.Registation_ID = s.Author_ID) WHERE f.Registation_ID = '$id' and f.Confirmation = 1 and f.SenderID = '$id' and Type != 'pr' and view= 1 ORDER BY lastUpdate DESC";
+//$sql1 = "SELECT s.* FROM friend_add f JOIN story s ON (f.F_Registation_ID = s.Author_ID OR f.Registation_ID = s.Author_ID) WHERE f.Registation_ID = '$id' and f.Confirmation = 1 and f.SenderID = '$id' and Type != 'pr' and view= 1 ORDER BY lastUpdate DESC";
+$sql1 = "SELECT s.* FROM friend_add f JOIN story s ON (f.F_Registation_ID = s.Author_ID OR f.Registation_ID = s.Author_ID) JOIN registered_user r ON s.Author_ID = r.Registation_ID WHERE f.Registation_ID = '$id' and f.Confirmation = 1 and f.SenderID = '$id' and Type != 'pr' and view= 1 and User_Level = 1 ORDER BY lastUpdate DESC";
 
 $query1 = mysqli_query($con, $sql1);
 

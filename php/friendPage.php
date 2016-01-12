@@ -106,7 +106,7 @@ $_SESSION['id'] = $id;
                         return $profilePic;
                     }
 
-                    $sql1 = "SELECT * FROM registered_user WHERE Registation_ID != '$id' ORDER BY First_Name, Last_Name";
+                    $sql1 = "SELECT * FROM registered_user WHERE Registation_ID != '$id' and User_Level = 1 ORDER BY First_Name, Last_Name";
                     $query1 = mysqli_query($con, $sql1);
                     if ($query1) {
 
@@ -126,7 +126,7 @@ $_SESSION['id'] = $id;
                         <h3>My Friends</h3>
                     </div>
                     <?php
-                    $sql3 = "SELECT F_Registation_ID FROM friend_add WHERE Registation_ID = '$id' and Confirmation = 1";
+                    $sql3 = "SELECT f.F_Registation_ID FROM friend_add f JOIN registered_user r ON f.F_Registation_ID = r.Registation_ID WHERE f.Registation_ID = '$id' and f.Confirmation = 1 and r.User_Level = 1";
                     $result3 = mysqli_query($con, $sql3);
                     while ($row = mysqli_fetch_assoc($result3)) {
                         $friendID = $row["F_Registation_ID"];
@@ -157,7 +157,7 @@ $_SESSION['id'] = $id;
                         <h3>My Friend Requests</h3>
                     </div>
                     <?php
-                    $sql2 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$id' and senderID != '$id' and Confirmation = 0";
+                    $sql2 = "SELECT * FROM friend_add JOIN registered_user ON friend_add.Registation_ID = registered_user.Registation_ID WHERE F_Registation_ID = '$id' and senderID != '$id' and Confirmation = 0 and User_Level = 1";
                     $query2 = mysqli_query($con, $sql2);
                     if ($query2) {
                         $num_rows = mysqli_num_rows($query2);
@@ -168,7 +168,7 @@ $_SESSION['id'] = $id;
                                 $query3 = mysqli_query($con, $sql3);
                                 if ($query3) {
                                     $res = mysqli_fetch_assoc($query3);
-                                    $profilePic = $row4['Registation_ID'] . ".jpg";
+                                    $profilePic = $res['Registation_ID'] . ".jpg";
                                     $profilePic = setDefaultProfilePic($profilePic);
                                     echo "<div class='allriendlistviewdiv'>" .
                                     "<div class='profilepicofuser'style='background-image:url(../profilePic/$profilePic);'>" . "</div>" .

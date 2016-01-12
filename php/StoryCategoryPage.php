@@ -66,7 +66,7 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
 
         // check whether the stories are not private (Even story is private it is shown to the Author when he access stories under categories)
 
-        $sql = "SELECT Story_ID FROM story WHERE (Category_ID='$cid' and (Type != 'pr' or Author_ID = '$id')and view= 1) ORDER BY Publish_Date DESC";
+        $sql = "SELECT Story_ID FROM story JOIN registered_user ON story.Author_ID = registered_user.Registation_ID WHERE Category_ID='$cid' and (Type != 'pr' or Author_ID = '$id') and view = 1 and User_Level = 1 ORDER BY Publish_Date DESC";
 
         $result = $con->query($sql);
         if ($result->num_rows > 0) {
