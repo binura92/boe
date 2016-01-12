@@ -1,10 +1,9 @@
-#editInfo{
-	width:220px;
-	margin-left:340px;
-	margin-top:30px;
-	position:relative;
-
-	height:350px;
+#editInfo {
+  height: 350px;
+  margin-left: 290px;
+  margin-top: 30px;
+  position: relative;
+  width: 300px;
 }
 
 #image{
@@ -24,4 +23,23 @@
 
 	margin-top:-356px;
 	width:370px;
+}
+
+.editinfoinputbox{
+    width: 290px;
+}
+
+#editInfo > button {
+  width: 150px;
+}
+
+#changePassword > button {
+    width: 150px;
+}
+
+.coverbellowbuttons{
+    width: 140px;
+}
+.changepwbtns{
+    width: 143px;
 }

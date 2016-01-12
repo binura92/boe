@@ -58,13 +58,14 @@ a{
     text-decoration: none;	
 }
 
-#wapper{
-    background-color: #f7f9f9;
-    position: relative;
-    width: 980px;
-    margin: 0 auto;
-    height:auto;
-    z-index:1;
+#wapper {
+  background-color: #f7f9f9;
+  height: auto;
+  margin: 0 auto;
+  min-height: 800px;
+  position: relative;
+  width: 980px;
+  z-index: 1;
 }
 
 #cover{
