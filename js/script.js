@@ -52,8 +52,12 @@ $(document).ready(function ($) {
     //Search Friend 
     $("#searchFriend").focus(function() {
         $("#headder").css("overflow", 'visible');
+        $("#wapper").css("z-index", '-1');
+        $("#headder").css("z-index", '50');
     }).blur(function() {
         $("#headder").css("overflow", 'hidden');
+        $("#headder").css("z-index", '0');
+        $("#wapper").css("z-index", '1');
     });  
 });
 
