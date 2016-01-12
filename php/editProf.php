@@ -49,7 +49,7 @@ function displayImage() {
     </head>
     <body onLoad="display()">
         <div id="wapper">
-            <div id="cover">
+            <?php echo "<div id='cover' style='background-image: url(../images/covers/$id.jpg);'>" ?>
                 <div id="profilepic">
 <?php
 $dir = '../profilePic/';
@@ -175,6 +175,40 @@ if (isset($_FILES['file'])) {
 }
 ?>
             </div> 
+        <hr>
+    <div id="changeCover">
+        <div id="coverSelection">
+                    <form id="coverpicform" method="post" enctype="multipart/form-data">
+                        <input type="file" name="file1"/>
+                        <br/><br/>
+                        <input type="submit" name="btnCoverSubmit" class="coverbellowbuttons" value="Upload"/>
+                    </form>
+                </div> 
+            </div>
+        
+            <div id="coverStatus" style="margin-left:10px;">
+        <?php
+        if (isset($_FILES['file1'])) {
+        $name = $_FILES['file1']['name'];
+        $tem_name = $_FILES['file1']['tmp_name'];
+        $type = $_FILES['file1']['type'];
+        $location = '../images/covers/';
+        $file_name = $id . '.jpg';
+
+        if (isset($name)) {
+               if (!empty($name)) {
+                   echo("Image uploaded successfully");
+                   if ($type == 'image/jpeg') {
+                       move_uploaded_file($tem_name, $location . $file_name);
+                   } else {
+                       echo("Please choose an image");
+                   }
+               } else {
+                   echo("Please choose a file");
+               }
+           }
+       }?>
+            </div>
         </div>
     </body>
 </html>

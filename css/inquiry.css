@@ -1,0 +1,40 @@
+#mainbucketinc{
+    margin: 0 auto;
+    width: 980px;
+}
+
+#mainbucketinc h1 {
+  margin: 20px 0;
+  padding: 0;
+  text-align: center;
+}
+
+.inclabels {
+  margin-bottom: 10px;
+  margin-left: 140px;
+  margin-top: 10px;
+}
+
+.incbuttons {
+  float: right;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+#btnSubmit {
+    margin-left: 30px;
+    margin-right: 140px;
+}
+
+#intitle {
+  margin-left: 140px;
+  width: 700px;
+}
+
+#mainbucketinc form textArea {
+  height: 300px;
+  margin-left: 140px;
+  resize: none;
+  width: 700px;
+}
