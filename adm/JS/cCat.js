@@ -12,11 +12,20 @@ function createCat(){
     xhttp.onreadystatechange = function(){
         if (xhttp.readyState == 4 && xhttp.status == 200){
             document.getElementById("response").innerHTML = xhttp.responseText;
+            viewC();
 
         }
-    }
+    };
     xhttp.open("POST",url,true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("adminId="+adminId+"&catName="+catName);
 
 }
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 13) {
+        createCat();
+    }
+    
+});
+
+

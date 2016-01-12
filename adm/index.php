@@ -9,22 +9,21 @@
 
 <body>
 <div id="top">
-<h1>Admin Login</h1>
+<h1>Book of Experiences Admin Login</h1>
 </div>
 <div id="rest">
-<div id="form_content">
-<span>User Name:</span>
+<span>User Name</span>
 <br/>
-<input type="text" id="userName" name="userName"/>
+<input type="text" id="userName" name="userName" autofocus="autofocus" autocomplete="off" placeholder="Enter Your User Name"/>
 <br/>
 <br/>
 <span>Password</span>
 <br/>
-<input type="password" id="userPass" name="userPass"/>
+<input type="password" id="userPass" name="userPass" placeholder="Enter Your Password"/>
 <span id="errorMsg"></span>
+<br/>
 <input type="button" id="loginBut" value="Login" onclick="fun_login()"/>
-<input type="button" id="cancelBut" value="Cancel" onclick="fun_cancle()"/>
-</div>
+<input type="button" id="cancelBut" value="Clear" onclick="fun_cancle()"/>
 </div>
 </body>
 </html>

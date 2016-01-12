@@ -1,7 +1,7 @@
 <?php
 session_start();
 $adminId=$_POST["adminId"];
-$catName=$_POST["catName"];
+$catName= ucwords(strtolower($_POST["catName"]));
 if ($catName==''){
     exit("Please Fill");
 }
