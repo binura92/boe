@@ -37,6 +37,7 @@ if ($num_rows > 0) {
     <head>
         <title>.:BE:.</title>
         <link href="../css/stylesheet.css" type="text/css" rel="stylesheet">
+        <link href="../css/stylesheetfriend.css" type="text/css" rel="stylesheet">
         <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
         <script type="text/javascript" src="../js/script.js"></script>
         <script type="text/javascript" src="../js/ajax.js"></script>
@@ -181,13 +182,13 @@ if ($num_rows > 0) {
                 ?>
             </div>
             <hr>
-            <div style="padding: 10px;" >
-            Name                : <?php echo $fname." ".$lname?><br>
-            Email               : <?php echo $email?><br>
-            Gender              : <?php echo $gender?><br>
-            Relationship Status : <?php echo $rStatus?><br>
-            City                : <?php echo $city?><br>
-        </div>
+            <div id="frienddetailview" >
+                <h4>Name</h4><h5><?php echo $fname." ".$lname?></h5><br>
+                <h4>Email</h4><h5><?php echo $email?></h5><br>
+                <h4>Gender</h4><h5><?php echo $gender?></h5><br>
+                <h4>Relationship Status</h4><h5><?php echo $rStatus?></h5><br>
+                <h4>City</h4><h5><?php echo $city?></h5><br>
+            </div>
         </div>
         
     </body>

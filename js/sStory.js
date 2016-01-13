@@ -9,7 +9,7 @@ function ajaxFunction(str){
 			document.getElementById("msg").style.display='none';
       	}
     }
-	var url="/BOE/php/searchStory.php";
+	var url="/GP2/php/searchStory.php";
 	url=url+"?txt="+str;
 	url=url+"&sid="+Math.random();
 	httpxml.onreadystatechange=stateChanged;

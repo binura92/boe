@@ -78,7 +78,7 @@ if ($num_rows > 0) {
                         //alert(output);
                         if (output === "1") {
                             document.getElementById("btnAddFriend").style.display = "none";
-                            document.getElementById("middleSection").innerHTML = "Friend Request Sent<br><button onclick='cancelFRequest()'>Cancel Request</button>";
+                            document.getElementById("middleSection").innerHTML = "Friend Request Sent<br><button class='frindrequestbtn' onclick='cancelFRequest()'>Cancel Request</button>";
                         }
                     }
                 };
@@ -99,7 +99,7 @@ if ($num_rows > 0) {
                         var output = xhttp.responseText;
                         //alert(output);
                         if (output === "1") {
-                            document.getElementById("middleSection").innerHTML = "<button id='btnAddFriend' onclick='sendFRequest()'>Add Friend</button>";
+                            document.getElementById("middleSection").innerHTML = "<button id='btnAddFriend' class='frindrequestbtn' onclick='sendFRequest()'>Add Friend</button>";
                         }
                     }
                 };
@@ -116,7 +116,7 @@ if ($num_rows > 0) {
                     if (xhttp.readyState === 4 && xhttp.status === 200) {
                         var output = xhttp.responseText;
                         if (output === "1") {
-                            document.getElementById("middleSection").innerHTML = "<button onclick='cancelFRequest()'>Unfriend</button>";
+                            document.getElementById("middleSection").innerHTML = "<button class='frindrequestbtn' onclick='cancelFRequest()'>Unfriend</button>";
 
                         }
 
@@ -172,7 +172,7 @@ if ($num_rows > 0) {
                     $row = mysqli_fetch_assoc($result3);
                     if ($row['Confirmation'] == 0 and $row['SenderID'] == $id) {
                         echo "Friend Request Sent<br>";
-                        echo "<button onclick='cancelFRequest()'>Cancel Request</button>";
+                        echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Cancel Request</button>";
                     } else if ($row['Confirmation'] == 1) {
                         echo "<div id='profileNavi'>
                 <ul>
@@ -180,10 +180,10 @@ if ($num_rows > 0) {
                     <li><a href='friendDetails.php?f=$fid'>About</a></li>
                 </ul>
             </div>";
-                        echo "<button onclick='cancelFRequest()'>Unfriend</button>";
+                        echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Unfriend</button>";
                         test();
                     } else {
-                        echo "<button onclick='acceptRequest()'>Accept Request</button> <button onclick='cancelFRequest()'>Reject Request</button>";
+                        echo "<button class='frindrequestbtn' onclick='acceptRequest()'>Accept Request</button> <button class='frindrequestbtn' onclick='cancelFRequest()'>Reject Request</button>";
                     }
 
                 endif;

@@ -87,7 +87,8 @@ $_SESSION['id'] = $id;
                 <div id="AllFriendlist" class="displayy" style="color: black;">
                     <div class="bucketheadder">
                         <h3>All Friends</h3>
-                    </div>                       
+                    </div>
+                    <div class="friendlistviewbucket">
                     <?php
 
                     function setDefaultProfilePic($profilePic) {
@@ -120,11 +121,13 @@ $_SESSION['id'] = $id;
                         }
                     }
                     ?>
+                    </div>
                 </div>
                 <div id="MyFriendlist" class="displayy">
                     <div class="bucketheadder">
                         <h3>My Friends</h3>
                     </div>
+                    <div class="friendlistviewbucket">
                     <?php
                     $sql3 = "SELECT f.F_Registation_ID FROM friend_add f JOIN registered_user r ON f.F_Registation_ID = r.Registation_ID WHERE f.Registation_ID = '$id' and f.Confirmation = 1 and r.User_Level = 1";
                     $result3 = mysqli_query($con, $sql3);
@@ -151,11 +154,13 @@ $_SESSION['id'] = $id;
                         }
                     }
                     ?>
+                    </div>
                 </div>
                 <div id="MyFriendRequests" class="displayy">
                     <div class="bucketheadder">
                         <h3>My Friend Requests</h3>
                     </div>
+                    <div class="friendlistviewbucket">
                     <?php
                     $sql2 = "SELECT * FROM friend_add JOIN registered_user ON friend_add.Registation_ID = registered_user.Registation_ID WHERE F_Registation_ID = '$id' and senderID != '$id' and Confirmation = 0 and User_Level = 1";
                     $query2 = mysqli_query($con, $sql2);
@@ -180,7 +185,8 @@ $_SESSION['id'] = $id;
                             echo "<h5>You have no pending friend requests</h5>";
                         }
                     }
-                    ?>                    
+                    ?> 
+                    </div>
                 </div>
             </div>
         </div>
