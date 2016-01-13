@@ -118,7 +118,7 @@ a{
     list-style-type:none;
     display:inline;
     padding: 0;
-    margin-left:100px;	
+    margin-left:180px;	
 }
 
 #profileNavi ul li a:hover{
@@ -418,6 +418,17 @@ h5{
 }
 #dis{
     position:absolute;
+}
+
+#searchboxclosebtn {
+  background-color: #f00;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  bottom: 23px;
+  height: 25px;
+  position: relative;
+  text-align: center;
+  width: auto;
 }
 
 #disFriend{

@@ -52,11 +52,14 @@ $(document).ready(function ($) {
     //Search Friend 
     $("#searchFriend").focus(function() {
         $("#headder").css("overflow", 'visible');
+        //$("#dis").css("visibility", 'visible');
         $("#wapper").css("z-index", '-1');
         $("#headder").css("z-index", '50');
-    }).blur(function() {
+    });
+    $("#dis").click(function () {
         $("#headder").css("overflow", 'hidden');
-        $("#headder").css("z-index", '0');
+        //$("#dis").css("visibility", 'hidden');
+        $("#headder").css("z-index", '1');
         $("#wapper").css("z-index", '1');
     });  
 });
@@ -214,7 +217,7 @@ function ajaxFunction(str) {
     httpxml = new XMLHttpRequest();
     function stateChanged() {
         if (httpxml.readyState == 4) {
-            document.getElementById("displayDiv1").innerHTML = httpxml.responseText;
+            document.getElementById("displayDiv1").innerHTML = httpxml.responseText + "<div id='searchboxclosebtn'>Close</div>";
             document.getElementById("msg").style.display = 'none';
         }
     }
