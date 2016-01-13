@@ -18,9 +18,11 @@ if ($_GET["u"] == $_SESSION["id"]) {
 include_once './databaseConnection.php';
 
 //select the user from the database
-
 $sql = "SELECT * FROM registered_user WHERE Registation_ID='$fid' LIMIT 1";
+
+//select categories from category table to display with stories
 $sql2 = "SELECT Category_ID,Category_Title From category";
+
 $result = mysqli_query($con, $sql2);
 $query = mysqli_query($con, $sql);
 
@@ -38,8 +40,6 @@ if ($num_rows > 0) {
 }
 ?>
 
-
-<!DOCTYPE html>
 <html>
     <head>
         <title>.:BE:.</title>
@@ -154,7 +154,7 @@ if ($num_rows > 0) {
         $coverPic = setDefaultCoverPic($coverPic);
         ?>
         <div id="wapper">
-                <?php echo "<div id='cover' style='background-image: url(../images/covers/$coverPic);'>" ?>
+            <?php echo "<div id='cover' style='background-image: url(../images/covers/$coverPic);'>" ?>
             <div id="profilepic">
                 <?php
                 $dir = '../profilePic/';
@@ -169,9 +169,9 @@ if ($num_rows > 0) {
                 ?>
                 <?php if ($picAvailable == true) { ?>
                     <img src='<?php echo('../profilePic/' . $fid . '.jpg') ?>' class='profilepic'/>
-<?php } else { ?>
+                <?php } else { ?>
                     <img src="../images/defaultPic.jpg" class='profilepic'/>
-<?php } ?>    
+                <?php } ?>    
                 <ul>
                     <li><?php echo $fname . ' ' . $lname; ?></li>
                     <li>Lives in <?php echo $city; ?></li>
@@ -210,70 +210,69 @@ if ($num_rows > 0) {
             endif;
             ?>
         </div>
-    </div>
-    <?php
+        <?php
 
-    function test() {
-        $fid = $_GET["u"];
-        ?>
-        <div id="profilePastNewsFeed" style="padding:10px;">
-            <script type="text/javascript">
-                var fid = <?php echo json_encode($fid); ?>;
-                //alert(id);
+        function test() {
+            $fid = $_GET["u"];
+            ?>
+            <div id="profilePastNewsFeed" style="padding:10px;">
+                <script type="text/javascript">
+                    var fid = <?php echo json_encode($fid); ?>;
+                    //alert(id);
 
-                if (fid === "") {
-                    _("profilePastNewsFeed").innerHTML = "";
-                } else {
+                    if (fid === "") {
+                        _("profilePastNewsFeed").innerHTML = "";
+                    } else {
 
-                    var ajax = ajaxObj("POST", "friendPageLoadStories.php");
+                        var ajax = ajaxObj("POST", "friendPageLoadStories.php");
 
-                    ajax.onreadystatechange = function () {
-                        if (ajaxReturn(ajax) === true) {
-                            _("profilePastNewsFeed").innerHTML = ajax.responseText;
-                        }
-                    };
-                }
-                ajax.send("id=" + fid);
-            </script>
-        </div>
-
-        <div id="storyView">
-            <div id="story">
-
+                        ajax.onreadystatechange = function () {
+                            if (ajaxReturn(ajax) === true) {
+                                _("profilePastNewsFeed").innerHTML = ajax.responseText;
+                            }
+                        };
+                    }
+                    ajax.send("id=" + fid);
+                </script>
             </div>
 
-            <div id="feedback">
-
-            </div>
-
-            <div id="comment">
-                <div id="oldComment">
+            <div id="storyView">
+                <div id="story">
 
                 </div>
 
-                <div id="newComment">
+                <div id="feedback">
 
                 </div>
 
-                <div id="storyViewClose" onclick="storyViewClose()">
-                    <h5>close</h5>
+                <div id="comment">
+                    <div id="oldComment">
+
+                    </div>
+
+                    <div id="newComment">
+
+                    </div>
+
+                    <div id="storyViewClose" onclick="storyViewClose()">
+                        <h5>close</h5>
+                    </div>
                 </div>
+
             </div>
+            <div id="reportDiv">
+                <h4>Choose a reason</h4>
 
-        </div>
-        <div id="reportDiv">
-            <h4>Choose a reason</h4>
+                <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
+                <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
+                <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
+                <input type="text" id="storyID" style="visibility: hidden"/>
+                <input type="button" onclick="report()" id="sendR" value="send"/>
+                <input type="reset" onclick="cancleReport()" value="cancel"/>
 
-            <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
-            <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
-            <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
-            <input type="text" id="storyID" style="visibility: hidden"/>
-            <input type="button" onclick="report()" id="sendR" value="send"/>
-            <input type="reset" onclick="cancleReport()" value="cancel"/>
-
-        </div>
-<?php } ?>
-</body>
+            </div>
+        <?php } ?>
+    </body>
 
 </html>
 

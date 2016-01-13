@@ -40,7 +40,9 @@ if ($numrows > 0) {
     <body onLoad="display()">
         <div id="wapper">
             <?php include_once './profileMiddleTemplate.php'; ?>
+            <!-- Friend section begins -->
             <div id="FriendlistBucket">
+                <!-- All users available section begin -->
                 <div id="AllFriendlist" class="displayy" style="color: black;">
                     <div class="bucketheadder">
                         <h3>All Friends</h3>
@@ -80,6 +82,8 @@ if ($numrows > 0) {
                         ?>
                     </div>
                 </div>
+                <!-- All friends section ends -->
+                <!-- My friends section begins -->
                 <div id="MyFriendlist" class="displayy">
                     <div class="bucketheadder">
                         <h3>My Friends</h3>
@@ -97,11 +101,6 @@ if ($numrows > 0) {
                                 $profilePic = $row4['Registation_ID'] . ".jpg";
                                 $profilePic = setDefaultProfilePic($profilePic);
 
-
-
-
-
-
                                 echo "<div class='allriendlistviewdiv'>" .
                                 "<div class='profilepicofuser' style='background-image:url(../profilePic/$profilePic);' >" . "</div>" .
                                 "<a href='friendProfile.php?u=" . $row4["Registation_ID"] . "'>" . $row4["First_Name"] . " " . $row4["Last_Name"] . "<br><br></a>"
@@ -113,6 +112,8 @@ if ($numrows > 0) {
                         ?>
                     </div>
                 </div>
+                <!-- My friends section ends -->
+                <!-- Friend request section begins -->
                 <div id="MyFriendRequests" class="displayy">
                     <div class="bucketheadder">
                         <h3>My Friend Requests</h3>
@@ -145,7 +146,9 @@ if ($numrows > 0) {
                         ?> 
                     </div>
                 </div>
+                <!-- Friend request section ends -->
             </div>
+            <!-- Friend section ends -->
         </div>
     </body> 
 </html>

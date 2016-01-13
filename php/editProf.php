@@ -32,7 +32,6 @@ if ($numrows > 0) {
         $gender = "Female";
     }
 }
-
 ?>
 <html>
     <head> 
@@ -45,6 +44,9 @@ if ($numrows > 0) {
     <body onLoad="display()">
         <div id="wapper">
             <?php include_once './profileMiddleTemplate.php'; ?>
+            
+            <!-- Personal Details Edit Section -->
+            
             <div id="editInfo">
                 <span>First Name</span><br/>  
                 <input type="text" id="editTxtFname" class="editinfoinputbox" value= <?php echo $fname; ?> /><br/><br/>
@@ -81,6 +83,9 @@ if ($numrows > 0) {
                 <div id="editResponse"></div>
 
             </div>
+            <!-- Personal details edit section ends -->
+            
+            <!-- Change password Section -->
             <div id="changePassword">
                 <button id="btnChangePassword" onClick="viewChangePassword()">Change Password</button>
                 <div id="changePasswordDisplay">
@@ -99,7 +104,9 @@ if ($numrows > 0) {
                     <div id="saveNewPasswordStatus"></div>
                 </div>
             </div>
-
+            <!-- Change password section ends -->
+            
+            <!-- Profile pic upload section begins -->
             <div id="image">
                 <?php if ($picAvailable == true) { ?>
                     <img src='<?php echo('../profilePic/' . $id . '.jpg') ?>' width="200"/>
@@ -138,7 +145,10 @@ if ($numrows > 0) {
                 }
                 ?>
             </div> 
+            <!-- Profile pic upload section ends -->
             <hr>
+            
+            <!-- Cover photo upload section begins -->
             <div id="changeCover">
                 <div id="coverSelection">
                     <form id="coverpicform" method="post" enctype="multipart/form-data">
@@ -173,6 +183,7 @@ if ($numrows > 0) {
                 }
                 ?>
             </div>
+            <!-- Cover photo upload section ends -->
         </div>
     </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 include_once './databaseConnection.php';
+//function to check whether cover picture is available or not
 function setDefaultCoverPic($coverPic) {
     $dir = '../images/covers/';
     $files1 = scandir($dir);

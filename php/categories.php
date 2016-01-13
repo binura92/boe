@@ -16,10 +16,12 @@ if (isset($_SESSION['login'])) {
 include_once("../php/template_top.php");
 include_once './databaseConnection.php';
 
+//Selecting categories
 $sql1 = "SELECT * FROM category";
 $query1 = mysqli_query($con, $sql1);
 ?>
 <?php
+//To check whether category picture is present or not
 function setDefaultCategoryPic($catPic) {
     $dir = '../images/categories/';
     $files1 = scandir($dir);

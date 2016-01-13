@@ -1,5 +1,0 @@
-function checkPassword(){
-	var pass = _("txtPasswordSignup").value;
-	if(pass.length < 8){
-		_("passwordStatus").innerHTML = "Password invalid";	
-	}

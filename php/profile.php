@@ -13,6 +13,7 @@ if (isset($_GET["u"]) && isset($_SESSION['login'])) {
 //select the user from the database
 $con = mysqli_connect("localhost", "root", "", "bookofexperiences");
 $sql = "SELECT * FROM registered_user WHERE Registation_ID='$id' LIMIT 1";
+//Query to select categories that is used when displaying posts.
 $sql2 = "SELECT Category_ID,Category_Title From category";
 $result = mysqli_query($con, $sql2);
 $query = mysqli_query($con, $sql);

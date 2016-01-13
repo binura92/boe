@@ -202,6 +202,7 @@ if ($num_rows > 0) {
             ?>
         </div>
         <hr>
+        <!-- To view the details of the friend -->
         <div id="frienddetailview" >
             <h4>Name</h4><h5><?php echo $fname . " " . $lname ?></h5><br>
             <h4>Email</h4><h5><?php echo $email ?></h5><br>
