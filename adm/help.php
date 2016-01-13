@@ -7,6 +7,7 @@ if(!isset($_SESSION['admin'])){
 <html>
 
 <head>
+    <script type="text/javascript" src="JS/help.js"></script>
 <title>Form Input Data</title>
 <style>
 textarea {
@@ -19,7 +20,7 @@ textarea {
 	font: arial;
 }
 
-#ftitle{
+#problem{
 	width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -35,10 +36,10 @@ textarea {
 <body>
 <form>
   
-  <input type="text" id="ftitle" name="ftitle" placeholder="Problem">
+  <input type="text" id="problem" name="problem" placeholder="Problem">
 </form>  
-<textarea placeholder= "Solution">
+<textarea placeholder= "Solution" id="solution">
 </textarea>
-<input type="button" id="submit" value="Submit" style="float:right; width:20%;" onClick=""/>
+<input type="button" id="submit" value="Submit" style="float:right; width:20%;" onClick="sendhelp()"/>
 </body>
 </html>
