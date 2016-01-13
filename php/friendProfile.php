@@ -75,7 +75,7 @@ if ($num_rows > 0) {
                 xhttp.onreadystatechange = function () {
                     if (xhttp.readyState === 4 && xhttp.status === 200) {
                         var output = xhttp.responseText;
-                        alert(output);
+                        //alert(output);
                         if (output === "1") {
                             document.getElementById("btnAddFriend").style.display = "none";
                             document.getElementById("middleSection").innerHTML = "Friend Request Sent<br><button onclick='cancelFRequest()'>Cancel Request</button>";
