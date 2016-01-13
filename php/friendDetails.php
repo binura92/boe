@@ -123,75 +123,95 @@ if ($num_rows > 0) {
 
     </head>
     <body>
-        <?php include_once("template_top.php"); ?>
+        <?php
+        include_once("template_top.php");
+
+        function setDefaultCoverPic($coverPic) {
+            $dir = '../images/covers/';
+            $files1 = scandir($dir);
+            $picAvailable = false;
+            foreach ($files1 as $x) {
+                if ($x == $coverPic) {
+                    $picAvailable = true;
+                    break;
+                }
+            }
+            if ($picAvailable == FALSE) {
+                $coverPic = 'defaultPic.jpg';
+            }
+            return $coverPic;
+        }
+
+        $coverPic = $fid . ".jpg";
+        $coverPic = setDefaultCoverPic($coverPic);
+        ?>
         <div id="wapper">
-            <div id="cover">
-                <div id="profilepic">
-                    <?php
-                    $dir = '../profilePic/';
-                    $files1 = scandir($dir);
-                    $picAvailable = false;
-                    foreach ($files1 as $x) {
-                        if ($x == $fid . '.jpg') {
-                            $picAvailable = true;
-                            break;
-                        }
+                <?php echo "<div id='cover' style='background-image: url(../images/covers/$coverPic);'>" ?>
+            <div id="profilepic">
+                <?php
+                $dir = '../profilePic/';
+                $files1 = scandir($dir);
+                $picAvailable = false;
+                foreach ($files1 as $x) {
+                    if ($x == $fid . '.jpg') {
+                        $picAvailable = true;
+                        break;
                     }
-                    ?>
-                    <?php if ($picAvailable == true) { ?>
-                        <img src='<?php echo('../profilePic/' . $fid . '.jpg') ?>' class='profilepic'/>
-                    <?php } else { ?>
-                        <img src="../images/defaultPic.jpg" class='profilepic'/>
-                    <?php } ?>    
-                    <ul>
-                        <li><?php echo $fname . ' ' . $lname; ?></li>
-                        <li>Lives in <?php echo $city; ?></li>
-                    </ul>
-                </div>       
-            </div>
-            <?php
-            $sql3 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$fid' and Registation_ID = '$id'";
-            $result3 = mysqli_query($con, $sql3);
-            $num_rows3 = mysqli_num_rows($result3);
-            ?>
+                }
+                ?>
+                <?php if ($picAvailable == true) { ?>
+                    <img src='<?php echo('../profilePic/' . $fid . '.jpg') ?>' class='profilepic'/>
+                <?php } else { ?>
+                    <img src="../images/defaultPic.jpg" class='profilepic'/>
+<?php } ?>    
+                <ul>
+                    <li><?php echo $fname . ' ' . $lname; ?></li>
+                    <li>Lives in <?php echo $city; ?></li>
+                </ul>
+            </div>       
+        </div>
+        <?php
+        $sql3 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$fid' and Registation_ID = '$id'";
+        $result3 = mysqli_query($con, $sql3);
+        $num_rows3 = mysqli_num_rows($result3);
+        ?>
 
-            <div id="middleSection">
+        <div id="middleSection">
 
-                <?php if ($num_rows3 == 0): ?>
-                    <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
-                    <?php
-                else:
-                    $row = mysqli_fetch_assoc($result3);
-                    if ($row['Confirmation'] == 0 and $row['SenderID'] == $id) {
-                        echo "Friend Request Sent<br>";
-                        echo "<button onclick='cancelFRequest()'>Cancel Request</button>";
-                    } else if ($row['Confirmation'] == 1) {
-                        echo "<div id='profileNavi'>
+            <?php if ($num_rows3 == 0): ?>
+                <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
+                <?php
+            else:
+                $row = mysqli_fetch_assoc($result3);
+                if ($row['Confirmation'] == 0 and $row['SenderID'] == $id) {
+                    echo "Friend Request Sent<br>";
+                    echo "<button onclick='cancelFRequest()'>Cancel Request</button>";
+                } else if ($row['Confirmation'] == 1) {
+                    echo "<div id='profileNavi'>
                 <ul>
                     <li><a href='friendProfile.php?u=$fid'>Experiences</a></li>
                     <li><a href='friendDetails.php?f=$fid'>About</a></li>
                 </ul>
             </div>";
-                        echo "<button onclick='cancelFRequest()'>Unfriend</button>";
-                
-                    } else {
-                        echo "<button onclick='acceptRequest()'>Accept Request</button> <button onclick='cancelFRequest()'>Reject Request</button>";
-                    }
+                    echo "<button onclick='cancelFRequest()'>Unfriend</button>";
+                } else {
+                    echo "<button onclick='acceptRequest()'>Accept Request</button> <button onclick='cancelFRequest()'>Reject Request</button>";
+                }
 
-                endif;
-                ?>
-            </div>
-            <hr>
-            <div id="frienddetailview" >
-                <h4>Name</h4><h5><?php echo $fname." ".$lname?></h5><br>
-                <h4>Email</h4><h5><?php echo $email?></h5><br>
-                <h4>Gender</h4><h5><?php echo $gender?></h5><br>
-                <h4>Relationship Status</h4><h5><?php echo $rStatus?></h5><br>
-                <h4>City</h4><h5><?php echo $city?></h5><br>
-            </div>
+            endif;
+            ?>
         </div>
-        
-    </body>
+        <hr>
+        <div id="frienddetailview" >
+            <h4>Name</h4><h5><?php echo $fname . " " . $lname ?></h5><br>
+            <h4>Email</h4><h5><?php echo $email ?></h5><br>
+            <h4>Gender</h4><h5><?php echo $gender ?></h5><br>
+            <h4>Relationship Status</h4><h5><?php echo $rStatus ?></h5><br>
+            <h4>City</h4><h5><?php echo $city ?></h5><br>
+        </div>
+    </div>
+
+</body>
 </html>
 
 

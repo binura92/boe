@@ -1,19 +1,19 @@
 <?php session_start(); ?>
 
 <?php
-if($_GET["u"] == $_SESSION["id"]){
+if ($_GET["u"] == $_SESSION["id"]) {
     header('Location: profile.php');
-}else{
-if (isset($_GET["u"]) && isset($_SESSION['login'])) {
-    $fid = $_GET["u"];
-    $id = $_SESSION["id"];
-    $_SESSION["friendID"] = $fid;
-} elseif (isset($_SESSION['login'])) {
-    header('Location: ../filenotfound.php');
 } else {
-    header('Location: ../index.html');
-    exit();
-}
+    if (isset($_GET["u"]) && isset($_SESSION['login'])) {
+        $fid = $_GET["u"];
+        $id = $_SESSION["id"];
+        $_SESSION["friendID"] = $fid;
+    } elseif (isset($_SESSION['login'])) {
+        header('Location: ../filenotfound.php');
+    } else {
+        header('Location: ../index.html');
+        exit();
+    }
 }
 include_once './databaseConnection.php';
 
@@ -131,129 +131,149 @@ if ($num_rows > 0) {
 
     </head>
     <body>
-        <?php include_once("template_top.php"); ?>
+        <?php
+        include_once("template_top.php");
+
+        function setDefaultCoverPic($coverPic) {
+            $dir = '../images/covers/';
+            $files1 = scandir($dir);
+            $picAvailable = false;
+            foreach ($files1 as $x) {
+                if ($x == $coverPic) {
+                    $picAvailable = true;
+                    break;
+                }
+            }
+            if ($picAvailable == FALSE) {
+                $coverPic = 'defaultPic.jpg';
+            }
+            return $coverPic;
+        }
+
+        $coverPic = $fid . ".jpg";
+        $coverPic = setDefaultCoverPic($coverPic);
+        ?>
         <div id="wapper">
-            <div id="cover">
-                <div id="profilepic">
-                    <?php
-                    $dir = '../profilePic/';
-                    $files1 = scandir($dir);
-                    $picAvailable = false;
-                    foreach ($files1 as $x) {
-                        if ($x == $fid . '.jpg') {
-                            $picAvailable = true;
-                            break;
-                        }
+                <?php echo "<div id='cover' style='background-image: url(../images/covers/$coverPic);'>" ?>
+            <div id="profilepic">
+                <?php
+                $dir = '../profilePic/';
+                $files1 = scandir($dir);
+                $picAvailable = false;
+                foreach ($files1 as $x) {
+                    if ($x == $fid . '.jpg') {
+                        $picAvailable = true;
+                        break;
                     }
-                    ?>
-                    <?php if ($picAvailable == true) { ?>
-                        <img src='<?php echo('../profilePic/' . $fid . '.jpg') ?>' class='profilepic'/>
-                    <?php } else { ?>
-                        <img src="../images/defaultPic.jpg" class='profilepic'/>
-                    <?php } ?>    
-                    <ul>
-                        <li><?php echo $fname . ' ' . $lname; ?></li>
-                        <li>Lives in <?php echo $city; ?></li>
-                    </ul>
-                </div>       
-            </div>
-            <?php
-            $sql3 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$fid' and Registation_ID = '$id'";
-            $result3 = mysqli_query($con, $sql3);
-            $num_rows3 = mysqli_num_rows($result3);
-            ?>
+                }
+                ?>
+                <?php if ($picAvailable == true) { ?>
+                    <img src='<?php echo('../profilePic/' . $fid . '.jpg') ?>' class='profilepic'/>
+<?php } else { ?>
+                    <img src="../images/defaultPic.jpg" class='profilepic'/>
+<?php } ?>    
+                <ul>
+                    <li><?php echo $fname . ' ' . $lname; ?></li>
+                    <li>Lives in <?php echo $city; ?></li>
+                </ul>
+            </div>       
+        </div>
+        <?php
+        $sql3 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$fid' and Registation_ID = '$id'";
+        $result3 = mysqli_query($con, $sql3);
+        $num_rows3 = mysqli_num_rows($result3);
+        ?>
 
-            <div id="middleSection">
+        <div id="middleSection">
 
-                <?php if ($num_rows3 == 0): ?>
-                    <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
-                    <?php
-                else:
-                    $row = mysqli_fetch_assoc($result3);
-                    if ($row['Confirmation'] == 0 and $row['SenderID'] == $id) {
-                        echo "Friend Request Sent<br>";
-                        echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Cancel Request</button>";
-                    } else if ($row['Confirmation'] == 1) {
-                        echo "<div id='profileNavi'>
+            <?php if ($num_rows3 == 0): ?>
+                <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
+                <?php
+            else:
+                $row = mysqli_fetch_assoc($result3);
+                if ($row['Confirmation'] == 0 and $row['SenderID'] == $id) {
+                    echo "Friend Request Sent<br>";
+                    echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Cancel Request</button>";
+                } else if ($row['Confirmation'] == 1) {
+                    echo "<div id='profileNavi'>
                 <ul>
                     <li><a href='friendProfile.php?u=$fid'>Experiences</a></li>
                     <li><a href='friendDetails.php?f=$fid'>About</a></li>
                 </ul>
             </div>";
-                        echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Unfriend</button>";
-                        test();
-                    } else {
-                        echo "<button class='frindrequestbtn' onclick='acceptRequest()'>Accept Request</button> <button class='frindrequestbtn' onclick='cancelFRequest()'>Reject Request</button>";
-                    }
+                    echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Unfriend</button>";
+                    test();
+                } else {
+                    echo "<button class='frindrequestbtn' onclick='acceptRequest()'>Accept Request</button> <button class='frindrequestbtn' onclick='cancelFRequest()'>Reject Request</button>";
+                }
 
-                endif;
-                ?>
-            </div>
-        </div>
-        <?php
-
-        function test() {
-            $fid = $_GET["u"];
+            endif;
             ?>
-            <div id="profilePastNewsFeed" style="padding:10px;">
-                <script type="text/javascript">
-                    var fid = <?php echo json_encode($fid); ?>;
-                    //alert(id);
+        </div>
+    </div>
+    <?php
 
-                    if (fid === "") {
-                        _("profilePastNewsFeed").innerHTML = "";
-                    }
-                    else {
+    function test() {
+        $fid = $_GET["u"];
+        ?>
+        <div id="profilePastNewsFeed" style="padding:10px;">
+            <script type="text/javascript">
+                var fid = <?php echo json_encode($fid); ?>;
+                //alert(id);
 
-                        var ajax = ajaxObj("POST", "loadStories.php");
+                if (fid === "") {
+                    _("profilePastNewsFeed").innerHTML = "";
+                } else {
 
-                        ajax.onreadystatechange = function () {
-                            if (ajaxReturn(ajax) === true) {
-                                _("profilePastNewsFeed").innerHTML = ajax.responseText;
-                            }
-                        };
-                    }
-                    ajax.send("id=" + fid);
-                </script>
+                    var ajax = ajaxObj("POST", "friendPageLoadStories.php");
+
+                    ajax.onreadystatechange = function () {
+                        if (ajaxReturn(ajax) === true) {
+                            _("profilePastNewsFeed").innerHTML = ajax.responseText;
+                        }
+                    };
+                }
+                ajax.send("id=" + fid);
+            </script>
+        </div>
+
+        <div id="storyView">
+            <div id="story">
+
             </div>
 
-            <div id="storyView">
-                <div id="story">
+            <div id="feedback">
+
+            </div>
+
+            <div id="comment">
+                <div id="oldComment">
 
                 </div>
 
-                <div id="feedback">
+                <div id="newComment">
 
                 </div>
 
-                <div id="comment">
-                    <div id="oldComment">
-
-                    </div>
-
-                    <div id="newComment">
-
-                    </div>
-
-                    <div id="storyViewClose" onclick="storyViewClose()">
-                        <h5>close</h5>
-                    </div>
+                <div id="storyViewClose" onclick="storyViewClose()">
+                    <h5>close</h5>
                 </div>
-
             </div>
-            <div id="reportDiv">
-                <h4>Choose a reason</h4>
 
-                <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
-                <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
-                <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
-                <input type="text" id="storyID" style="visibility: hidden"/>
-                <input type="button" onclick="report()" id="sendR" value="send"/>
-                <input type="reset" onclick="cancleReport()" value="cancel"/>
+        </div>
+        <div id="reportDiv">
+            <h4>Choose a reason</h4>
 
-            </div>
-        <?php } ?>
-    </body>
+            <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
+            <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
+            <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
+            <input type="text" id="storyID" style="visibility: hidden"/>
+            <input type="button" onclick="report()" id="sendR" value="send"/>
+            <input type="reset" onclick="cancleReport()" value="cancel"/>
+
+        </div>
+<?php } ?>
+</body>
 
 </html>
 
