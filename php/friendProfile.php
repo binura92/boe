@@ -1,26 +1,28 @@
 <?php session_start(); ?>
 
 <?php
-if($_GET["u"] == $_SESSION["id"]){
+if ($_GET["u"] == $_SESSION["id"]) {
     header('Location: profile.php');
-}else{
-if (isset($_GET["u"]) && isset($_SESSION['login'])) {
-    $fid = $_GET["u"];
-    $id = $_SESSION["id"];
-    $_SESSION["friendID"] = $fid;
-} elseif (isset($_SESSION['login'])) {
-    header('Location: ../filenotfound.php');
 } else {
-    header('Location: ../index.html');
-    exit();
-}
+    if (isset($_GET["u"]) && isset($_SESSION['login'])) {
+        $fid = $_GET["u"];
+        $id = $_SESSION["id"];
+        $_SESSION["friendID"] = $fid;
+    } elseif (isset($_SESSION['login'])) {
+        header('Location: ../filenotfound.php');
+    } else {
+        header('Location: ../index.html');
+        exit();
+    }
 }
 include_once './databaseConnection.php';
 
 //select the user from the database
-
 $sql = "SELECT * FROM registered_user WHERE Registation_ID='$fid' LIMIT 1";
+
+//select categories from category table to display with stories
 $sql2 = "SELECT Category_ID,Category_Title From category";
+
 $result = mysqli_query($con, $sql2);
 $query = mysqli_query($con, $sql);
 
@@ -38,8 +40,6 @@ if ($num_rows > 0) {
 }
 ?>
 
-
-<!DOCTYPE html>
 <html>
     <head>
         <title>.:BE:.</title>
@@ -75,7 +75,7 @@ if ($num_rows > 0) {
                 xhttp.onreadystatechange = function () {
                     if (xhttp.readyState === 4 && xhttp.status === 200) {
                         var output = xhttp.responseText;
-                        alert(output);
+                        //alert(output);
                         if (output === "1") {
                             document.getElementById("btnAddFriend").style.display = "none";
                             document.getElementById("middleSection").innerHTML = "Friend Request Sent<br><button class='frindrequestbtn' onclick='cancelFRequest()'>Cancel Request</button>";
@@ -131,64 +131,84 @@ if ($num_rows > 0) {
 
     </head>
     <body>
-        <?php include_once("template_top.php"); ?>
+        <?php
+        include_once("template_top.php");
+
+        function setDefaultCoverPic($coverPic) {
+            $dir = '../images/covers/';
+            $files1 = scandir($dir);
+            $picAvailable = false;
+            foreach ($files1 as $x) {
+                if ($x == $coverPic) {
+                    $picAvailable = true;
+                    break;
+                }
+            }
+            if ($picAvailable == FALSE) {
+                $coverPic = 'defaultPic.jpg';
+            }
+            return $coverPic;
+        }
+
+        $coverPic = $fid . ".jpg";
+        $coverPic = setDefaultCoverPic($coverPic);
+        ?>
         <div id="wapper">
-            <div id="cover">
-                <div id="profilepic">
-                    <?php
-                    $dir = '../profilePic/';
-                    $files1 = scandir($dir);
-                    $picAvailable = false;
-                    foreach ($files1 as $x) {
-                        if ($x == $fid . '.jpg') {
-                            $picAvailable = true;
-                            break;
-                        }
+            <?php echo "<div id='cover' style='background-image: url(../images/covers/$coverPic);'>" ?>
+            <div id="profilepic">
+                <?php
+                $dir = '../profilePic/';
+                $files1 = scandir($dir);
+                $picAvailable = false;
+                foreach ($files1 as $x) {
+                    if ($x == $fid . '.jpg') {
+                        $picAvailable = true;
+                        break;
                     }
-                    ?>
-                    <?php if ($picAvailable == true) { ?>
-                        <img src='<?php echo('../profilePic/' . $fid . '.jpg') ?>' class='profilepic'/>
-                    <?php } else { ?>
-                        <img src="../images/defaultPic.jpg" class='profilepic'/>
-                    <?php } ?>    
-                    <ul>
-                        <li><?php echo $fname . ' ' . $lname; ?></li>
-                        <li>Lives in <?php echo $city; ?></li>
-                    </ul>
-                </div>       
-            </div>
-            <?php
-            $sql3 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$fid' and Registation_ID = '$id'";
-            $result3 = mysqli_query($con, $sql3);
-            $num_rows3 = mysqli_num_rows($result3);
-            ?>
+                }
+                ?>
+                <?php if ($picAvailable == true) { ?>
+                    <img src='<?php echo('../profilePic/' . $fid . '.jpg') ?>' class='profilepic'/>
+                <?php } else { ?>
+                    <img src="../images/defaultPic.jpg" class='profilepic'/>
+                <?php } ?>    
+                <ul>
+                    <li><?php echo $fname . ' ' . $lname; ?></li>
+                    <li>Lives in <?php echo $city; ?></li>
+                </ul>
+            </div>       
+        </div>
+        <?php
+        $sql3 = "SELECT * FROM friend_add WHERE F_Registation_ID = '$fid' and Registation_ID = '$id'";
+        $result3 = mysqli_query($con, $sql3);
+        $num_rows3 = mysqli_num_rows($result3);
+        ?>
 
-            <div id="middleSection">
+        <div id="middleSection">
 
-                <?php if ($num_rows3 == 0): ?>
-                    <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
-                    <?php
-                else:
-                    $row = mysqli_fetch_assoc($result3);
-                    if ($row['Confirmation'] == 0 and $row['SenderID'] == $id) {
-                        echo "Friend Request Sent<br>";
-                        echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Cancel Request</button>";
-                    } else if ($row['Confirmation'] == 1) {
-                        echo "<div id='profileNavi'>
+            <?php if ($num_rows3 == 0): ?>
+                <button id="btnAddFriend" onclick="sendFRequest()">Add Friend</button>
+                <?php
+            else:
+                $row = mysqli_fetch_assoc($result3);
+                if ($row['Confirmation'] == 0 and $row['SenderID'] == $id) {
+                    echo "Friend Request Sent<br>";
+                    echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Cancel Request</button>";
+                } else if ($row['Confirmation'] == 1) {
+                    echo "<div id='profileNavi'>
                 <ul>
                     <li><a href='friendProfile.php?u=$fid'>Experiences</a></li>
                     <li><a href='friendDetails.php?f=$fid'>About</a></li>
                 </ul>
             </div>";
-                        echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Unfriend</button>";
-                        test();
-                    } else {
-                        echo "<button class='frindrequestbtn' onclick='acceptRequest()'>Accept Request</button> <button class='frindrequestbtn' onclick='cancelFRequest()'>Reject Request</button>";
-                    }
+                    echo "<button class='frindrequestbtn' onclick='cancelFRequest()'>Unfriend</button>";
+                    test();
+                } else {
+                    echo "<button class='frindrequestbtn' onclick='acceptRequest()'>Accept Request</button> <button class='frindrequestbtn' onclick='cancelFRequest()'>Reject Request</button>";
+                }
 
-                endif;
-                ?>
-            </div>
+            endif;
+            ?>
         </div>
         <?php
 
@@ -202,10 +222,9 @@ if ($num_rows > 0) {
 
                     if (fid === "") {
                         _("profilePastNewsFeed").innerHTML = "";
-                    }
-                    else {
+                    } else {
 
-                        var ajax = ajaxObj("POST", "loadStories.php");
+                        var ajax = ajaxObj("POST", "friendPageLoadStories.php");
 
                         ajax.onreadystatechange = function () {
                             if (ajaxReturn(ajax) === true) {

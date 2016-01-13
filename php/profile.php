@@ -1,19 +1,19 @@
-<?php session_start();?>
+<?php session_start(); ?>
 
 <?php
 if (isset($_GET["u"]) && isset($_SESSION['login'])) {
     $id = $_GET["u"];
     $_SESSION['id'] = $id;
-} elseif(isset($_SESSION['login'])) {
+} elseif (isset($_SESSION['login'])) {
     $id = $_SESSION['id'];
-} 
-else{
-   header('Location: ../index.html');
-   exit();
+} else {
+    header('Location: ../index.html');
+    exit();
 }
 //select the user from the database
 $con = mysqli_connect("localhost", "root", "", "bookofexperiences");
 $sql = "SELECT * FROM registered_user WHERE Registation_ID='$id' LIMIT 1";
+//Query to select categories that is used when displaying posts.
 $sql2 = "SELECT Category_ID,Category_Title From category";
 $result = mysqli_query($con, $sql2);
 $query = mysqli_query($con, $sql);
@@ -61,41 +61,9 @@ $_SESSION['id'] = $id;
     <body onLoad="iFrameon()">
         <?php include_once("template_top.php"); ?>
         <div id="wapper">
-            <?php echo "<div id='cover' style='background-image: url(../images/covers/$id.jpg);'>" ?>
-                <div id="profilepic">
-                    <?php
-                    $dir = '../profilePic/';
-                    $files1 = scandir($dir);
-                    $picAvailable = false;
-                    foreach ($files1 as $x) {
-                        if ($x == $id . '.jpg') {
-                            $picAvailable = true;
-                            break;
-                        }
-                    }
-                    ?>
-                    <?php if ($picAvailable == true) { ?>
-                        <img src='<?php echo('../profilePic/' . $id . '.jpg') ?>' class='profilepic'/>
-                    <?php } else { ?>
-                        <img src="../images/defaultPic.jpg" class='profilepic'/>
-                    <?php } ?>    
-                    <ul>
-                        <li><?php echo $fname . ' ' . $lname; ?></li>
-                        <li>Lives in <?php echo $city; ?></li>
-                    </ul>
-                </div>       
-            </div>
-            <div id="profileNavi">
-                <ul>
-                    <li><a href="profile.php">My Experiences</a></li>
-                    <li><a href="editProf.php">About</a></li>
-                    <li><a href="#">My Categories</a></li>
-                    <li><a href="friendPage.php">Friends</a></li>
-                    <li><a href="#">+More</a></li>
-                </ul>
-            </div>
-            
-            
+            <?php include_once './profileMiddleTemplate.php'; ?>
+
+
             <div style="border:1px #000 solid; background-color:#FFF; border-color:#000; border-width:medium;">
                 <form name="editor" id="editor">
                     <input type="text" name="subject" id="storyTitle" style="width:300px; height:25px; border-color:#000; border-width:medium;" placeholder="Title" >
@@ -161,7 +129,7 @@ $_SESSION['id'] = $id;
             </div>
 
         </div>
-        
+
         <div id="storyView">
             <div id="story">
 
@@ -188,15 +156,14 @@ $_SESSION['id'] = $id;
         </div>
         <div id="reportDiv">
             <h4>Choose a reason</h4>
-            
+
             <label><input type="radio" id="reportOption1"  name="aaa" value="1"/>It's annoying or not interesting</label><br>
             <label><input type="radio" id="reportOption2" name="aaa" value="2"/>I think it shouldn't be on BE</label><br>
             <label><input type="radio" id="reportOption3" name="aaa" value="3"/>It's spam<br></label>
             <input type="text" id="storyID" style="visibility: hidden"/>
             <input type="button" onclick="report()" id="sendR" value="Send"/>
             <input type="reset" onclick="cancleReport()" value="cancel"/>
-            
+
         </div>
     </body>
 </html>
-  

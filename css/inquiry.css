@@ -38,3 +38,28 @@
   resize: none;
   width: 700px;
 }
+/*Warning page styles*/
+
+.warningshowbuket {
+  background-color: #ececec;
+  border-radius: 5px;
+  height: auto;
+  padding: 5px 20px;
+  width: 940px;
+}
+
+.warningshowbuket h2 {
+  display: inline-block;
+  font-size: 1.3em;
+  margin: 10px 0 6px;
+  padding: 0;
+}
+
+.warningleft {
+  width: 175px;
+}
+
+.warningright {
+  font-style: italic;
+  max-width: 850px;
+}
