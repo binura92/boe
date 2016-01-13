@@ -18,11 +18,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     $author = $row['First_Name'] . ' ' . $row['Last_Name'];
     $title = $row['Title'];
     $catName = $resFindCat["Category_Title"];
-
+    $pubDate = $row["Publish_Date"];
     echo "<main id='acc'>
                 <section id='item." . $i . "'>
                 <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID) ><b>" . $title . "</b></a>
-                <div id='postDet'>Posted by <b>" . $author . "</b><br><a href='StoryCategoryPage.php?cid=$catID'>".$catName."</a></br></div>
+                <div id='postDet'>Posted by <b>" . $author . "</b><br><a href='StoryCategoryPage.php?cid=$catID'>".$catName."</a><br><a>".$pubDate."</a></br></div>
               
                     <hr/>
                     

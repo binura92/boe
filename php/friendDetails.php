@@ -204,11 +204,33 @@ if ($num_rows > 0) {
         <hr>
         <!-- To view the details of the friend -->
         <div id="frienddetailview" >
-            <h4>Name</h4><h5><?php echo $fname . " " . $lname ?></h5><br>
-            <h4>Email</h4><h5><?php echo $email ?></h5><br>
-            <h4>Gender</h4><h5><?php echo $gender ?></h5><br>
-            <h4>Relationship Status</h4><h5><?php echo $rStatus ?></h5><br>
-            <h4>City</h4><h5><?php echo $city ?></h5><br>
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td> : </td>
+                    <td><?php echo $fname . " " . $lname ?></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td> : </td>
+                    <td><?php echo $email ?></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td> : </td>
+                    <td><?php echo $gender ?></td>
+                </tr>
+                <tr>
+                    <td>Relationship Status</td>
+                    <td> : </td>
+                    <td><?php echo $rStatus ?></td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td> : </td>
+                    <td><?php echo $city ?></td>
+                </tr>
+            </table>
         </div>
     </div>
 

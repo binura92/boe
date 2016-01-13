@@ -31,7 +31,7 @@
         $row = mysqli_fetch_assoc($query);
         $scategory = $row['Category_Title'];
 
-        echo("<h3>" . $scategory . "<h3/>");
+        echo("<h3 style='text-align: center'>" . $scategory . "<h3/>");
         echo("<hr><br>");
 
         $sql = "SELECT Story_ID, Category_ID FROM story JOIN registered_user ON story.Author_ID = registered_user.Registation_ID WHERE Category_ID='$cid' and Type = 'pu' and view = 1 and User_Level = 1 ORDER BY Publish_Date DESC";
@@ -54,7 +54,7 @@
                 echo "<main id='acc'>
                 <section id='item." . $i . "'>
                 <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID) >" . $title . "</a>
-                <div id='postDet'>Posted by <b><a>" . $author . "</a></b></div>
+                <div id='postDet'>Posted by <b><a>" . $author . "</a><br><a>".$publishDate."</a></br></div>
               
                     <hr/>
                     

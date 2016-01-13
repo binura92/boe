@@ -79,11 +79,11 @@ if ($query1) {
         $body = $runStory['Body'];
         $publishDate = $runStory['Publish_Date'];
         $catName = $resFindCat["Category_Title"];
-       
+        
         echo "<main id='acc'>
                 <section id='item." . $i . "'>
                 <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID)><b>" . $title . "</b></a>
-                <div id='postDet'>Posted by <b><a href='friendProfile.php?u=$authorID'>" . $author . "</a></b><br><a href='StoryCategoryPage.php?cid=$catID'>".$catName."</a></div>
+                <div id='postDet'>Posted by <b><a href='friendProfile.php?u=$authorID'>" . $author . "</a></b><br><a href='StoryCategoryPage.php?cid=$catID'>".$catName."</a><br><a>".$publishDate."</a></br></div>
                 <hr/>
                 </section>   		
                 </main>";

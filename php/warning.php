@@ -28,6 +28,7 @@
 
                         echo("<h2 class='warningleft'> Title : </h2><h2 class='warningright'> " . $title . "</h2><br>");
                         echo ("<h2 class='warningleft'> Description : </h2><h2 class='warningright'>" . $description ."</h2><br>");
+                        echo "<hr>";
                     }
                 } else {
                     echo ("<h2 class='warningleftnoworning'>You haven't any warnings</h2>");

@@ -61,7 +61,7 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
         $row = mysqli_fetch_assoc($query);
         $scategory = $row['Category_Title'];
 
-        echo("<h3>" . $scategory . "<h3/>");
+        echo("<h3 style='text-align: center'>" . $scategory . "<h3/>");
         echo("<hr><br>");
 
         // check whether the stories are not private (Even story is private it is shown to the Author when he access stories under categories)
@@ -92,7 +92,7 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
                 echo "<main id='acc'>
                 <section id='item." . $i . "'>
                 <a href='#item." . $i . "' style='font-family:Verdana, Geneva, sans-serif' onclick =viewStory($storyID) >" . $title . "</a>
-                <div id='postDet'>Posted by <b><a href='friendProfile.php?u=$authorID'>" . $author . "</a></b><br><a href='StoryCategoryPage.php?cid=$catID'>".$catName."</a></div>
+                <div id='postDet'>Posted by <b><a href='friendProfile.php?u=$authorID'>" . $author . "</a></b><br><a href='StoryCategoryPage.php?cid=$catID'>".$catName."</a><br><a>".$publishDate."</a></br></div>
               
                     <hr/>
                     
@@ -106,6 +106,6 @@ if (isset($_SESSION['login']) && isset($_GET["cid"])) {
             echo "0 results";
         }
         ?> 
-
+        
     </body>
 </html>	  
