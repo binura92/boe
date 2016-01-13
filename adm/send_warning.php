@@ -18,7 +18,9 @@ else{
 			while($row = $result->fetch_assoc()){
 				$aid=$row['Author_ID'];
 				$dis = "Post that you publish under Title ".$row['Title']." is reported as a violation of BOE term and reference";
-				$sql2="INSERT INTO warning(Receiver, Sender, Title, Description) VALUES ('$aid',$adminId,'Warning','$dis')";
+              
+				$sql2="INSERT INTO warning(Receiver, Sender, Title, Description) VALUES ($aid,$adminId,'Warning','$dis');";
+                                //$sql2="INSERT INTO warning(Receiver, Sender, Title, Description) VALUES (1,1,'Warning','hello')";
 				$conn->query($sql2);
 					
 				}
@@ -27,7 +29,7 @@ else{
 		$conn->query($sql3);
 		
 		}
-	echo "<span style='color:red;'>You sucessfully send worning</span>";
+	echo "<span style='color:red;'>You sucessfully send warning</span>";
 	echo "<br/>";
 	echo "<a href='repoted_story.php' style='font-style:None'><input type='button' value='Return to Reports'/></a>";
 	}
