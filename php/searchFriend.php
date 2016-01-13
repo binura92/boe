@@ -27,15 +27,15 @@ if (session_id()) {
 
 
 $in = $_GET['txt'];
-if (!ctype_alnum($in)) {
-    echo "Data Error";
-    exit;
-}
 
 $msg = "";
 $msg = "<select id='select1' size='10' name='selt'>";
 if (strlen($in) > 0 and strlen($in) < 20) {
+<<<<<<< HEAD
     $sql = "select First_Name, Last_Name, Registation_ID from registered_user where First_Name like '%$in%' or Last_Name like '%$in%' AND User_Level = 1";
+=======
+    $sql = "select First_Name, Last_Name, Registation_ID from registered_user where (First_Name like '%$in%' or Last_Name like '%$in%') AND User_Level = 1";
+>>>>>>> 11595b2a184ce94a6440859e95adabde5b2d89e2
     foreach ($dbo->query($sql) as $nt) {
         $rValue = $nt['Registation_ID'] . "@" . $nt['First_Name'] . '@@' . $nt['Last_Name'];
         $profilePic = $nt['Registation_ID'] . ".jpg";

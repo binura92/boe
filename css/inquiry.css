@@ -51,7 +51,7 @@
 .warningshowbuket h2 {
   display: inline-block;
   font-size: 1.3em;
-  margin: 10px 0 5px;
+  margin: 10px 0 6px;
   padding: 0;
 }
 
@@ -62,4 +62,8 @@
 .warningright {
   font-style: italic;
   max-width: 850px;
+}
+
+.warningleftnoworning{
+    width: 400px;
 }

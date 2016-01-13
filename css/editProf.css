@@ -6,11 +6,11 @@
   width: 300px;
 }
 
-#image{
-	margin-top:-356px;
-	margin-left:25px;
-
-	width:275px;
+#image {
+  margin-bottom: 75px;
+  margin-left: 25px;
+  margin-top: -356px;
+  width: 275px;
 }
 
 #imageSelection{
@@ -42,4 +42,8 @@
 }
 .changepwbtns{
     width: 143px;
+}
+
+#coverpicform {
+  margin-left: 50px;
 }
