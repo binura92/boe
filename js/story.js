@@ -95,7 +95,7 @@ function report() {
         ajax.onreadystatechange = function () {
             if (ajaxReturn(ajax) == true) {
                 //var output = ajax.responseText;
-                alert("Report");
+                //alert("Report");
                 $("#reportDiv").css("visibility", 'hidden');
 
 
@@ -214,12 +214,12 @@ function feedback(storyID, feedback) {
     var ajax = ajaxObj("POST", "../php/feedback.php");
     ajax.onreadystatechange = function () {
         if (ajaxReturn(ajax) == true) {
-            var output = ajax.responseText;
+            //var output = ajax.responseText;
             likeCount(storyID);
             unlikeCount(storyID);
 
             if (ajax.responseText != 1) {
-                alert("Error");
+                //alert("Error");
             } else {
 
             }

@@ -78,6 +78,7 @@ function saveNewPassword(){
 	  ajax.onreadystatechange = function(){
 		  if(ajaxReturn(ajax) == true){
 			  alert(ajax.responseText);
+                          _("changePasswordDisplay").style.display = "none";
 		  }		
 	  }
 	  ajax.send("cur=" + curentPassword + "&n=" + newPassword + "&conf=" + confirmNewPassword);
