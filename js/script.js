@@ -217,7 +217,7 @@ function ajaxFunction(str) {
     httpxml = new XMLHttpRequest();
     function stateChanged() {
         if (httpxml.readyState == 4) {
-            document.getElementById("displayDiv1").innerHTML = httpxml.responseText;
+            document.getElementById("displayDiv1").innerHTML = httpxml.responseText + "<div id='searchboxclosebtn'>Close</div>";
             document.getElementById("msg").style.display = 'none';
         }
     }
