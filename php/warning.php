@@ -26,11 +26,11 @@
                         $title = $row['Title'];
                         $description = $row['Description'];
 
-                        echo("<h2> Title : " . $title . "</h2>");
-                        echo ("<h3> Description : " . $description . "</h3>");
+                        echo("<h2 class='warningleft'> Title : </h2><h2 class='warningright'> " . $title . "</h2><br>");
+                        echo ("<h2 class='warningleft'> Description : </h2><h2 class='warningright'>" . $description ."</h2><br>");
                     }
                 } else {
-                    echo ("<h2>You haven't any warnings</h2>");
+                    echo ("<h2 class='warningleftnoworning'>You haven't any warnings</h2>");
                 }}
                 ?>
             </div>
