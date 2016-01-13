@@ -48,9 +48,9 @@ $(document).ready(function ($) {
     $("#LogOutclose").click(function () {
         $("#LogOutBar").css("visibility", 'hidden');
     });
-    
+
     //Search Friend 
-    $("#searchFriend").focus(function() {
+    $("#searchFriend").focus(function () {
         $("#headder").css("overflow", 'visible');
         //$("#dis").css("visibility", 'visible');
         $("#wapper").css("z-index", '-1');
@@ -61,13 +61,13 @@ $(document).ready(function ($) {
         //$("#dis").css("visibility", 'hidden');
         $("#headder").css("z-index", '1');
         $("#wapper").css("z-index", '1');
-    });  
+    });
 });
 
 
 
 
-
+//send new message
 function sendMsg() {
     var rName = document.getElementById("Rname").value;
     var R_ID = document.getElementById("R_ID").value;
@@ -95,7 +95,7 @@ function sendMsg() {
                         document.getElementById("Rname").value = "";
                         document.getElementById("R_ID").value = "";
                         document.getElementById("Title").value = "";
-                        $( "#NewMessage" ).css("visibility",'hidden');
+                        $("#NewMessage").css("visibility", 'hidden');
                         $("#Rname").css("visibility", 'hidden');
                     }
                 }
@@ -107,7 +107,7 @@ function sendMsg() {
 
 
 
-
+//load inbox list
 function inbox() {
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -124,6 +124,7 @@ function inbox() {
     httpxml.send(null);
 }
 
+//load outbox list
 function outbox() {
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -142,6 +143,7 @@ function outbox() {
 }
 
 
+//load inbox message
 function loadMsgInbox() {
     var str = document.getElementById("selectMsg").value;
     var httpxml;
@@ -160,6 +162,7 @@ function loadMsgInbox() {
     httpxml.send(null);
 }
 
+//load outbox message
 function loadMsgOutbox() {
     var str = document.getElementById("selectMsgOutbox").value;
     var httpxml;
@@ -178,6 +181,8 @@ function loadMsgOutbox() {
     httpxml.send(null);
 }
 
+
+//set view =1 when view the message
 function view(mID) {
     var httpxml;
     httpxml = new XMLHttpRequest();
@@ -195,6 +200,8 @@ function view(mID) {
 
 }
 
+
+//message reply function
 function reply(sender_ID) {
 
     var title = document.getElementById("msgTitle").value;
@@ -211,6 +218,8 @@ function reply(sender_ID) {
 
 }
 
+
+//search friend function
 function ajaxFunction(str) {
     document.getElementById("dis").innerHTML = "<div id='displayDiv1' ></div>";
     var httpxml;
@@ -231,7 +240,7 @@ function ajaxFunction(str) {
     document.getElementById("msg").style.display = 'inline';
 }
 
-
+//set result of search friend function
 function setValue1() {
     var ID_name = document.getElementById("select1").value;
     var pos1 = ID_name.indexOf("@");
@@ -245,7 +254,7 @@ function setValue1() {
 }
 
 
-
+//search friend function in message
 function mSearchFriend(str) {
     document.getElementById("disFriend").innerHTML = "<div id='displayDiv2' ></div>";
     var httpxml;
@@ -267,6 +276,7 @@ function mSearchFriend(str) {
     document.getElementById("msg").style.display = 'inline';
 }
 
+//set result of message search friend
 function setValue2() {
     var ID_name = document.getElementById("select2").value;
     var pos1 = ID_name.indexOf("@");
@@ -279,6 +289,8 @@ function setValue2() {
 
 }
 
+
+//load the profiles
 function loadProfile(id) {
     var user_ID = document.getElementById("user_ID").value;
     if (user_ID == id) {
